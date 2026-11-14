@@ -4,35 +4,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090711">
-<meta name="description" content="Mariana Păștean — Designer de brand și specialistă în marketing. Design, identitate vizuală și strategie pentru businessuri care vor să comunice mai bine.">
-<title>Mariana Păștean — Brand Design & Marketing</title>
+<meta name="theme-color" content="#080710">
+<meta name="description" content="Mariana Păștean — Brand design, social media și strategie de marketing.">
+<title>Mariana Păștean — Digital Experiences</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --bg: #090711;
-  --bg2: #100c1b;
-  --card: #171126;
+  --bg: #080710;
+  --panel: #12101d;
+  --panel2: #191427;
+  --white: #fffaff;
+  --muted: #c0baca;
   --purple: #a855f7;
-  --pink: #ed78e8;
-  --light-pink: #f4b5f0;
-  --white: #f8f5fc;
-  --muted: #aaa2b7;
-  --line: rgba(255,255,255,.13);
-  --font: "DM Sans", sans-serif;
+  --pink: #f078e8;
+  --cyan: #80eaff;
+  --line: rgba(255,255,255,.14);
   --display: "Space Grotesk", sans-serif;
-  --mono: "DM Mono", monospace;
+  --body: "DM Sans", sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   scroll-behavior: smooth;
@@ -42,607 +37,714 @@ html {
 body {
   background: var(--bg);
   color: var(--white);
-  font-family: var(--font);
+  font-family: var(--body);
   overflow-x: hidden;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(126,52,190,.16), transparent 35%),
+    radial-gradient(ellipse at 90% 65%, rgba(67,43,150,.12), transparent 35%);
 }
 
-button {
-  font: inherit;
-}
+a { color: inherit; text-decoration: none; }
+
+button { font: inherit; }
 
 ::selection {
-  background: var(--purple);
-  color: white;
+  background: var(--pink);
+  color: #080710;
 }
 
 .container {
-  width: min(1160px, calc(100% - 48px));
+  width: min(1220px, calc(100% - 64px));
   margin: auto;
 }
 
-.mono {
-  font-family: var(--mono);
+.eyebrow {
+  color: var(--pink);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  letter-spacing: .13em;
-  font-size: 10px;
 }
 
-.gradient-text {
-  background: linear-gradient(100deg, var(--purple), var(--pink), #fff);
+.gradient {
+  background: linear-gradient(100deg, #fff 5%, #d5a0ff 45%, #ff8de9 85%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.purple {
-  color: var(--pink);
+.muted { color: var(--muted); }
+
+/* BACKGROUND DETAILS */
+
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
 
-/* BACKGROUND */
-
-.background-glow {
+.ambient {
   position: absolute;
   width: 450px;
   height: 450px;
   border-radius: 50%;
-  background: rgba(151, 71, 255, .15);
-  filter: blur(120px);
+  filter: blur(130px);
   pointer-events: none;
-  z-index: 0;
-}
-
-.grid-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: .13;
-  background-image:
-    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-  background-size: 65px 65px;
+  opacity: .25;
+  background: var(--purple);
 }
 
 /* NAVIGATION */
 
 header {
+  height: 82px;
   position: fixed;
-  z-index: 100;
-  width: 100%;
-  top: 0;
-  background: rgba(9,7,17,.82);
-  backdrop-filter: blur(20px);
+  z-index: 50;
+  inset: 0 0 auto;
+  background: rgba(8,7,16,.78);
+  backdrop-filter: blur(22px);
   border-bottom: 1px solid var(--line);
 }
 
 nav {
-  height: 76px;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-  font-family: var(--display);
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -.7px;
+  font: 700 18px var(--display);
+  letter-spacing: -.8px;
 }
 
-.logo span {
-  color: var(--pink);
-}
+.logo span { color: var(--pink); }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 30px;
 }
 
 .nav-links a {
-  color: var(--muted);
-  font-size: 11px;
+  color: #d4cedd;
+  font-size: 13px;
   transition: .3s;
 }
 
-.nav-links a:hover {
-  color: var(--pink);
+.nav-links a:hover { color: var(--pink); }
+
+.nav-cta {
+  border: 1px solid rgba(240,120,232,.6);
+  padding: 12px 18px;
 }
 
-.nav-links .nav-button {
-  border: 1px solid var(--purple);
-  color: white;
-  padding: 11px 16px;
-}
-
-.nav-links .nav-button:hover {
+.nav-cta:hover {
   background: var(--purple);
-  color: white;
+  color: white !important;
 }
 
 /* HERO */
 
 .hero {
-  min-height: 100vh;
+  min-height: 900px;
+  min-height: 100svh;
+  position: relative;
   display: flex;
   align-items: center;
-  position: relative;
   overflow: hidden;
   padding: 145px 0 90px;
 }
 
-.hero .background-glow {
-  right: -120px;
-  top: 80px;
+.hero .ambient {
+  right: -150px;
+  top: 10%;
+  width: 600px;
+  height: 600px;
 }
 
-.hero-content {
+.hero-grid {
   position: relative;
   z-index: 2;
-  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 15px;
 }
 
-.availability {
+.hero-copy { position: relative; z-index: 3; }
+
+.status {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 14px;
+  padding: 10px 15px;
   border: 1px solid var(--line);
-  border-radius: 30px;
-  color: var(--muted);
-  margin-bottom: 32px;
+  border-radius: 40px;
+  background: rgba(255,255,255,.035);
+  color: #e4ddea;
+  font-size: 12px;
+  margin-bottom: 34px;
 }
 
-.availability-dot {
-  width: 7px;
-  height: 7px;
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #a7f77a;
   border-radius: 50%;
-  background: #b8f47b;
-  box-shadow: 0 0 12px #b8f47b;
+  box-shadow: 0 0 15px #a7f77a;
 }
 
 .hero h1 {
-  font-family: var(--display);
-  font-size: clamp(54px, 9vw, 112px);
-  line-height: .96;
-  letter-spacing: -.075em;
-  max-width: 1000px;
+  font: 700 clamp(65px, 9vw, 120px)/.88 var(--display);
+  letter-spacing: -.085em;
 }
 
-.hero-subtitle {
-  max-width: 620px;
-  font-size: clamp(16px, 2vw, 20px);
-  line-height: 1.7;
-  color: var(--muted);
-  margin-top: 32px;
+.hero h1 .second-line {
+  display: block;
+  margin-top: 13px;
 }
 
-.hero-subtitle strong {
-  color: var(--white);
-  font-weight: 600;
+.hero-description {
+  color: #d1cbd9;
+  max-width: 570px;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-top: 35px;
 }
 
-.hero-actions {
+.hero-description strong { color: white; }
+
+.hero-buttons {
   display: flex;
   gap: 14px;
-  margin-top: 35px;
   flex-wrap: wrap;
+  margin-top: 35px;
 }
 
-.btn {
+.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  padding: 15px 21px;
-  font-size: 12px;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 23px;
+  font-size: 13px;
   font-weight: 700;
+  transition: .35s;
   border: 1px solid var(--line);
-  transition: .3s;
 }
 
-.btn-primary {
-  color: white;
+.button-primary {
+  background: linear-gradient(110deg, #853bea, #dc5bd3);
   border: 0;
-  background: linear-gradient(110deg, var(--purple), #d64fcb);
-  box-shadow: 0 8px 30px rgba(168,85,247,.2);
+  color: white;
+  box-shadow: 0 10px 35px rgba(168,85,247,.25);
 }
 
-.btn-primary:hover {
+.button-primary:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 35px rgba(168,85,247,.4);
+  box-shadow: 0 15px 45px rgba(168,85,247,.45);
 }
 
-.btn-secondary:hover {
+.button-outline:hover {
   border-color: var(--pink);
   color: var(--pink);
 }
 
-.hero-meta {
-  margin-top: 75px;
-  display: flex;
-  gap: 50px;
-  flex-wrap: wrap;
-}
-
-.hero-meta div {
-  color: var(--muted);
+.hero-note {
+  margin-top: 60px;
+  color: #aaa2b7;
   font-size: 12px;
+  letter-spacing: .06em;
 }
 
-.hero-meta strong {
+/* 3D STAGE */
+
+.hero-stage {
+  position: relative;
+  height: min(690px, 75vh);
+  min-height: 450px;
+  isolation: isolate;
+}
+
+#hero3d {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+#hero3d canvas {
+  width: 100%;
+  height: 100%;
   display: block;
-  color: var(--white);
-  font-family: var(--display);
-  font-size: 24px;
-  margin-bottom: 5px;
+}
+
+.stage-label {
+  position: absolute;
+  z-index: 4;
+  color: #c7b8d8;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.stage-label.top {
+  top: 13%;
+  right: 0;
+}
+
+.stage-label.bottom {
+  bottom: 12%;
+  left: 0;
+}
+
+.stage-orbit {
+  position: absolute;
+  inset: 11%;
+  border: 1px solid rgba(205,151,255,.14);
+  border-radius: 50%;
+  transform: rotate(-22deg) scaleY(.6);
+  box-shadow: 0 0 50px rgba(166,82,255,.06);
+  animation: orbitPulse 7s ease-in-out infinite alternate;
+}
+
+@keyframes orbitPulse {
+  from { transform: rotate(-22deg) scaleY(.6) scale(1); }
+  to { transform: rotate(18deg) scaleY(.6) scale(1.12); }
+}
+
+.stage-ring {
+  position: absolute;
+  width: 72%;
+  height: 72%;
+  left: 14%;
+  top: 14%;
+  border: 1px solid rgba(238,139,255,.2);
+  border-radius: 50%;
+  transform: rotateX(68deg) rotateZ(-25deg);
+  animation: ringTurn 18s linear infinite;
+}
+
+@keyframes ringTurn {
+  to { transform: rotateX(68deg) rotateZ(335deg); }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #aaa2b7;
+  font-size: 10px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
 }
 
 /* MARQUEE */
 
 .marquee {
-  overflow: hidden;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: rgba(255,255,255,.02);
-  padding: 20px 0;
+  padding: 23px 0;
+  overflow: hidden;
+  background: rgba(255,255,255,.025);
 }
 
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: move 30s linear infinite;
+  animation: marquee 34s linear infinite;
 }
 
 .marquee-group {
   display: flex;
-  gap: 35px;
   align-items: center;
-  padding-right: 35px;
-  font-family: var(--display);
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #c8bed5;
-  font-size: 15px;
+  gap: 36px;
+  padding-right: 36px;
+  font: 600 15px var(--display);
+  letter-spacing: .08em;
+  white-space: nowrap;
 }
 
 .marquee-group span {
   color: var(--pink);
-  font-size: 20px;
+  font-size: 23px;
 }
 
-@keyframes move {
+@keyframes marquee {
   to { transform: translateX(-50%); }
 }
 
-/* GENERAL */
+/* SECTION DEFAULTS */
 
-section {
-  position: relative;
-  padding: 115px 0;
+section:not(.hero) {
+  padding: 125px 0;
 }
 
-.section-top {
-  margin-bottom: 55px;
+.section-head {
+  max-width: 850px;
+  margin-bottom: 65px;
 }
 
-.section-label {
-  color: var(--pink);
-  margin-bottom: 18px;
-}
-
-.section-title {
-  font-family: var(--display);
-  font-size: clamp(38px, 6vw, 68px);
-  line-height: 1.04;
-  letter-spacing: -.06em;
-  font-weight: 600;
-}
-
-.section-description {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 14px;
-  max-width: 530px;
+.section-head h2 {
+  font: 600 clamp(42px, 6vw, 75px)/1.05 var(--display);
+  letter-spacing: -.065em;
   margin-top: 20px;
+}
+
+.section-head p {
+  max-width: 670px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.85;
+  margin-top: 23px;
 }
 
 /* ABOUT */
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.about-lead {
-  font-family: var(--display);
-  font-size: clamp(26px, 3.5vw, 43px);
-  line-height: 1.28;
-  letter-spacing: -.045em;
-}
-
-.about-lead span {
-  color: var(--pink);
-}
-
-.about-copy {
-  color: var(--muted);
-  font-size: 15px;
-  line-height: 1.9;
-}
-
-.about-copy p + p {
-  margin-top: 19px;
-}
-
-.about-highlight {
-  margin-top: 30px;
-  border-left: 2px solid var(--pink);
-  padding: 20px 23px;
-  background: rgba(168,85,247,.08);
-  color: var(--white);
-  font-family: var(--display);
-  font-size: 19px;
-  line-height: 1.5;
-}
-
-/* STRATEGY STATEMENT */
-
-.statement {
-  background: linear-gradient(120deg, #171027, #100c1b 70%);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+.about {
+  position: relative;
   overflow: hidden;
 }
 
-.statement .background-glow {
-  left: -180px;
-  top: 0;
+.about .ambient {
+  left: -300px;
+  top: 20%;
 }
 
-.statement-content {
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: center;
   position: relative;
-  z-index: 1;
-  max-width: 900px;
+  z-index: 2;
+}
+
+.about-statement {
+  font: 600 clamp(31px, 4.2vw, 55px)/1.2 var(--display);
+  letter-spacing: -.055em;
+}
+
+.about-statement span { color: var(--pink); }
+
+.about-copy {
+  color: #c6bfce;
+  font-size: 16px;
+  line-height: 1.95;
+}
+
+.about-copy p + p { margin-top: 22px; }
+
+.about-quote {
+  margin-top: 30px;
+  padding: 23px 25px;
+  border-left: 2px solid var(--pink);
+  background: linear-gradient(100deg, rgba(168,85,247,.14), transparent);
+  color: white;
+  font: 500 19px/1.55 var(--display);
+}
+
+/* BIG STATEMENT */
+
+.statement {
+  background: linear-gradient(130deg, #1c1230, #100d1a 65%);
+  border-block: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+
+.statement .ambient {
+  right: -170px;
+  top: -200px;
+  width: 550px;
+  height: 550px;
+}
+
+.statement-inner {
+  position: relative;
+  z-index: 2;
 }
 
 .statement h2 {
-  font-family: var(--display);
-  font-size: clamp(34px, 6vw, 65px);
-  line-height: 1.08;
-  letter-spacing: -.055em;
-  margin-bottom: 30px;
+  max-width: 1050px;
+  font: 700 clamp(43px, 7.5vw, 100px)/.99 var(--display);
+  letter-spacing: -.075em;
 }
 
 .statement p {
-  color: var(--muted);
-  line-height: 1.9;
-  max-width: 750px;
-  font-size: 15px;
+  max-width: 700px;
+  margin-top: 30px;
+  color: #d0c8d8;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
-.question-list {
+.statement-points {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-top: 35px;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+  margin-top: 50px;
 }
 
-.question {
+.statement-point {
+  padding: 25px;
   border: 1px solid var(--line);
-  padding: 20px;
-  font-family: var(--display);
-  font-size: 17px;
-  min-height: 100px;
-  display: flex;
-  align-items: center;
+  background: rgba(255,255,255,.035);
+  font: 600 19px/1.5 var(--display);
 }
 
-.question span {
+.statement-point span {
+  display: block;
   color: var(--pink);
-  margin-right: 12px;
+  font-size: 12px;
+  margin-bottom: 15px;
 }
 
 /* SERVICES */
 
-.services {
-  background: var(--bg);
-}
+.services { background: #0b0913; }
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
-
-.service-card {
-  background: linear-gradient(145deg, #1a1427, #100d19);
-  border: 1px solid var(--line);
-  padding: 30px;
-  position: relative;
-  overflow: hidden;
-  transition: .4s;
-}
-
-.service-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--purple);
-  box-shadow: 0 15px 40px rgba(128,60,190,.12);
-}
-
-.service-number {
-  color: var(--pink);
-  font-family: var(--mono);
-  font-size: 11px;
-}
-
-.service-card h3 {
-  font-family: var(--display);
-  font-size: 26px;
-  margin: 25px 0 14px;
-  letter-spacing: -.04em;
-}
-
-.service-card p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-.service-link {
-  display: inline-block;
-  margin-top: 25px;
-  color: var(--pink);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.service-link:hover {
-  color: white;
-}
-
-.service-card::after {
-  content: "✳";
-  position: absolute;
-  right: 20px;
-  top: 15px;
-  color: rgba(220,130,255,.12);
-  font-size: 75px;
-}
-
-/* SERVICE DETAIL */
-
-.service-detail {
-  background: #100c1b;
-  border-top: 1px solid var(--line);
-}
-
-.detail-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2,1fr);
   gap: 18px;
 }
 
-.detail-card {
-  padding: 30px;
+.service-card {
+  position: relative;
+  min-height: 310px;
+  padding: 36px;
+  overflow: hidden;
+  background: linear-gradient(140deg, #1a1428, #100d19 75%);
+  border: 1px solid var(--line);
+  transition: .5s;
+  isolation: isolate;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  right: -100px;
+  top: -120px;
+  border-radius: 50%;
+  background: rgba(178,83,255,.22);
+  filter: blur(55px);
+  z-index: -1;
+  transition: .5s;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(240,120,232,.7);
+  box-shadow: 0 25px 65px rgba(0,0,0,.35);
+}
+
+.service-card:hover::before {
+  background: rgba(240,120,232,.35);
+}
+
+.service-index {
+  font-size: 12px;
+  color: var(--pink);
+  letter-spacing: .16em;
+}
+
+.service-card h3 {
+  font: 600 30px var(--display);
+  letter-spacing: -.04em;
+  margin-top: 40px;
+}
+
+.service-card p {
+  color: #c4bdcc;
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 480px;
+  margin-top: 15px;
+}
+
+.service-card a {
+  display: inline-block;
+  color: var(--pink);
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 27px;
+}
+
+.service-card a:hover { color: white; }
+
+/* DETAIL SECTIONS */
+
+.detail-section {
+  background: #100d1a;
+  border-top: 1px solid var(--line);
+}
+
+.detail-section.alt { background: #0b0913; }
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 65px;
+  align-items: start;
+}
+
+.detail-intro h2 {
+  font: 600 clamp(39px, 5.5vw, 67px)/1.05 var(--display);
+  letter-spacing: -.06em;
+  margin-top: 20px;
+}
+
+.detail-intro p {
+  color: #c6bfce;
+  font-size: 16px;
+  line-height: 1.85;
+  margin-top: 24px;
+}
+
+.detail-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.detail-box {
+  padding: 27px;
   border: 1px solid var(--line);
   background: rgba(255,255,255,.025);
 }
 
-.detail-card h3 {
-  font-family: var(--display);
-  font-size: 23px;
-  margin-bottom: 15px;
+.detail-box h3 {
+  font: 600 21px var(--display);
+  margin-bottom: 20px;
 }
 
-.detail-card h4 {
+.detail-box h4 {
   color: var(--pink);
-  font-family: var(--mono);
   font-size: 10px;
+  letter-spacing: .15em;
   text-transform: uppercase;
-  letter-spacing: .12em;
   margin: 23px 0 12px;
 }
 
-.detail-card p,
-.detail-card li {
-  color: var(--muted);
-  font-size: 13px;
+.detail-box p,
+.detail-box li {
+  color: #c6bfce;
+  font-size: 14px;
   line-height: 1.8;
 }
 
-.detail-card ul {
-  list-style: none;
-}
+.detail-box ul { list-style: none; }
 
-.detail-card li {
-  padding: 5px 0;
-}
+.detail-box li { padding: 5px 0; }
 
-.detail-card li::before {
+.detail-box li::before {
   content: "↗";
   color: var(--pink);
-  margin-right: 10px;
+  margin-right: 9px;
 }
 
 /* PROCESS */
 
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
 }
 
 .process-card {
-  padding: 28px;
+  min-height: 260px;
+  padding: 30px;
+  background: linear-gradient(145deg, #191327, #100d19);
   border: 1px solid var(--line);
-  background: var(--card);
-  min-height: 235px;
-  transition: .3s;
+  transition: .4s;
 }
 
 .process-card:hover {
   border-color: var(--pink);
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
-.process-card .num {
-  font-family: var(--mono);
-  color: var(--pink);
+.process-card .number {
   font-size: 12px;
+  color: var(--pink);
+  letter-spacing: .15em;
 }
 
 .process-card h3 {
-  font-family: var(--display);
-  font-size: 22px;
-  margin: 35px 0 12px;
+  font: 600 25px var(--display);
+  margin-top: 48px;
 }
 
 .process-card p {
-  color: var(--muted);
-  font-size: 13px;
+  color: #c6bfce;
+  font-size: 15px;
   line-height: 1.8;
+  margin-top: 15px;
 }
 
 /* PORTFOLIO */
 
 .portfolio {
-  background: #100c1b;
-  border-top: 1px solid var(--line);
+  background: #100d1a;
+  border-block: 1px solid var(--line);
 }
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(2,1fr);
+  gap: 18px;
 }
 
 .portfolio-card {
-  min-height: 220px;
+  min-height: 290px;
+  position: relative;
   padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
   background:
-    radial-gradient(circle at 80% 20%, rgba(213,93,244,.35), transparent 35%),
-    linear-gradient(135deg, #302044, #120e1d 70%);
-  transition: .4s;
+    radial-gradient(circle at 70% 25%, rgba(218,100,250,.42), transparent 35%),
+    linear-gradient(140deg,#302047,#120e1d 75%);
+  transition: .5s;
 }
 
-.portfolio-card:nth-child(2n) {
+.portfolio-card:nth-child(2) {
   background:
-    radial-gradient(circle at 20% 20%, rgba(128,77,255,.4), transparent 35%),
-    linear-gradient(135deg, #221630, #120e1d 70%);
+    radial-gradient(circle at 25% 25%, rgba(95,87,255,.45), transparent 35%),
+    linear-gradient(140deg,#28203e,#120e1d 75%);
+}
+
+.portfolio-card:nth-child(3) {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(86,206,255,.28), transparent 35%),
+    linear-gradient(140deg,#1d2940,#120e1d 75%);
+}
+
+.portfolio-card:nth-child(4) {
+  background:
+    radial-gradient(circle at 25% 20%, rgba(255,118,202,.3), transparent 35%),
+    linear-gradient(140deg,#39203d,#120e1d 75%);
 }
 
 .portfolio-card:hover {
@@ -651,127 +753,126 @@ section {
 }
 
 .portfolio-card .tag {
-  font-family: var(--mono);
-  font-size: 10px;
   color: var(--pink);
   text-transform: uppercase;
-  letter-spacing: .12em;
-  margin-bottom: 12px;
+  letter-spacing: .16em;
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 13px;
 }
 
 .portfolio-card h3 {
-  font-family: var(--display);
-  font-size: 25px;
-  letter-spacing: -.04em;
+  font: 600 29px var(--display);
 }
 
 .portfolio-card p {
-  color: var(--muted);
-  font-size: 13px;
+  color: #ded5e5;
+  font-size: 14px;
+  line-height: 1.7;
   margin-top: 10px;
-  line-height: 1.6;
 }
 
 .portfolio-note {
-  color: var(--muted);
-  font-size: 12px;
-  margin-top: 20px;
-  line-height: 1.7;
+  color: #aaa2b7;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 25px;
 }
 
 /* CTA */
 
-.cta {
-  overflow: hidden;
+.cta { position: relative; overflow: hidden; }
+
+.cta .ambient {
+  right: -180px;
+  top: -100px;
+  width: 600px;
+  height: 600px;
 }
 
-.cta .background-glow {
-  right: -120px;
-  top: 0;
-}
-
-.cta-content {
+.cta-panel {
   position: relative;
   z-index: 2;
-  padding: 65px;
-  border: 1px solid var(--line);
-  background: linear-gradient(120deg, #20132f, #100c1b);
+  padding: clamp(35px, 7vw, 85px);
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(194,86,255,.25), transparent 45%),
+    linear-gradient(130deg,#21152f,#100d1a);
+  border: 1px solid rgba(255,255,255,.16);
 }
 
-.cta h2 {
-  font-family: var(--display);
-  font-size: clamp(38px, 7vw, 75px);
-  line-height: 1.05;
-  letter-spacing: -.06em;
-  max-width: 800px;
-}
-
-.cta p {
-  color: var(--muted);
-  line-height: 1.8;
+.cta-panel h2 {
+  max-width: 900px;
+  font: 700 clamp(44px, 7vw, 88px)/1 var(--display);
+  letter-spacing: -.07em;
   margin-top: 20px;
-  max-width: 520px;
-  font-size: 14px;
+}
+
+.cta-panel p {
+  max-width: 600px;
+  color: #d0c8d8;
+  font-size: 17px;
+  line-height: 1.8;
+  margin-top: 25px;
 }
 
 /* CONTACT */
 
 .contact {
-  background: #100c1b;
+  background: #100d1a;
   border-top: 1px solid var(--line);
 }
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 65px;
   align-items: center;
 }
 
+.contact-title {
+  font: 600 clamp(43px, 6vw, 72px)/1.04 var(--display);
+  letter-spacing: -.06em;
+  margin-top: 22px;
+}
+
 .contact-copy {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 14px;
-  margin-top: 20px;
+  color: #c6bfce;
+  font-size: 16px;
+  line-height: 1.85;
+  margin-top: 24px;
 }
 
-.contact-email {
+.email-link {
   display: inline-block;
-  font-family: var(--display);
-  font-size: clamp(18px, 3vw, 27px);
-  color: var(--pink);
-  border-bottom: 1px solid var(--pink);
+  margin-top: 30px;
   padding-bottom: 8px;
-  margin-top: 25px;
-  word-break: break-word;
+  border-bottom: 1px solid var(--pink);
+  color: var(--pink);
+  font: 500 clamp(19px, 3vw, 28px) var(--display);
+  overflow-wrap: anywhere;
 }
 
-.contact-email:hover {
-  color: white;
-}
-
-.contact-box {
-  padding: 30px;
+.contact-card {
   border: 1px solid var(--line);
-  background: var(--card);
+  background: #191427;
+  padding: 35px;
 }
 
-.contact-box h3 {
-  font-family: var(--display);
-  font-size: 23px;
-  margin-bottom: 12px;
+.contact-card h3 {
+  font: 600 26px var(--display);
 }
 
-.contact-box p {
-  color: var(--muted);
-  font-size: 13px;
+.contact-card p {
+  color: #c6bfce;
+  font-size: 15px;
   line-height: 1.8;
+  margin-top: 15px;
 }
 
 /* FOOTER */
 
 footer {
-  padding: 25px 0;
+  padding: 30px 0;
   border-top: 1px solid var(--line);
 }
 
@@ -780,11 +881,8 @@ footer {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: .08em;
+  color: #aaa2b7;
+  font-size: 12px;
 }
 
 .footer-links {
@@ -792,16 +890,14 @@ footer {
   gap: 20px;
 }
 
-.footer-links a:hover {
-  color: var(--pink);
-}
+.footer-links a:hover { color: var(--pink); }
 
-/* ANIMATIONS */
+/* REVEAL ANIMATIONS */
 
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity .8s ease, transform .8s ease;
+  transform: translateY(45px);
+  transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1);
 }
 
 .reveal.visible {
@@ -809,110 +905,112 @@ footer {
   transform: translateY(0);
 }
 
-.hero-content > * {
-  animation: appear 1s both;
+.hero-copy > * {
+  animation: heroIn 1s both;
 }
 
-.hero-content .availability { animation-delay: .1s; }
-.hero-content h1 { animation-delay: .25s; }
-.hero-content .hero-subtitle { animation-delay: .4s; }
-.hero-content .hero-actions { animation-delay: .55s; }
+.hero-copy .status { animation-delay: .1s; }
+.hero-copy h1 { animation-delay: .25s; }
+.hero-copy .hero-description { animation-delay: .4s; }
+.hero-copy .hero-buttons { animation-delay: .55s; }
 
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(35px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* RESPONSIVE */
 
-@media(max-width: 850px) {
-  .nav-links {
-    gap: 14px;
+@media(max-width: 950px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
   }
 
-  .nav-links a:not(.nav-button) {
-    display: none;
+  .hero-stage {
+    height: 520px;
+    max-width: 700px;
+    width: 100%;
+    margin: -15px auto 0;
   }
+
+  .hero { padding-top: 145px; }
 
   .about-grid,
+  .detail-layout,
   .contact-grid {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 40px;
   }
 
-  .process-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .question-list {
-    grid-template-columns: 1fr;
-  }
+  .detail-content { grid-template-columns: 1fr 1fr; }
 }
 
-@media(max-width: 600px) {
-  .container {
-    width: calc(100% - 36px);
-  }
+@media(max-width: 650px) {
+  .container { width: calc(100% - 38px); }
 
-  nav {
-    height: 68px;
-  }
+  header { height: 70px; }
+
+  .nav-links { gap: 12px; }
+
+  .nav-links a:not(.nav-cta) { display: none; }
+
+  .nav-cta { padding: 10px 12px; font-size: 11px !important; }
 
   .hero {
+    padding-top: 130px;
     min-height: auto;
-    padding: 145px 0 75px;
   }
 
-  .hero h1 {
-    font-size: 58px;
+  .hero h1 { font-size: clamp(61px, 15vw, 90px); }
+
+  .hero-description { font-size: 16px; }
+
+  .hero-stage {
+    height: 390px;
+    min-height: 0;
   }
 
-  section {
-    padding: 80px 0;
-  }
+  .hero-buttons { flex-direction: column; }
+
+  .button { width: 100%; }
+
+  section:not(.hero) { padding: 85px 0; }
+
+  .section-head { margin-bottom: 40px; }
+
+  .section-head p { font-size: 15px; }
 
   .service-grid,
-  .detail-list,
-  .portfolio-grid {
+  .portfolio-grid,
+  .process-grid,
+  .statement-points,
+  .detail-content {
     grid-template-columns: 1fr;
   }
 
-  .service-card {
-    padding: 25px;
-  }
+  .service-card { min-height: 270px; padding: 27px; }
 
-  .cta-content {
-    padding: 30px 22px;
-  }
+  .service-card h3 { font-size: 27px; }
 
-  .hero-meta {
-    gap: 25px;
-    margin-top: 50px;
-  }
+  .detail-box { padding: 23px; }
+
+  .statement-point { min-height: 100px; }
+
+  .portfolio-card { min-height: 240px; }
+
+  .cta-panel { padding: 35px 24px; }
 
   .footer-inner {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  .hero-actions .btn {
-    width: 100%;
-  }
 }
 
 @media(prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
+  *, *::before, *::after {
     animation-duration: .01ms !important;
     transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
   }
 
   .reveal {
@@ -925,18 +1023,18 @@ footer {
 
 <body>
 
-<div class="grid-overlay"></div>
+<div class="noise"></div>
 
 <header>
   <div class="container">
     <nav>
-      <a href="#home" class="logo">MARIANA<span>.</span>PĂȘTEAN</a>
+      <a class="logo" href="#home">MARIANA<span>.</span>PĂȘTEAN</a>
 
       <div class="nav-links">
         <a href="#about">Despre mine</a>
         <a href="#services">Servicii</a>
-        <a href="#portfolio">Proiecte</a>
-        <a href="#contact" class="nav-button">Hai să discutăm ↗</a>
+        <a href="#portfolio">Portofoliu</a>
+        <a href="#contact" class="nav-cta">Contact ↗</a>
       </div>
     </nav>
   </div>
@@ -946,248 +1044,229 @@ footer {
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="background-glow"></div>
+  <div class="ambient"></div>
 
-  <div class="container">
-    <div class="hero-content">
+  <div class="container hero-grid">
 
-      <div class="availability mono">
-        <span class="availability-dot"></span>
+    <div class="hero-copy">
+
+      <div class="status">
+        <span class="status-dot"></span>
         Brand design · Marketing · Social media
       </div>
 
       <h1>
-        MARIANA<br>
-        <span class="gradient-text">PĂȘTEAN.</span>
+        MARIANA
+        <span class="second-line gradient">PĂȘTEAN.</span>
       </h1>
 
-      <p class="hero-subtitle">
-        Designer de brand și specialistă în marketing pentru
-        businessuri care vor o <strong>imagine coerentă și mai multe
-        oportunități online.</strong>
+      <p class="hero-description">
+        Construiesc experiențe vizuale și direcții de comunicare
+        pentru businessuri care vor să fie
+        <strong>memorabile, coerente și relevante.</strong>
       </p>
 
-      <div class="hero-actions">
-        <a href="#services" class="btn btn-primary">
-          Descoperă serviciile ↗
+      <div class="hero-buttons">
+        <a href="#services" class="button button-primary">
+          Explorează serviciile <span>↗</span>
         </a>
-        <a href="#contact" class="btn btn-secondary">
-          Hai să discutăm despre proiectul tău
+        <a href="#contact" class="button button-outline">
+          Hai să vorbim
         </a>
       </div>
 
-      <div class="hero-meta">
-        <div>
-          <strong>6+ ani</strong>
-          experiență în resurse umane
-        </div>
-        <div>
-          <strong>2 ani</strong>
-          project management
-        </div>
-        <div>
-          <strong>2025</strong>
-          începutul activității în marketing
-        </div>
+      <div class="hero-note">
+        DESIGN WITH PURPOSE. COMMUNICATION WITH DIRECTION.
       </div>
 
     </div>
+
+    <div class="hero-stage">
+      <div class="stage-orbit"></div>
+      <div class="stage-ring"></div>
+      <div id="hero3d" aria-label="Animație tridimensională abstractă"></div>
+      <div class="stage-label top">Creative dimension / 01</div>
+      <div class="stage-label bottom">Ideas in motion ↗</div>
+    </div>
+
   </div>
+
+  <div class="scroll-indicator">Scroll to explore ↓</div>
 </section>
 
 <!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
     <div class="marquee-group">
-      SOCIAL MEDIA DESIGN <span>✳</span>
-      IDENTITATE VIZUALĂ <span>✳</span>
-      LANDING PAGE DESIGN <span>✳</span>
-      DESIGN GRAFIC <span>✳</span>
-      STRATEGIE <span>✳</span>
-      COPYWRITING <span>✳</span>
+      BRAND IDENTITY <span>✳</span>
+      SOCIAL MEDIA <span>✳</span>
+      DIGITAL DESIGN <span>✳</span>
+      STRATEGY <span>✳</span>
+      STORYTELLING <span>✳</span>
+      CREATIVE DIRECTION <span>✳</span>
     </div>
     <div class="marquee-group" aria-hidden="true">
-      SOCIAL MEDIA DESIGN <span>✳</span>
-      IDENTITATE VIZUALĂ <span>✳</span>
-      LANDING PAGE DESIGN <span>✳</span>
-      DESIGN GRAFIC <span>✳</span>
-      STRATEGIE <span>✳</span>
-      COPYWRITING <span>✳</span>
+      BRAND IDENTITY <span>✳</span>
+      SOCIAL MEDIA <span>✳</span>
+      DIGITAL DESIGN <span>✳</span>
+      STRATEGY <span>✳</span>
+      STORYTELLING <span>✳</span>
+      CREATIVE DIRECTION <span>✳</span>
     </div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section id="about">
-  <div class="container">
+<section class="about" id="about">
+  <div class="ambient"></div>
 
-    <div class="section-top reveal">
-      <div class="section-label mono">01 / Despre mine</div>
-      <h2 class="section-title">
-        Creativitate cu<br>
-        <span class="gradient-text">direcție și strategie.</span>
-      </h2>
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">01 / Despre mine</div>
+      <h2>Creativitate care are<br><span class="gradient">un scop clar.</span></h2>
     </div>
 
     <div class="about-grid">
-
-      <div class="about-lead reveal">
-        Sunt Mariana Păștean, designer de brand și specialistă în
-        marketing. Ajut businessurile să își clarifice
-        <span>imaginea, mesajul și modul în care se prezintă online.</span>
+      <div class="about-statement reveal">
+        Sunt Mariana Păștean.
+        <span>Designer de brand și specialistă în marketing.</span>
+        Îmbin designul cu strategia pentru a construi o comunicare
+        vizuală coerentă.
       </div>
 
       <div class="about-copy reveal">
         <p>
-          Experiența mea de peste 6 ani în resurse umane, 2 ani în
-          project management și activitatea din marketing începută
-          în 2025 mă ajută să combin creativitatea cu organizarea,
-          strategia și atenția la obiective.
+          Experiența mea de peste 6 ani în resurse umane,
+          2 ani în project management și activitatea în marketing
+          începută în 2025 îmi oferă o perspectivă care combină
+          creativitatea, organizarea și înțelegerea oamenilor.
         </p>
 
         <p>
-          Nu creez doar materiale care arată bine. Îmi place să
-          înțeleg ce vrei să transmiți, cui te adresezi și ce
-          trebuie să facă vizitatorul după ce vede conținutul tău.
+          Cred că un brand nu are nevoie doar de materiale frumoase.
+          Are nevoie de o imagine recognoscibilă, un mesaj clar
+          și o direcție care susține obiectivele businessului.
         </p>
 
-        <div class="about-highlight">
-          Te ajut să transformi o idee, o ofertă sau un brand
-          într-o comunicare vizuală coerentă, ușor de înțeles
-          și potrivită pentru publicul tău.
+        <div class="about-quote">
+          Nu este doar despre cum arată un brand.
+          Este despre ce transmite și ce îi face pe oameni să simtă.
         </div>
-
-        <a href="#contact" class="service-link">
-          Spune-mi ce vrei să construim ↗
-        </a>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- STRATEGY -->
+<!-- STATEMENT -->
 <section class="statement">
-  <div class="background-glow"></div>
+  <div class="ambient"></div>
 
-  <div class="container">
-    <div class="statement-content reveal">
+  <div class="container statement-inner reveal">
+    <div class="eyebrow">02 / Filosofia mea</div>
 
-      <div class="section-label mono">02 / Felul în care abordez designul</div>
+    <h2>
+      DESIGNUL ATRAGE.
+      <span class="gradient">STRATEGIA DĂ DIRECȚIE.</span>
+    </h2>
 
-      <h2>
-        DESIGNUL BUN NU ESTE DOAR DECOR.
-        <span class="gradient-text">ESTE PARTE DIN STRATEGIE.</span>
-      </h2>
+    <p>
+      Un design bun nu este doar decor. Este parte din experiența
+      pe care o construiești pentru publicul tău. De aceea,
+      fiecare proiect începe cu înțelegerea mesajului, a publicului
+      și a obiectivului.
+    </p>
 
-      <p>
-        Un brand nu are nevoie doar de un logo sau de postări
-        frumoase. Are nevoie de o imagine coerentă, un mesaj clar
-        și materiale care susțin obiectivele businessului.
-      </p>
-
-      <p style="margin-top:18px;">
-        De aceea, abordez fiecare proiect pornind de la trei întrebări:
-      </p>
-
-      <div class="question-list">
-        <div class="question">
-          <span>01.</span> Ce vrei să transmiți?
-        </div>
-        <div class="question">
-          <span>02.</span> Cui te adresezi?
-        </div>
-        <div class="question">
-          <span>03.</span> Care este următorul pas pe care vrei să îl facă oamenii?
-        </div>
+    <div class="statement-points">
+      <div class="statement-point">
+        <span>01 / MESSAGE</span>
+        Ce vrei să transmiți?
       </div>
-
-      <p style="margin-top:28px;">
-        Rezultatul este un design care nu doar atrage atenția,
-        ci ajută oamenii să înțeleagă mai repede cine ești și ce oferi.
-      </p>
-
+      <div class="statement-point">
+        <span>02 / AUDIENCE</span>
+        Cui te adresezi?
+      </div>
+      <div class="statement-point">
+        <span>03 / PURPOSE</span>
+        Ce vrei să obții?
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES OVERVIEW -->
+<!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
 
-    <div class="section-top reveal">
-      <div class="section-label mono">03 / Serviciile mele</div>
-      <h2 class="section-title">
-        SERVICII PENTRU BRANDURI CARE
-        <span class="gradient-text">VOR SĂ COMUNICE MAI BINE.</span>
-      </h2>
-      <p class="section-description">
-        Ofer servicii de design și marketing pentru businessuri,
-        branduri personale și proiecte care au nevoie de o prezență
-        mai clară și mai profesionistă.
+    <div class="section-head reveal">
+      <div class="eyebrow">03 / Servicii</div>
+      <h2>Construim un brand<br><span class="gradient">care se face remarcat.</span></h2>
+      <p>
+        De la identitate vizuală și conținut social media până la
+        landing page design și strategie, fiecare serviciu
+        răspunde unei nevoi concrete de comunicare.
       </p>
     </div>
 
     <div class="service-grid">
 
       <article class="service-card reveal">
-        <div class="service-number">01 / SOCIAL MEDIA</div>
-        <h3>Social media design</h3>
+        <div class="service-index">01 / SOCIAL MEDIA</div>
+        <h3>Social Media Design</h3>
         <p>
-          Postări, carusele și stories create pentru o comunicare
-          coerentă, actuală și ușor de recunoscut.
+          Postări, carusele și stories care susțin o prezență
+          vizuală consecventă și o comunicare mai clară.
         </p>
-        <a href="#social-media" class="service-link">Vezi serviciul ↗</a>
+        <a href="#social-media">Explorează serviciul ↗</a>
       </article>
 
       <article class="service-card reveal">
-        <div class="service-number">02 / BRAND IDENTITY</div>
-        <h3>Logo și identitate vizuală</h3>
+        <div class="service-index">02 / BRAND IDENTITY</div>
+        <h3>Logo & Identitate vizuală</h3>
         <p>
-          Logo-uri și direcții vizuale care ajută brandul
-          să fie memorabil și consecvent.
+          O imagine recognoscibilă, construită prin logo,
+          culori, fonturi și elemente grafice coerente.
         </p>
-        <a href="#branding" class="service-link">Vezi serviciul ↗</a>
+        <a href="#branding">Explorează serviciul ↗</a>
       </article>
 
       <article class="service-card reveal">
-        <div class="service-number">03 / WEB DESIGN</div>
-        <h3>Landing page design</h3>
+        <div class="service-index">03 / DIGITAL EXPERIENCE</div>
+        <h3>Landing Page Design</h3>
         <p>
-          Pagini clare și bine structurate pentru servicii,
-          campanii, lansări și colectare de lead-uri.
+          Pagini de prezentare clare, cu structură logică
+          și direcție vizuală adaptată obiectivului.
         </p>
-        <a href="#landing-page" class="service-link">Vezi serviciul ↗</a>
+        <a href="#landing">Explorează serviciul ↗</a>
       </article>
 
       <article class="service-card reveal">
-        <div class="service-number">04 / GRAPHIC DESIGN</div>
+        <div class="service-index">04 / VISUAL COMMUNICATION</div>
         <h3>Design grafic</h3>
         <p>
-          Flyere, meniuri, broșuri, bannere și alte materiale
-          pentru online și print.
+          Materiale vizuale pentru online și print,
+          construite în jurul mesajului și identității brandului.
         </p>
-        <a href="#graphic-design" class="service-link">Vezi serviciul ↗</a>
+        <a href="#graphic">Explorează serviciul ↗</a>
       </article>
 
       <article class="service-card reveal">
-        <div class="service-number">05 / COPYWRITING</div>
-        <h3>Copywriting și storytelling</h3>
+        <div class="service-index">05 / CONTENT</div>
+        <h3>Copywriting & Storytelling</h3>
         <p>
-          Texte care explică oferta, susțin brandul și creează
-          o conexiune mai bună cu publicul.
+          Texte care explică oferta, transmit personalitatea
+          brandului și creează conexiune cu publicul.
         </p>
-        <a href="#contact" class="service-link">Discută proiectul ↗</a>
+        <a href="#contact">Discută proiectul ↗</a>
       </article>
 
       <article class="service-card reveal">
-        <div class="service-number">06 / STRATEGY</div>
-        <h3>Strategie de social media</h3>
+        <div class="service-index">06 / STRATEGY</div>
+        <h3>Strategie de Social Media</h3>
         <p>
-          Direcții de conținut și idei organizate în jurul
-          obiectivelor brandului.
+          Direcții de conținut, piloni de comunicare și idei
+          organizate în jurul obiectivelor businessului.
         </p>
-        <a href="#strategy" class="service-link">Vezi serviciul ↗</a>
+        <a href="#strategy">Explorează serviciul ↗</a>
       </article>
 
     </div>
@@ -1195,183 +1274,144 @@ footer {
 </section>
 
 <!-- SOCIAL MEDIA DETAIL -->
-<section class="service-detail" id="social-media">
-  <div class="container">
+<section class="detail-section" id="social-media">
+  <div class="container detail-layout">
 
-    <div class="section-top reveal">
-      <div class="section-label mono">04 / Serviciu</div>
-      <h2 class="section-title">
-        SOCIAL MEDIA
-        <span class="gradient-text">DESIGN.</span>
-      </h2>
-      <p class="section-description">
-        Social media care arată bine și are un scop clar.
-        Creez conținut vizual și direcții de comunicare pentru
-        branduri care vor să fie prezente constant în online,
-        fără să posteze la întâmplare.
+    <div class="detail-intro reveal">
+      <div class="eyebrow">04 / Social media</div>
+      <h2>Conținut care<br><span class="gradient">oprește scroll-ul.</span></h2>
+      <p>
+        Creez materiale vizuale și direcții de comunicare pentru
+        branduri care vor o prezență mai clară și mai profesionistă
+        în social media.
       </p>
     </div>
 
-    <div class="detail-list">
-
-      <div class="detail-card reveal">
+    <div class="detail-content reveal">
+      <div class="detail-box">
         <h3>Ce pot crea</h3>
         <ul>
-          <li>Postări pentru Facebook și Instagram</li>
-          <li>Carusele educaționale sau de prezentare</li>
+          <li>Postări Facebook și Instagram</li>
+          <li>Carusele educaționale</li>
           <li>Stories</li>
-          <li>Vizualuri pentru oferte și campanii</li>
+          <li>Vizualuri pentru campanii</li>
           <li>Template-uri reutilizabile</li>
-          <li>Direcții vizuale pentru conținut</li>
-          <li>Texte pentru postări și storytelling</li>
+          <li>Texte și storytelling</li>
         </ul>
       </div>
 
-      <div class="detail-card reveal">
-        <h3>Pentru cine este</h3>
+      <div class="detail-box">
+        <h3>Beneficiul</h3>
         <p>
-          Acest serviciu este potrivit pentru businessuri și
-          branduri personale care vor o prezență mai clară,
-          mai consecventă și mai profesionistă în social media.
-
+          Un conținut vizual coerent te ajută să explici oferta,
+          să construiești încredere și să creezi o experiență
+          recognoscibilă pentru publicul tău.
         </p>
-
-        <h4>Cum te ajută</h4>
-        <p>
-          Un conținut bine construit te ajută să explici mai bine
-          ceea ce oferi, să construiești încredere și să transformi
-          atenția în conversații cu potențiali clienți.
-        </p>
+        <h4>Potrivit pentru</h4>
+        <p>Businessuri, antreprenori și branduri personale.</p>
       </div>
-
     </div>
+
   </div>
 </section>
 
-<!-- BRANDING DETAIL -->
-<section id="branding">
-  <div class="container">
+<!-- BRANDING -->
+<section class="detail-section alt" id="branding">
+  <div class="container detail-layout">
 
-    <div class="section-top reveal">
-      <div class="section-label mono">05 / Serviciu</div>
-      <h2 class="section-title">
-        LOGO ȘI
-        <span class="gradient-text">IDENTITATE VIZUALĂ.</span>
-      </h2>
-      <p class="section-description">
-        O identitate vizuală pe care oamenii o pot recunoaște.
-        Creez logo-uri și direcții vizuale pentru branduri care
-        vor să transmită profesionalism, claritate și personalitate
-        încă de la prima interacțiune.
+    <div class="detail-intro reveal">
+      <div class="eyebrow">05 / Brand identity</div>
+      <h2>O identitate<br><span class="gradient">care rămâne în minte.</span></h2>
+      <p>
+        Construiesc direcții vizuale care reflectă personalitatea
+        brandului și îl ajută să fie recunoscut în toate punctele
+        de contact cu publicul.
       </p>
     </div>
 
-    <div class="detail-list">
-
-      <div class="detail-card reveal">
+    <div class="detail-content reveal">
+      <div class="detail-box">
         <h3>Ce pot crea</h3>
         <ul>
-          <li>Logo</li>
-          <li>Variante de logo</li>
+          <li>Logo și variante de logo</li>
           <li>Paletă cromatică</li>
           <li>Combinații de fonturi</li>
           <li>Elemente grafice</li>
-          <li>Direcție vizuală pentru social media</li>
+          <li>Direcție vizuală</li>
           <li>Materiale de bază pentru brand</li>
         </ul>
       </div>
 
-      <div class="detail-card reveal">
-        <h3>Pentru cine este</h3>
+      <div class="detail-box">
+        <h3>Beneficiul</h3>
         <p>
-          Pentru branduri noi, antreprenori și businessuri care au
-          evoluat, dar a căror imagine nu mai reflectă ceea ce oferă.
+          O identitate vizuală consecventă crește recognoscibilitatea,
+          transmite profesionalism și oferă brandului o imagine
+          unitară.
         </p>
-
-        <h4>Cum te ajută</h4>
-        <p>
-          O identitate vizuală coerentă face brandul mai ușor
-          de recunoscut, mai profesionist și mai consecvent
-          pe toate canalele.
-        </p>
+        <h4>Potrivit pentru</h4>
+        <p>Branduri noi, antreprenori și businessuri în evoluție.</p>
       </div>
-
     </div>
+
   </div>
 </section>
 
-<!-- LANDING PAGE DETAIL -->
-<section class="service-detail" id="landing-page">
-  <div class="container">
+<!-- LANDING PAGE -->
+<section class="detail-section" id="landing">
+  <div class="container detail-layout">
 
-    <div class="section-top reveal">
-      <div class="section-label mono">06 / Serviciu</div>
-      <h2 class="section-title">
-        LANDING PAGE-URI CARE
-        <span class="gradient-text">GHIDEAZĂ OAMENII SPRE ACȚIUNE.</span>
-      </h2>
-      <p class="section-description">
-        Creez design pentru landing page-uri destinate serviciilor,
-        campaniilor, lansărilor și proiectelor care au nevoie de
-        o pagină clară pentru prezentare sau colectare de lead-uri.
+    <div class="detail-intro reveal">
+      <div class="eyebrow">06 / Landing page</div>
+      <h2>Experiențe digitale<br><span class="gradient">cu direcție.</span></h2>
+      <p>
+        Design pentru landing page-uri care prezintă servicii,
+        campanii și oferte într-o structură clară, ușor de parcurs.
       </p>
     </div>
 
-    <div class="detail-list">
-
-      <div class="detail-card reveal">
+    <div class="detail-content reveal">
+      <div class="detail-box">
         <h3>Ce include</h3>
         <ul>
-          <li>Structură vizuală clară</li>
+          <li>Structură vizuală</li>
           <li>Organizarea secțiunilor</li>
           <li>Ierarhie vizuală</li>
           <li>Prezentarea serviciilor</li>
           <li>Zone pentru testimoniale</li>
           <li>CTA-uri vizibile</li>
-          <li>Design adaptat identității brandului</li>
         </ul>
       </div>
 
-      <div class="detail-card reveal">
-        <h3>Pentru cine este</h3>
+      <div class="detail-box">
+        <h3>Beneficiul</h3>
         <p>
-          Pentru antreprenori și businessuri care au o ofertă bună,
-          dar nu reușesc să o explice simplu și convingător
-          într-o singură pagină.
+          O pagină bine organizată reduce confuzia, explică oferta
+          și îl ghidează pe vizitator către următorul pas.
         </p>
-
-        <h4>Cum te ajută</h4>
-        <p>
-          Un landing page bine organizat reduce confuzia,
-          prezintă oferta într-o ordine logică și îi arată
-          vizitatorului care este pasul următor.
-        </p>
+        <h4>Potrivit pentru</h4>
+        <p>Servicii, campanii, lansări și proiecte digitale.</p>
       </div>
-
     </div>
+
   </div>
 </section>
 
-<!-- GRAPHIC DESIGN DETAIL -->
-<section id="graphic-design">
-  <div class="container">
+<!-- GRAPHIC DESIGN -->
+<section class="detail-section alt" id="graphic">
+  <div class="container detail-layout">
 
-    <div class="section-top reveal">
-      <div class="section-label mono">07 / Serviciu</div>
-      <h2 class="section-title">
-        DESIGN GRAFIC.
-        <span class="gradient-text">MESAJ CLAR.</span>
-      </h2>
-      <p class="section-description">
-        Materiale grafice care fac mesajul mai ușor de înțeles.
-        Creez materiale grafice pentru promovare, prezentare și
-        comunicare vizuală, atât pentru online, cât și pentru print.
+    <div class="detail-intro reveal">
+      <div class="eyebrow">07 / Graphic design</div>
+      <h2>Mesaje vizuale<br><span class="gradient">bine construite.</span></h2>
+      <p>
+        Materiale grafice pentru prezentare, promovare și comunicare,
+        atât în mediul digital, cât și în format print.
       </p>
     </div>
 
-    <div class="detail-list">
-
-      <div class="detail-card reveal">
+    <div class="detail-content reveal">
+      <div class="detail-box">
         <h3>Ce pot crea</h3>
         <ul>
           <li>Meniuri</li>
@@ -1380,79 +1420,62 @@ footer {
           <li>Cărți de vizită</li>
           <li>Prezentări</li>
           <li>Materiale promoționale</li>
-          <li>Vizualuri pentru campanii</li>
         </ul>
       </div>
 
-      <div class="detail-card reveal">
-        <h3>Pentru cine este</h3>
+      <div class="detail-box">
+        <h3>Beneficiul</h3>
         <p>
-          Pentru businessuri care au nevoie de materiale clare,
-          atractive și aliniate cu imaginea brandului.
+          Materialele grafice potrivite susțin mesajul, prezintă
+          oferta într-un mod profesionist și păstrează coerența
+          identității vizuale.
         </p>
-
-        <h4>Cum te ajută</h4>
-        <p>
-          Materialele potrivite susțin oferta, cresc claritatea
-          mesajului și te ajută să ai o imagine unitară în toate
-          punctele de contact cu publicul.
-        </p>
+        <h4>Potrivit pentru</h4>
+        <p>Businessuri care au nevoie de materiale online și print.</p>
       </div>
-
     </div>
+
   </div>
 </section>
 
-<!-- STRATEGY DETAIL -->
-<section class="service-detail" id="strategy">
-  <div class="container">
+<!-- STRATEGY -->
+<section class="detail-section" id="strategy">
+  <div class="container detail-layout">
 
-    <div class="section-top reveal">
-      <div class="section-label mono">08 / Serviciu</div>
-      <h2 class="section-title">
-        STRATEGIE DE SOCIAL MEDIA.
-        <span class="gradient-text">DIRECȚIE CLARĂ.</span>
-      </h2>
-      <p class="section-description">
-        O direcție clară pentru conținutul brandului tău.
-        Te ajut să îți organizezi comunicarea în social media
-        în jurul unor obiective clare, nu doar în jurul unui
-        calendar de postări.
+    <div class="detail-intro reveal">
+      <div class="eyebrow">08 / Strategy</div>
+      <h2>Mai puțin la întâmplare.<br><span class="gradient">Mai multă direcție.</span></h2>
+      <p>
+        O strategie de social media oferă claritate asupra
+        mesajelor, publicului și conținutului pe care îl comunici.
       </p>
     </div>
 
-    <div class="detail-list">
-
-      <div class="detail-card reveal">
-        <h3>Ce pot crea</h3>
+    <div class="detail-content reveal">
+      <div class="detail-box">
+        <h3>Ce pot construi</h3>
         <ul>
           <li>Analiză de brand și public</li>
-          <li>Direcții de conținut</li>
           <li>Piloni de comunicare</li>
+          <li>Direcții de conținut</li>
           <li>Idei de postări</li>
           <li>Recomandări de formate</li>
           <li>CTA-uri potrivite</li>
-          <li>Structură pentru campanii</li>
         </ul>
       </div>
 
-      <div class="detail-card reveal">
-        <h3>Pentru cine este</h3>
+      <div class="detail-box">
+        <h3>Beneficiul</h3>
         <p>
-          Pentru businessuri care postează fără o direcție clară,
-          nu știu ce să comunice sau vor să transforme social media
-          într-un canal mai util pentru business.
+          O direcție clară te ajută să comunici consecvent,
+          să îți organizezi conținutul și să folosești social media
+          într-un mod mai apropiat de obiectivele businessului.
         </p>
-
-        <h4>Cum te ajută</h4>
-        <p>
-          O strategie bună îți oferă claritate, consecvență și
-          un mod mai organizat de a transforma conținutul în
-          vizibilitate și conversații.
-        </p>
+        <h4>Potrivit pentru</h4>
+        <p>Businessuri care vor să comunice mai organizat.</p>
       </div>
-
     </div>
+
   </div>
 </section>
 
@@ -1460,43 +1483,42 @@ footer {
 <section>
   <div class="container">
 
-    <div class="section-top reveal">
-      <div class="section-label mono">09 / Abordarea mea</div>
-      <h2 class="section-title">
-        Începem cu ideea.
-        <span class="gradient-text">Construim direcția.</span>
-      </h2>
+    <div class="section-head reveal">
+      <div class="eyebrow">09 / Proces</div>
+      <h2>De la idee la<br><span class="gradient">experiență vizuală.</span></h2>
+      <p>
+        Fiecare proiect pornește de la înțelegere și se dezvoltă
+        printr-o direcție clară, adaptată obiectivului.
+      </p>
     </div>
 
     <div class="process-grid">
-
       <article class="process-card reveal">
-        <div class="num">01 / ÎNȚELEGERE</div>
-        <h3>Ce vrei să transmiți?</h3>
+        <div class="number">01 / DISCOVERY</div>
+        <h3>Înțelegem</h3>
         <p>
-          Înțelegem ideea, oferta, brandul și publicul căruia
-          i te adresezi.
+          Clarificăm brandul, publicul, oferta și ceea ce vrei
+          să obții prin proiect.
         </p>
       </article>
 
       <article class="process-card reveal">
-        <div class="num">02 / DIRECȚIE</div>
-        <h3>Ce trebuie construit?</h3>
+        <div class="number">02 / DIRECTION</div>
+        <h3>Construim direcția</h3>
         <p>
-          Alegem serviciile potrivite și stabilim direcția
-          vizuală și de comunicare.
+          Stabilim mesajul, structura și direcția vizuală
+          potrivită proiectului.
         </p>
       </article>
 
       <article class="process-card reveal">
-        <div class="num">03 / EXECUȚIE</div>
-        <h3>Transformăm ideea în proiect.</h3>
+        <div class="number">03 / CREATION</div>
+        <h3>Creăm</h3>
         <p>
-          Construim materialele și comunicarea potrivite
-          obiectivelor proiectului tău.
+          Transformăm ideea în materiale și experiențe vizuale
+          coerente cu obiectivele tale.
         </p>
       </article>
-
     </div>
   </div>
 </section>
@@ -1505,52 +1527,49 @@ footer {
 <section class="portfolio" id="portfolio">
   <div class="container">
 
-    <div class="section-top reveal">
-      <div class="section-label mono">10 / Portofoliu</div>
-      <h2 class="section-title">
-        Idei transformate în
-        <span class="gradient-text">design.</span>
-      </h2>
-      <p class="section-description">
-        Proiectele mele includ materiale pentru social media,
-        identități vizuale, landing page-uri și materiale grafice
-        pentru online și print.
+    <div class="section-head reveal">
+      <div class="eyebrow">10 / Portofoliu</div>
+      <h2>Idei care prind<br><span class="gradient">formă vizuală.</span></h2>
+      <p>
+        Explorează categoriile de proiecte din portofoliul meu.
+        Imaginile lucrărilor pot fi adăugate în această galerie
+        pentru a prezenta exemplele concrete.
       </p>
     </div>
 
     <div class="portfolio-grid">
 
       <article class="portfolio-card reveal">
-        <div class="tag">Social Media Design</div>
-        <h3>Postări & carusele</h3>
-        <p>Conținut vizual pentru Facebook și Instagram.</p>
+        <div class="tag">01 / Social Media</div>
+        <h3>Content & Carousels</h3>
+        <p>Design de conținut pentru comunicare în social media.</p>
       </article>
 
       <article class="portfolio-card reveal">
-        <div class="tag">Brand Identity</div>
-        <h3>Logo & identitate vizuală</h3>
-        <p>Logo-uri, palete cromatice și direcții vizuale.</p>
+        <div class="tag">02 / Branding</div>
+        <h3>Visual Identity</h3>
+        <p>Logo, culori și elemente vizuale pentru branduri.</p>
       </article>
 
       <article class="portfolio-card reveal">
-        <div class="tag">Landing Page Design</div>
-        <h3>Pagini de prezentare</h3>
-        <p>Structuri vizuale pentru oferte și proiecte digitale.</p>
+        <div class="tag">03 / Digital</div>
+        <h3>Landing Pages</h3>
+        <p>Design și structură vizuală pentru experiențe digitale.</p>
       </article>
 
       <article class="portfolio-card reveal">
-        <div class="tag">Graphic Design</div>
-        <h3>Materiale online & print</h3>
-        <p>Meniuri, broșuri, bannere și materiale promoționale.</p>
+        <div class="tag">04 / Graphic Design</div>
+        <h3>Print & Visuals</h3>
+        <p>Materiale grafice pentru prezentare și promovare.</p>
       </article>
 
     </div>
 
     <p class="portfolio-note">
-      Notă: această secțiune descrie categoriile de proiecte
-      prezentate în portofoliul PDF. Pentru afișarea imaginilor
-      originale ale lucrărilor, adaugă fotografiile exportate
-      din Canva în repository și înlocuiește cardurile cu imagini.
+      Aceste carduri reprezintă categoriile de lucrări.
+      Nu sunt prezentate drept proiecte sau rezultate ale unor
+      clienți nominalizați. Imaginile originale pot fi integrate
+      ulterior pentru o galerie completă.
     </p>
 
   </div>
@@ -1558,106 +1577,357 @@ footer {
 
 <!-- CTA -->
 <section class="cta">
-  <div class="background-glow"></div>
+  <div class="ambient"></div>
 
   <div class="container">
-    <div class="cta-content reveal">
-
-      <div class="section-label mono">11 / Proiectul tău</div>
-
+    <div class="cta-panel reveal">
+      <div class="eyebrow">11 / Let's create</div>
       <h2>
         Ai o idee?
-        <span class="gradient-text">Hai să îi dăm o direcție.</span>
+        <span class="gradient">Hai să îi dăm formă.</span>
       </h2>
-
       <p>
-        Combinăm serviciile potrivite pentru proiectul și
-        obiectivele tale. Spune-mi ce vrei să construim,
-        iar eu îți recomand direcția potrivită.
+        Povestește-mi despre proiectul tău și descoperim împreună
+        direcția vizuală și serviciile care te pot ajuta.
       </p>
-
-      <a href="#contact" class="btn btn-primary" style="margin-top:28px;">
-        Solicită o ofertă personalizată ↗
+      <a href="#contact" class="button button-primary" style="margin-top:30px;">
+        Începem o conversație ↗
       </a>
-
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="container">
+  <div class="container contact-grid">
 
-    <div class="contact-grid">
-
-      <div class="reveal">
-        <div class="section-label mono">12 / Contact</div>
-
-        <h2 class="section-title">
-          HAI SĂ DISCUTĂM
-          <span class="gradient-text">DESPRE PROIECTUL TĂU.</span>
-        </h2>
-
-        <p class="contact-copy">
-          Trimite-mi detaliile proiectului și revin cu o recomandare.
-          Putem discuta despre identitate vizuală, social media,
-          landing page design sau materiale grafice.
-        </p>
-
-        <a href="mailto:mariana.pastean@gmail.com"
-           class="contact-email">
-          mariana.pastean@gmail.com ↗
-        </a>
-      </div>
-
-      <div class="contact-box reveal">
-        <h3>Ofertă personalizată</h3>
-        <p>
-          Combinăm serviciile potrivite pentru proiectul și
-          obiectivele tale. Spune-mi ce vrei să promovezi,
-          iar eu îți recomand direcția potrivită.
-        </p>
-
-        <a href="mailto:mariana.pastean@gmail.com?subject=Solicitare%20oferta%20proiect"
-           class="btn btn-primary" style="margin-top:25px;">
-          Solicită ofertă ↗
-        </a>
-      </div>
-
+    <div class="reveal">
+      <div class="eyebrow">12 / Contact</div>
+      <h2 class="contact-title">
+        LET'S MAKE<br>
+        <span class="gradient">SOMETHING</span><br>
+        MEMORABLE.
+      </h2>
+      <p class="contact-copy">
+        Ai un proiect în minte? Scrie-mi câteva detalii
+        și discutăm despre cum îl putem transforma într-o
+        experiență vizuală coerentă.
+      </p>
+      <a class="email-link" href="mailto:mariana.pastean@gmail.com">
+        mariana.pastean@gmail.com ↗
+      </a>
     </div>
+
+    <div class="contact-card reveal">
+      <h3>Hai să discutăm despre proiectul tău.</h3>
+      <p>
+        Design, identitate vizuală, social media sau strategie.
+        Spune-mi de ce ai nevoie și îți voi răspunde pentru
+        a stabili următorii pași.
+      </p>
+      <a class="button button-primary"
+         href="mailto:mariana.pastean@gmail.com?subject=Proiect%20nou">
+        Trimite un email ↗
+      </a>
+    </div>
+
   </div>
 </section>
 
 </main>
 
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-
-      <div>© <span id="year"></span> Mariana Păștean</div>
-
-      <div>Brand Design · Marketing · Social Media</div>
-
-      <div class="footer-links">
-        <a href="mailto:mariana.pastean@gmail.com">Email</a>
-        <a href="#home">Înapoi sus ↑</a>
-      </div>
-
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> Mariana Păștean</div>
+    <div>Brand Design · Marketing · Digital Experiences</div>
+    <div class="footer-links">
+      <a href="mailto:mariana.pastean@gmail.com">Email</a>
+      <a href="#home">Back to top ↑</a>
     </div>
   </div>
 </footer>
 
+<!-- THREE.JS 3D SCENE -->
+<script type="module">
+import * as THREE from
+  "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js";
+
+const container = document.getElementById("hero3d");
+
+if (container && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(
+    38,
+    container.clientWidth / container.clientHeight,
+    0.1,
+    100
+  );
+
+  camera.position.set(0, 0, 9);
+
+  const renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    antialias: true
+  });
+
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.35;
+
+  container.appendChild(renderer.domElement);
+
+  // Lighting
+  const ambient = new THREE.AmbientLight(0xffffff, 1.5);
+  scene.add(ambient);
+
+  const pinkLight = new THREE.PointLight(0xff66dc, 45, 15);
+  pinkLight.position.set(3, 3, 4);
+  scene.add(pinkLight);
+
+  const blueLight = new THREE.PointLight(0x7861ff, 55, 15);
+  blueLight.position.set(-4, -2, 3);
+  scene.add(blueLight);
+
+  const whiteLight = new THREE.PointLight(0xffffff, 25, 12);
+  whiteLight.position.set(0, 3, -3);
+  scene.add(whiteLight);
+
+  // Main sculpture group
+  const sculpture = new THREE.Group();
+  scene.add(sculpture);
+
+  // Central metallic torus knot
+  const knotGeometry = new THREE.TorusKnotGeometry(
+    1.15, 0.32, 220, 32, 2, 3
+  );
+
+  const knotMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xc98aff,
+    metalness: 0.82,
+    roughness: 0.18,
+    clearcoat: 1,
+    clearcoatRoughness: 0.08,
+    emissive: 0x34104f,
+    emissiveIntensity: 0.35
+  });
+
+  const knot = new THREE.Mesh(knotGeometry, knotMaterial);
+  sculpture.add(knot);
+
+  // Inner glowing sphere
+  const coreGeometry = new THREE.IcosahedronGeometry(.56, 5);
+
+  const coreMaterial = new THREE.MeshPhysicalMaterial({
+    color: 0xffa6f3,
+    metalness: .25,
+    roughness: .12,
+    transmission: .25,
+    thickness: 1.4,
+    emissive: 0x8c1b9c,
+    emissiveIntensity: .65
+  });
+
+  const core = new THREE.Mesh(coreGeometry, coreMaterial);
+  sculpture.add(core);
+
+  // Floating rings
+  const rings = [];
+
+  const ringColors = [0xe78bff, 0x8c7aff, 0x9ceaff];
+
+  for (let i = 0; i < 3; i++) {
+    const ringGeometry = new THREE.TorusGeometry(
+      1.9 + i * .25,
+      .018 + i * .004,
+      12,
+      180
+    );
+
+    const ringMaterial = new THREE.MeshBasicMaterial({
+      color: ringColors[i],
+      transparent: true,
+      opacity: .65
+    });
+
+    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+
+    ring.rotation.x = Math.PI / 2 + i * .5;
+    ring.rotation.y = i * .7;
+
+    sculpture.add(ring);
+    rings.push(ring);
+  }
+
+  // Small floating metallic objects
+  const floatingObjects = [];
+
+  for (let i = 0; i < 11; i++) {
+    const geometry = i % 2 === 0
+      ? new THREE.IcosahedronGeometry(.09 + Math.random() * .1, 1)
+      : new THREE.SphereGeometry(.07 + Math.random() * .1, 18, 18);
+
+    const material = new THREE.MeshStandardMaterial({
+      color: i % 2 === 0 ? 0xf4a0ed : 0x9a8aff,
+      metalness: .8,
+      roughness: .2,
+      emissive: 0x43135b,
+      emissiveIntensity: .45
+    });
+
+    const object = new THREE.Mesh(geometry, material);
+
+    const angle = (i / 11) * Math.PI * 2;
+    const radius = 2.35 + Math.random() * .7;
+
+    object.position.set(
+      Math.cos(angle) * radius,
+      Math.sin(angle) * radius,
+      (Math.random() - .5) * 2
+    );
+
+    object.userData = {
+      baseY: object.position.y,
+      speed: .5 + Math.random() * 1.2,
+      phase: Math.random() * Math.PI * 2
+    };
+
+    sculpture.add(object);
+    floatingObjects.push(object);
+  }
+
+  // Particle field
+  const particleCount = 1000;
+  const particlePositions = new Float32Array(particleCount * 3);
+
+  for (let i = 0; i < particleCount; i++) {
+    const i3 = i * 3;
+
+    particlePositions[i3] = (Math.random() - .5) * 10;
+    particlePositions[i3 + 1] = (Math.random() - .5) * 10;
+    particlePositions[i3 + 2] = (Math.random() - .5) * 8;
+  }
+
+  const particleGeometry = new THREE.BufferGeometry();
+  particleGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(particlePositions, 3)
+  );
+
+  const particleMaterial = new THREE.PointsMaterial({
+    color: 0xdca4ff,
+    size: .025,
+    transparent: true,
+    opacity: .75,
+    sizeAttenuation: true
+  });
+
+  const particles = new THREE.Points(
+    particleGeometry,
+    particleMaterial
+  );
+
+  scene.add(particles);
+
+  // Mouse movement
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetX = 0;
+  let targetY = 0;
+
+  container.addEventListener("pointermove", (event) => {
+    const rect = container.getBoundingClientRect();
+
+    targetX = ((event.clientX - rect.left) / rect.width - .5) * 2;
+    targetY = ((event.clientY - rect.top) / rect.height - .5) * 2;
+  });
+
+  container.addEventListener("pointerleave", () => {
+    targetX = 0;
+    targetY = 0;
+  });
+
+  // Animation loop
+  const clock = new THREE.Clock();
+
+  function animate() {
+    requestAnimationFrame(animate);
+
+    const time = clock.getElapsedTime();
+
+    mouseX += (targetX - mouseX) * .035;
+    mouseY += (targetY - mouseY) * .035;
+
+    knot.rotation.x = time * .22 + mouseY * .18;
+    knot.rotation.y = time * .32 + mouseX * .22;
+    knot.rotation.z = Math.sin(time * .25) * .12;
+
+    core.rotation.x = -time * .22;
+    core.rotation.y = time * .32;
+
+    sculpture.rotation.y = mouseX * .18;
+    sculpture.rotation.x = mouseY * .12;
+
+    sculpture.position.y = Math.sin(time * .8) * .12;
+
+    rings.forEach((ring, index) => {
+      ring.rotation.z += .002 * (index + 1);
+      ring.rotation.x += .001 * (index % 2 === 0 ? 1 : -1);
+    });
+
+    floatingObjects.forEach((object) => {
+      const data = object.userData;
+
+      object.position.y =
+        data.baseY + Math.sin(time * data.speed + data.phase) * .16;
+
+      object.rotation.x += .008;
+      object.rotation.y += .012;
+    });
+
+    particles.rotation.y = time * .015;
+    particles.rotation.x = Math.sin(time * .1) * .04;
+
+    camera.position.x += (mouseX * .3 - camera.position.x) * .025;
+    camera.position.y += (-mouseY * .3 - camera.position.y) * .025;
+    camera.lookAt(0, 0, 0);
+
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // Responsive resizing
+  const resizeObserver = new ResizeObserver(() => {
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+
+    if (!width || !height) return;
+
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  });
+
+  resizeObserver.observe(container);
+}
+</script>
+
 <script>
-  // Anul curent
+  // Current year
   document.getElementById("year").textContent =
     new Date().getFullYear();
 
-  // Animații la scroll
-  const observer = new IntersectionObserver((entries) => {
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
   }, {
@@ -1665,7 +1935,7 @@ footer {
   });
 
   document.querySelectorAll(".reveal").forEach((element) => {
-    observer.observe(element);
+    revealObserver.observe(element);
   });
 </script>
 
