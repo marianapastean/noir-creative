@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0b0a0d">
-  <meta name="description" content="Mariana Păștean — Brand strategy, marketing, content direction și experiențe digitale. Strategie cu sens. Branduri cu direcție.">
+  <meta name="description" content="Mariana Păștean — Brand strategy, marketing, content direction și experiențe digitale.">
   <title>Mariana Păștean — Brand Strategy & Digital Experiences</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -230,6 +230,7 @@
       border-radius: 50%;
       background: radial-gradient(circle, rgba(166,123,67,.14), rgba(83,53,37,.07) 38%, transparent 70%);
       z-index: -2;
+      animation: ambient-glow 9s ease-in-out infinite alternate;
     }
 
     .hero::after {
@@ -266,6 +267,7 @@
       border-radius: 50%;
       background: var(--gold-light);
       box-shadow: 0 0 12px var(--gold);
+      animation: dot-pulse 2s ease-in-out infinite;
     }
 
     .hero h1 {
@@ -334,7 +336,7 @@
       background: rgba(201,169,110,.1);
     }
 
-    /* MONOGRAM MP */
+    /* ANIMATED MP MONOGRAM */
 
     .hero-art {
       position: absolute;
@@ -347,6 +349,7 @@
       display: grid;
       place-items: center;
       perspective: 1000px;
+      pointer-events: none;
     }
 
     .monogram-wrap {
@@ -355,7 +358,8 @@
       aspect-ratio: 1;
       display: grid;
       place-items: center;
-      animation: monogram-float 8s ease-in-out infinite;
+      transform-style: preserve-3d;
+      animation: monogram-float 7s ease-in-out infinite;
     }
 
     .monogram-wrap::before {
@@ -365,7 +369,10 @@
       border: 1px solid rgba(213,177,112,.28);
       border-radius: 50%;
       transform: rotateX(68deg) rotateZ(-18deg);
-      box-shadow: 0 0 55px rgba(201,169,110,.09), inset 0 0 35px rgba(201,169,110,.06);
+      box-shadow:
+        0 0 55px rgba(201,169,110,.09),
+        inset 0 0 35px rgba(201,169,110,.06);
+      animation: ring-breathe 5s ease-in-out infinite;
     }
 
     .monogram-wrap::after {
@@ -375,6 +382,7 @@
       border: 1px solid rgba(213,177,112,.12);
       border-radius: 50%;
       transform: rotateX(72deg) rotateZ(25deg);
+      animation: ring-breathe 7s ease-in-out infinite reverse;
     }
 
     .monogram {
@@ -385,14 +393,27 @@
       line-height: 1;
       letter-spacing: -.14em;
       padding-right: .14em;
-      background: linear-gradient(125deg, #77522f 5%, #f4dfae 24%, #b68b50 43%, #fff0c8 56%, #8e6338 77%, #e1c18a 92%);
-      background-size: 220% 220%;
+      background: linear-gradient(
+        125deg,
+        #77522f 5%,
+        #f4dfae 24%,
+        #b68b50 43%,
+        #fff0c8 56%,
+        #8e6338 77%,
+        #e1c18a 92%
+      );
+      background-size: 250% 250%;
       background-position: 0% 50%;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      filter: drop-shadow(0 12px 14px rgba(0,0,0,.55)) drop-shadow(0 0 24px rgba(205,164,99,.22));
-      animation: gold-shift 9s ease-in-out infinite alternate;
+      filter:
+        drop-shadow(0 12px 14px rgba(0,0,0,.55))
+        drop-shadow(0 0 24px rgba(205,164,99,.22));
+      animation:
+        gold-shift 7s ease-in-out infinite alternate,
+        monogram-glow 4s ease-in-out infinite;
+      transform-style: preserve-3d;
     }
 
     .orbit {
@@ -404,7 +425,7 @@
       border-radius: 50%;
       transform: rotate(-28deg);
       box-shadow: 0 0 18px rgba(201,169,110,.13);
-      animation: orbit-rotate 18s linear infinite;
+      animation: orbit-rotate 14s linear infinite;
     }
 
     .orbit.two {
@@ -412,8 +433,7 @@
       height: 43%;
       border-color: rgba(220,185,123,.19);
       transform: rotate(48deg);
-      animation-duration: 25s;
-      animation-direction: reverse;
+      animation: orbit-rotate-reverse 22s linear infinite;
     }
 
     .orbit-dot {
@@ -425,6 +445,17 @@
       border-radius: 50%;
       background: var(--gold-light);
       box-shadow: 0 0 17px 5px rgba(220,185,123,.4);
+      animation: jewel-pulse 2.5s ease-in-out infinite;
+    }
+
+    .orbit-dot.second {
+      top: auto;
+      bottom: 8%;
+      left: auto;
+      right: 19%;
+      width: 5px;
+      height: 5px;
+      animation-delay: 1.2s;
     }
 
     .hero-caption {
@@ -459,21 +490,75 @@
       margin-left: 12px;
       vertical-align: middle;
       background: var(--gold);
+      animation: line-pulse 2s ease-in-out infinite;
     }
 
     @keyframes monogram-float {
-      0%, 100% { transform: translateY(0) rotateY(-5deg); }
-      50% { transform: translateY(-16px) rotateY(5deg); }
+      0%, 100% {
+        transform: translateY(0) rotateY(-5deg) rotateX(0deg);
+      }
+      50% {
+        transform: translateY(-17px) rotateY(7deg) rotateX(3deg);
+      }
     }
 
     @keyframes gold-shift {
-      from { background-position: 0% 50%; }
-      to { background-position: 100% 50%; }
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    @keyframes monogram-glow {
+      0%, 100% {
+        filter:
+          drop-shadow(0 12px 14px rgba(0,0,0,.55))
+          drop-shadow(0 0 18px rgba(205,164,99,.16));
+      }
+      50% {
+        filter:
+          drop-shadow(0 12px 14px rgba(0,0,0,.55))
+          drop-shadow(0 0 38px rgba(231,195,127,.4));
+      }
     }
 
     @keyframes orbit-rotate {
-      from { rotate: 0deg; }
-      to { rotate: 360deg; }
+      from { transform: rotate(-28deg); }
+      to { transform: rotate(332deg); }
+    }
+
+    @keyframes orbit-rotate-reverse {
+      from { transform: rotate(48deg); }
+      to { transform: rotate(-312deg); }
+    }
+
+    @keyframes ring-breathe {
+      0%, 100% { opacity: .45; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes jewel-pulse {
+      0%, 100% {
+        transform: scale(.8);
+        box-shadow: 0 0 10px 2px rgba(220,185,123,.25);
+      }
+      50% {
+        transform: scale(1.35);
+        box-shadow: 0 0 22px 7px rgba(220,185,123,.5);
+      }
+    }
+
+    @keyframes ambient-glow {
+      from { opacity: .55; transform: translateY(-50%) scale(.94); }
+      to { opacity: 1; transform: translateY(-50%) scale(1.08); }
+    }
+
+    @keyframes dot-pulse {
+      0%, 100% { opacity: .55; box-shadow: 0 0 7px var(--gold); }
+      50% { opacity: 1; box-shadow: 0 0 17px var(--gold-light); }
+    }
+
+    @keyframes line-pulse {
+      0%, 100% { opacity: .4; transform: scaleX(.7); transform-origin: left; }
+      50% { opacity: 1; transform: scaleX(1); transform-origin: left; }
     }
 
     /* MARQUEE */
@@ -562,6 +647,7 @@
       aspect-ratio: 1;
       border: 1px solid rgba(201,169,110,.2);
       border-radius: 50%;
+      animation: ring-breathe 6s ease-in-out infinite;
     }
 
     .about-visual::after {
@@ -575,9 +661,15 @@
       z-index: 2;
       color: var(--gold-light);
       font-family: var(--serif);
-      font-size: 145px;
+      font-size: clamp(100px, 15vw, 145px);
       font-style: italic;
       text-shadow: 0 0 35px rgba(201,169,110,.22);
+      animation: symbol-float 6s ease-in-out infinite;
+    }
+
+    @keyframes symbol-float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-10px) scale(1.035); }
     }
 
     .visual-index,
@@ -766,6 +858,7 @@
       border: 1px solid rgba(201,169,110,.35);
       border-radius: 50%;
       box-shadow: 0 0 60px rgba(201,169,110,.07), inset 0 0 35px rgba(201,169,110,.05);
+      animation: approach-breathe 6s ease-in-out infinite;
     }
 
     .approach-orbit::before,
@@ -775,11 +868,13 @@
       inset: 25px;
       border: 1px solid rgba(201,169,110,.25);
       border-radius: 50%;
+      animation: orbit-rotate 30s linear infinite;
     }
 
     .approach-orbit::after {
       inset: 55px;
       background: radial-gradient(circle, rgba(201,169,110,.22), transparent 70%);
+      animation: ring-breathe 4s ease-in-out infinite;
     }
 
     .approach-orbit span {
@@ -792,6 +887,12 @@
       font-family: var(--serif);
       font-size: 75px;
       font-style: italic;
+      animation: symbol-float 6s ease-in-out infinite;
+    }
+
+    @keyframes approach-breathe {
+      0%, 100% { transform: scale(.96) rotate(-4deg); }
+      50% { transform: scale(1.04) rotate(4deg); }
     }
 
     .approach-list {
@@ -1124,12 +1225,13 @@
       background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
     }
 
-    /* RESPONSIVE */
+    /* TABLET */
 
     @media (max-width: 900px) {
       .hero-art {
-        right: -14%;
-        opacity: .55;
+        right: -5%;
+        width: 62vw;
+        opacity: .62;
       }
 
       .about-grid,
@@ -1160,6 +1262,8 @@
         padding: 55px;
       }
     }
+
+    /* MOBILE */
 
     @media (max-width: 650px) {
       .container,
@@ -1210,7 +1314,7 @@
       }
 
       .hero-content {
-        padding-top: 175px;
+        padding-top: 155px;
       }
 
       .hero h1 {
@@ -1223,15 +1327,43 @@
         font-size: 14px;
       }
 
+      /*
+        MOBILE MP FIX:
+        Monograma este centrat în zona disponibilă.
+        Dimensiunea este raportată la lățimea ecranului,
+        iar orbitele rămân integral în interiorul hero-art.
+      */
+
       .hero-art {
-        width: 110vw;
-        right: -35%;
-        top: 66%;
-        opacity: .3;
+        width: min(88vw, 410px);
+        max-width: 410px;
+        right: 50%;
+        top: auto;
+        bottom: 48px;
+        transform: translateX(50%);
+        opacity: .43;
+        overflow: visible;
+      }
+
+      .monogram-wrap {
+        width: 76%;
+        max-width: 310px;
       }
 
       .monogram {
-        font-size: 220px;
+        font-size: clamp(145px, 39vw, 220px);
+        letter-spacing: -.13em;
+        padding-right: .13em;
+      }
+
+      .orbit {
+        width: 94%;
+        height: 29%;
+      }
+
+      .orbit.two {
+        width: 100%;
+        height: 39%;
       }
 
       .hero-caption {
@@ -1263,6 +1395,10 @@
         min-height: 330px;
       }
 
+      .about-symbol {
+        font-size: clamp(105px, 30vw, 140px);
+      }
+
       .services-grid,
       .experience-layout,
       .portfolio-grid {
@@ -1292,6 +1428,15 @@
 
       .approach-grid {
         margin-top: 45px;
+      }
+
+      .approach-visual {
+        height: 300px;
+      }
+
+      .approach-orbit {
+        width: 190px;
+        height: 190px;
       }
 
       .approach-item {
@@ -1339,6 +1484,52 @@
       }
     }
 
+    /* SMALL MOBILE */
+
+    @media (max-width: 380px) {
+      .hero-content {
+        padding-top: 140px;
+      }
+
+      .hero-kicker {
+        font-size: 8px;
+        letter-spacing: .13em;
+      }
+
+      .hero h1 {
+        font-size: 68px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .hero-art {
+        width: 84vw;
+        bottom: 55px;
+        opacity: .38;
+      }
+
+      .monogram {
+        font-size: 36vw;
+      }
+
+      .hero-actions {
+        gap: 9px;
+      }
+
+      .button {
+        padding: 0 15px;
+        font-size: 10px;
+      }
+
+      .contact-email {
+        font-size: 17px;
+      }
+    }
+
+    /* ACCESSIBILITY */
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -1385,10 +1576,12 @@
 
     <!-- HERO -->
     <header class="hero" id="home">
+
       <div class="hero-art" aria-hidden="true">
         <div class="monogram-wrap">
           <div class="orbit">
             <span class="orbit-dot"></span>
+            <span class="orbit-dot second"></span>
           </div>
           <div class="orbit two"></div>
           <div class="monogram">MP</div>
