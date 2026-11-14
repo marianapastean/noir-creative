@@ -1,0 +1,1673 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090711">
+<meta name="description" content="Mariana Păștean — Designer de brand și specialistă în marketing. Design, identitate vizuală și strategie pentru businessuri care vor să comunice mai bine.">
+<title>Mariana Păștean — Brand Design & Marketing</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #090711;
+  --bg2: #100c1b;
+  --card: #171126;
+  --purple: #a855f7;
+  --pink: #ed78e8;
+  --light-pink: #f4b5f0;
+  --white: #f8f5fc;
+  --muted: #aaa2b7;
+  --line: rgba(255,255,255,.13);
+  --font: "DM Sans", sans-serif;
+  --display: "Space Grotesk", sans-serif;
+  --mono: "DM Mono", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: var(--purple);
+  color: white;
+}
+
+.container {
+  width: min(1160px, calc(100% - 48px));
+  margin: auto;
+}
+
+.mono {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  font-size: 10px;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, var(--purple), var(--pink), #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.purple {
+  color: var(--pink);
+}
+
+/* BACKGROUND */
+
+.background-glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: rgba(151, 71, 255, .15);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .13;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 65px 65px;
+}
+
+/* NAVIGATION */
+
+header {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  background: rgba(9,7,17,.82);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -.7px;
+}
+
+.logo span {
+  color: var(--pink);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 11px;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--pink);
+}
+
+.nav-links .nav-button {
+  border: 1px solid var(--purple);
+  color: white;
+  padding: 11px 16px;
+}
+
+.nav-links .nav-button:hover {
+  background: var(--purple);
+  color: white;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 145px 0 90px;
+}
+
+.hero .background-glow {
+  right: -120px;
+  top: 80px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  color: var(--muted);
+  margin-bottom: 32px;
+}
+
+.availability-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b8f47b;
+  box-shadow: 0 0 12px #b8f47b;
+}
+
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(54px, 9vw, 112px);
+  line-height: .96;
+  letter-spacing: -.075em;
+  max-width: 1000px;
+}
+
+.hero-subtitle {
+  max-width: 620px;
+  font-size: clamp(16px, 2vw, 20px);
+  line-height: 1.7;
+  color: var(--muted);
+  margin-top: 32px;
+}
+
+.hero-subtitle strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 15px 21px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid var(--line);
+  transition: .3s;
+}
+
+.btn-primary {
+  color: white;
+  border: 0;
+  background: linear-gradient(110deg, var(--purple), #d64fcb);
+  box-shadow: 0 8px 30px rgba(168,85,247,.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(168,85,247,.4);
+}
+
+.btn-secondary:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
+
+.hero-meta {
+  margin-top: 75px;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.hero-meta div {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.hero-meta strong {
+  display: block;
+  color: var(--white);
+  font-family: var(--display);
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+/* MARQUEE */
+
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+  padding: 20px 0;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: move 30s linear infinite;
+}
+
+.marquee-group {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  padding-right: 35px;
+  font-family: var(--display);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #c8bed5;
+  font-size: 15px;
+}
+
+.marquee-group span {
+  color: var(--pink);
+  font-size: 20px;
+}
+
+@keyframes move {
+  to { transform: translateX(-50%); }
+}
+
+/* GENERAL */
+
+section {
+  position: relative;
+  padding: 115px 0;
+}
+
+.section-top {
+  margin-bottom: 55px;
+}
+
+.section-label {
+  color: var(--pink);
+  margin-bottom: 18px;
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.04;
+  letter-spacing: -.06em;
+  font-weight: 600;
+}
+
+.section-description {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+  max-width: 530px;
+  margin-top: 20px;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-lead {
+  font-family: var(--display);
+  font-size: clamp(26px, 3.5vw, 43px);
+  line-height: 1.28;
+  letter-spacing: -.045em;
+}
+
+.about-lead span {
+  color: var(--pink);
+}
+
+.about-copy {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.about-copy p + p {
+  margin-top: 19px;
+}
+
+.about-highlight {
+  margin-top: 30px;
+  border-left: 2px solid var(--pink);
+  padding: 20px 23px;
+  background: rgba(168,85,247,.08);
+  color: var(--white);
+  font-family: var(--display);
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+/* STRATEGY STATEMENT */
+
+.statement {
+  background: linear-gradient(120deg, #171027, #100c1b 70%);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.statement .background-glow {
+  left: -180px;
+  top: 0;
+}
+
+.statement-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.statement h2 {
+  font-family: var(--display);
+  font-size: clamp(34px, 6vw, 65px);
+  line-height: 1.08;
+  letter-spacing: -.055em;
+  margin-bottom: 30px;
+}
+
+.statement p {
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 750px;
+  font-size: 15px;
+}
+
+.question-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.question {
+  border: 1px solid var(--line);
+  padding: 20px;
+  font-family: var(--display);
+  font-size: 17px;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.question span {
+  color: var(--pink);
+  margin-right: 12px;
+}
+
+/* SERVICES */
+
+.services {
+  background: var(--bg);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.service-card {
+  background: linear-gradient(145deg, #1a1427, #100d19);
+  border: 1px solid var(--line);
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: .4s;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--purple);
+  box-shadow: 0 15px 40px rgba(128,60,190,.12);
+}
+
+.service-number {
+  color: var(--pink);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.service-card h3 {
+  font-family: var(--display);
+  font-size: 26px;
+  margin: 25px 0 14px;
+  letter-spacing: -.04em;
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.service-link {
+  display: inline-block;
+  margin-top: 25px;
+  color: var(--pink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.service-link:hover {
+  color: white;
+}
+
+.service-card::after {
+  content: "✳";
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  color: rgba(220,130,255,.12);
+  font-size: 75px;
+}
+
+/* SERVICE DETAIL */
+
+.service-detail {
+  background: #100c1b;
+  border-top: 1px solid var(--line);
+}
+
+.detail-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.detail-card {
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.025);
+}
+
+.detail-card h3 {
+  font-family: var(--display);
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+
+.detail-card h4 {
+  color: var(--pink);
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin: 23px 0 12px;
+}
+
+.detail-card p,
+.detail-card li {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.detail-card ul {
+  list-style: none;
+}
+
+.detail-card li {
+  padding: 5px 0;
+}
+
+.detail-card li::before {
+  content: "↗";
+  color: var(--pink);
+  margin-right: 10px;
+}
+
+/* PROCESS */
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.process-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  min-height: 235px;
+  transition: .3s;
+}
+
+.process-card:hover {
+  border-color: var(--pink);
+  transform: translateY(-5px);
+}
+
+.process-card .num {
+  font-family: var(--mono);
+  color: var(--pink);
+  font-size: 12px;
+}
+
+.process-card h3 {
+  font-family: var(--display);
+  font-size: 22px;
+  margin: 35px 0 12px;
+}
+
+.process-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* PORTFOLIO */
+
+.portfolio {
+  background: #100c1b;
+  border-top: 1px solid var(--line);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.portfolio-card {
+  min-height: 220px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 80% 20%, rgba(213,93,244,.35), transparent 35%),
+    linear-gradient(135deg, #302044, #120e1d 70%);
+  transition: .4s;
+}
+
+.portfolio-card:nth-child(2n) {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(128,77,255,.4), transparent 35%),
+    linear-gradient(135deg, #221630, #120e1d 70%);
+}
+
+.portfolio-card:hover {
+  transform: scale(1.015);
+  border-color: var(--pink);
+}
+
+.portfolio-card .tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--pink);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: 12px;
+}
+
+.portfolio-card h3 {
+  font-family: var(--display);
+  font-size: 25px;
+  letter-spacing: -.04em;
+}
+
+.portfolio-card p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.portfolio-note {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 20px;
+  line-height: 1.7;
+}
+
+/* CTA */
+
+.cta {
+  overflow: hidden;
+}
+
+.cta .background-glow {
+  right: -120px;
+  top: 0;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+  padding: 65px;
+  border: 1px solid var(--line);
+  background: linear-gradient(120deg, #20132f, #100c1b);
+}
+
+.cta h2 {
+  font-family: var(--display);
+  font-size: clamp(38px, 7vw, 75px);
+  line-height: 1.05;
+  letter-spacing: -.06em;
+  max-width: 800px;
+}
+
+.cta p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-top: 20px;
+  max-width: 520px;
+  font-size: 14px;
+}
+
+/* CONTACT */
+
+.contact {
+  background: #100c1b;
+  border-top: 1px solid var(--line);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.contact-copy {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.contact-email {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: clamp(18px, 3vw, 27px);
+  color: var(--pink);
+  border-bottom: 1px solid var(--pink);
+  padding-bottom: 8px;
+  margin-top: 25px;
+  word-break: break-word;
+}
+
+.contact-email:hover {
+  color: white;
+}
+
+.contact-box {
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+
+.contact-box h3 {
+  font-family: var(--display);
+  font-size: 23px;
+  margin-bottom: 12px;
+}
+
+.contact-box p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 25px 0;
+  border-top: 1px solid var(--line);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a:hover {
+  color: var(--pink);
+}
+
+/* ANIMATIONS */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-content > * {
+  animation: appear 1s both;
+}
+
+.hero-content .availability { animation-delay: .1s; }
+.hero-content h1 { animation-delay: .25s; }
+.hero-content .hero-subtitle { animation-delay: .4s; }
+.hero-content .hero-actions { animation-delay: .55s; }
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a:not(.nav-button) {
+    display: none;
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .question-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 600px) {
+  .container {
+    width: calc(100% - 36px);
+  }
+
+  nav {
+    height: 68px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 145px 0 75px;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+
+  .service-grid,
+  .detail-list,
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    padding: 25px;
+  }
+
+  .cta-content {
+    padding: 30px 22px;
+  }
+
+  .hero-meta {
+    gap: 25px;
+    margin-top: 50px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid-overlay"></div>
+
+<header>
+  <div class="container">
+    <nav>
+      <a href="#home" class="logo">MARIANA<span>.</span>PĂȘTEAN</a>
+
+      <div class="nav-links">
+        <a href="#about">Despre mine</a>
+        <a href="#services">Servicii</a>
+        <a href="#portfolio">Proiecte</a>
+        <a href="#contact" class="nav-button">Hai să discutăm ↗</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="background-glow"></div>
+
+  <div class="container">
+    <div class="hero-content">
+
+      <div class="availability mono">
+        <span class="availability-dot"></span>
+        Brand design · Marketing · Social media
+      </div>
+
+      <h1>
+        MARIANA<br>
+        <span class="gradient-text">PĂȘTEAN.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Designer de brand și specialistă în marketing pentru
+        businessuri care vor o <strong>imagine coerentă și mai multe
+        oportunități online.</strong>
+      </p>
+
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary">
+          Descoperă serviciile ↗
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          Hai să discutăm despre proiectul tău
+        </a>
+      </div>
+
+      <div class="hero-meta">
+        <div>
+          <strong>6+ ani</strong>
+          experiență în resurse umane
+        </div>
+        <div>
+          <strong>2 ani</strong>
+          project management
+        </div>
+        <div>
+          <strong>2025</strong>
+          începutul activității în marketing
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      SOCIAL MEDIA DESIGN <span>✳</span>
+      IDENTITATE VIZUALĂ <span>✳</span>
+      LANDING PAGE DESIGN <span>✳</span>
+      DESIGN GRAFIC <span>✳</span>
+      STRATEGIE <span>✳</span>
+      COPYWRITING <span>✳</span>
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      SOCIAL MEDIA DESIGN <span>✳</span>
+      IDENTITATE VIZUALĂ <span>✳</span>
+      LANDING PAGE DESIGN <span>✳</span>
+      DESIGN GRAFIC <span>✳</span>
+      STRATEGIE <span>✳</span>
+      COPYWRITING <span>✳</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+
+    <div class="section-top reveal">
+      <div class="section-label mono">01 / Despre mine</div>
+      <h2 class="section-title">
+        Creativitate cu<br>
+        <span class="gradient-text">direcție și strategie.</span>
+      </h2>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-lead reveal">
+        Sunt Mariana Păștean, designer de brand și specialistă în
+        marketing. Ajut businessurile să își clarifice
+        <span>imaginea, mesajul și modul în care se prezintă online.</span>
+      </div>
+
+      <div class="about-copy reveal">
+        <p>
+          Experiența mea de peste 6 ani în resurse umane, 2 ani în
+          project management și activitatea din marketing începută
+          în 2025 mă ajută să combin creativitatea cu organizarea,
+          strategia și atenția la obiective.
+        </p>
+
+        <p>
+          Nu creez doar materiale care arată bine. Îmi place să
+          înțeleg ce vrei să transmiți, cui te adresezi și ce
+          trebuie să facă vizitatorul după ce vede conținutul tău.
+        </p>
+
+        <div class="about-highlight">
+          Te ajut să transformi o idee, o ofertă sau un brand
+          într-o comunicare vizuală coerentă, ușor de înțeles
+          și potrivită pentru publicul tău.
+        </div>
+
+        <a href="#contact" class="service-link">
+          Spune-mi ce vrei să construim ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY -->
+<section class="statement">
+  <div class="background-glow"></div>
+
+  <div class="container">
+    <div class="statement-content reveal">
+
+      <div class="section-label mono">02 / Felul în care abordez designul</div>
+
+      <h2>
+        DESIGNUL BUN NU ESTE DOAR DECOR.
+        <span class="gradient-text">ESTE PARTE DIN STRATEGIE.</span>
+      </h2>
+
+      <p>
+        Un brand nu are nevoie doar de un logo sau de postări
+        frumoase. Are nevoie de o imagine coerentă, un mesaj clar
+        și materiale care susțin obiectivele businessului.
+      </p>
+
+      <p style="margin-top:18px;">
+        De aceea, abordez fiecare proiect pornind de la trei întrebări:
+      </p>
+
+      <div class="question-list">
+        <div class="question">
+          <span>01.</span> Ce vrei să transmiți?
+        </div>
+        <div class="question">
+          <span>02.</span> Cui te adresezi?
+        </div>
+        <div class="question">
+          <span>03.</span> Care este următorul pas pe care vrei să îl facă oamenii?
+        </div>
+      </div>
+
+      <p style="margin-top:28px;">
+        Rezultatul este un design care nu doar atrage atenția,
+        ci ajută oamenii să înțeleagă mai repede cine ești și ce oferi.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES OVERVIEW -->
+<section class="services" id="services">
+  <div class="container">
+
+    <div class="section-top reveal">
+      <div class="section-label mono">03 / Serviciile mele</div>
+      <h2 class="section-title">
+        SERVICII PENTRU BRANDURI CARE
+        <span class="gradient-text">VOR SĂ COMUNICE MAI BINE.</span>
+      </h2>
+      <p class="section-description">
+        Ofer servicii de design și marketing pentru businessuri,
+        branduri personale și proiecte care au nevoie de o prezență
+        mai clară și mai profesionistă.
+      </p>
+    </div>
+
+    <div class="service-grid">
+
+      <article class="service-card reveal">
+        <div class="service-number">01 / SOCIAL MEDIA</div>
+        <h3>Social media design</h3>
+        <p>
+          Postări, carusele și stories create pentru o comunicare
+          coerentă, actuală și ușor de recunoscut.
+        </p>
+        <a href="#social-media" class="service-link">Vezi serviciul ↗</a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-number">02 / BRAND IDENTITY</div>
+        <h3>Logo și identitate vizuală</h3>
+        <p>
+          Logo-uri și direcții vizuale care ajută brandul
+          să fie memorabil și consecvent.
+        </p>
+        <a href="#branding" class="service-link">Vezi serviciul ↗</a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-number">03 / WEB DESIGN</div>
+        <h3>Landing page design</h3>
+        <p>
+          Pagini clare și bine structurate pentru servicii,
+          campanii, lansări și colectare de lead-uri.
+        </p>
+        <a href="#landing-page" class="service-link">Vezi serviciul ↗</a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-number">04 / GRAPHIC DESIGN</div>
+        <h3>Design grafic</h3>
+        <p>
+          Flyere, meniuri, broșuri, bannere și alte materiale
+          pentru online și print.
+        </p>
+        <a href="#graphic-design" class="service-link">Vezi serviciul ↗</a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-number">05 / COPYWRITING</div>
+        <h3>Copywriting și storytelling</h3>
+        <p>
+          Texte care explică oferta, susțin brandul și creează
+          o conexiune mai bună cu publicul.
+        </p>
+        <a href="#contact" class="service-link">Discută proiectul ↗</a>
+      </article>
+
+      <article class="service-card reveal">
+        <div class="service-number">06 / STRATEGY</div>
+        <h3>Strategie de social media</h3>
+        <p>
+          Direcții de conținut și idei organizate în jurul
+          obiectivelor brandului.
+        </p>
+        <a href="#strategy" class="service-link">Vezi serviciul ↗</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL MEDIA DETAIL -->
+<section class="service-detail" id="social-media">
+  <div class="container">
+
+    <div class="section-top reveal">
+      <div class="section-label mono">04 / Serviciu</div>
+      <h2 class="section-title">
+        SOCIAL MEDIA
+        <span class="gradient-text">DESIGN.</span>
+      </h2>
+      <p class="section-description">
+        Social media care arată bine și are un scop clar.
+        Creez conținut vizual și direcții de comunicare pentru
+        branduri care vor să fie prezente constant în online,
+        fără să posteze la întâmplare.
+      </p>
+    </div>
+
+    <div class="detail-list">
+
+      <div class="detail-card reveal">
+        <h3>Ce pot crea</h3>
+        <ul>
+          <li>Postări pentru Facebook și Instagram</li>
+          <li>Carusele educaționale sau de prezentare</li>
+          <li>Stories</li>
+          <li>Vizualuri pentru oferte și campanii</li>
+          <li>Template-uri reutilizabile</li>
+          <li>Direcții vizuale pentru conținut</li>
+          <li>Texte pentru postări și storytelling</li>
+        </ul>
+      </div>
+
+      <div class="detail-card reveal">
+        <h3>Pentru cine este</h3>
+        <p>
+          Acest serviciu este potrivit pentru businessuri și
+          branduri personale care vor o prezență mai clară,
+          mai consecventă și mai profesionistă în social media.
+
+        </p>
+
+        <h4>Cum te ajută</h4>
+        <p>
+          Un conținut bine construit te ajută să explici mai bine
+          ceea ce oferi, să construiești încredere și să transformi
+          atenția în conversații cu potențiali clienți.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- BRANDING DETAIL -->
+<section id="branding">
+  <div class="container">
+
+    <div class="section-top reveal">
+      <div class="section-label mono">05 / Serviciu</div>
+      <h2 class="section-title">
+        LOGO ȘI
+        <span class="gradient-text">IDENTITATE VIZUALĂ.</span>
+      </h2>
+      <p class="section-description">
+        O identitate vizuală pe care oamenii o pot recunoaște.
+        Creez logo-uri și direcții vizuale pentru branduri care
+        vor să transmită profesionalism, claritate și personalitate
+        încă de la prima interacțiune.
+      </p>
+    </div>
+
+    <div class="detail-list">
+
+      <div class="detail-card reveal">
+        <h3>Ce pot crea</h3>
+        <ul>
+          <li>Logo</li>
+          <li>Variante de logo</li>
+          <li>Paletă cromatică</li>
+          <li>Combinații de fonturi</li>
+          <li>Elemente grafice</li>
+          <li>Direcție vizuală pentru social media</li>
+          <li>Materiale de bază pentru brand</li>
+        </ul>
+      </div>
+
+      <div class="detail-card reveal">
+        <h3>Pentru cine este</h3>
+        <p>
+          Pentru branduri noi, antreprenori și businessuri care au
+          evoluat, dar a căror imagine nu mai reflectă ceea ce oferă.
+        </p>
+
+        <h4>Cum te ajută</h4>
+        <p>
+          O identitate vizuală coerentă face brandul mai ușor
+          de recunoscut, mai profesionist și mai consecvent
+          pe toate canalele.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LANDING PAGE DETAIL -->
+<section class="service-detail" id="landing-page">
+  <div class="container">
+
+    <div class="section-top reveal">
+      <div class="section-label mono">06 / Serviciu</div>
+      <h2 class="section-title">
+        LANDING PAGE-URI CARE
+        <span class="gradient-text">GHIDEAZĂ OAMENII SPRE ACȚIUNE.</span>
+      </h2>
+      <p class="section-description">
+        Creez design pentru landing page-uri destinate serviciilor,
+        campaniilor, lansărilor și proiectelor care au nevoie de
+        o pagină clară pentru prezentare sau colectare de lead-uri.
+      </p>
+    </div>
+
+    <div class="detail-list">
+
+      <div class="detail-card reveal">
+        <h3>Ce include</h3>
+        <ul>
+          <li>Structură vizuală clară</li>
+          <li>Organizarea secțiunilor</li>
+          <li>Ierarhie vizuală</li>
+          <li>Prezentarea serviciilor</li>
+          <li>Zone pentru testimoniale</li>
+          <li>CTA-uri vizibile</li>
+          <li>Design adaptat identității brandului</li>
+        </ul>
+      </div>
+
+      <div class="detail-card reveal">
+        <h3>Pentru cine este</h3>
+        <p>
+          Pentru antreprenori și businessuri care au o ofertă bună,
+          dar nu reușesc să o explice simplu și convingător
+          într-o singură pagină.
+        </p>
+
+        <h4>Cum te ajută</h4>
+        <p>
+          Un landing page bine organizat reduce confuzia,
+          prezintă oferta într-o ordine logică și îi arată
+          vizitatorului care este pasul următor.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GRAPHIC DESIGN DETAIL -->
+<section id="graphic-design">
+  <div class="container">
+
+    <div class="section-top reveal">
+      <div class="section-label mono">07 / Serviciu</div>
+      <h2 class="section-title">
+        DESIGN GRAFIC.
+        <span class="gradient-text">MESAJ CLAR.</span>
+      </h2>
+      <p class="section-description">
+        Materiale grafice care fac mesajul mai ușor de înțeles.
+        Creez materiale grafice pentru promovare, prezentare și
+        comunicare vizuală, atât pentru online, cât și pentru print.
+      </p>
+    </div>
+
+    <div class="detail-list">
+
+      <div class="detail-card reveal">
+        <h3>Ce pot crea</h3>
+        <ul>
+          <li>Meniuri</li>
+          <li>Broșuri</li>
+          <li>Bannere</li>
+          <li>Cărți de vizită</li>
+          <li>Prezentări</li>
+          <li>Materiale promoționale</li>
+          <li>Vizualuri pentru campanii</li>
+        </ul>
+      </div>
+
+      <div class="detail-card reveal">
+        <h3>Pentru cine este</h3>
+        <p>
+          Pentru businessuri care au nevoie de materiale clare,
+          atractive și aliniate cu imaginea brandului.
+        </p>
+
+        <h4>Cum te ajută</h4>
+        <p>
+          Materialele potrivite susțin oferta, cresc claritatea
+          mesajului și te ajută să ai o imagine unitară în toate
+          punctele de contact cu publicul.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY DETAIL -->
+<section class="service-detail" id="strategy">
+  <div class="container">
+
+    <div class="section-top reveal">
+      <div class="section-label mono">08 / Serviciu</div>
+      <h2 class="section-title">
+        STRATEGIE DE SOCIAL MEDIA.
+        <span class="gradient-text">DIRECȚIE CLARĂ.</span>
+      </h2>
+      <p class="section-description">
+        O direcție clară pentru conținutul brandului tău.
+        Te ajut să îți organizezi comunicarea în social media
+        în jurul unor obiective clare, nu doar în jurul unui
+        calendar de postări.
+      </p>
+    </div>
+
+    <div class="detail-list">
+
+      <div class="detail-card reveal">
+        <h3>Ce pot crea</h3>
+        <ul>
+          <li>Analiză de brand și public</li>
+          <li>Direcții de conținut</li>
+          <li>Piloni de comunicare</li>
+          <li>Idei de postări</li>
+          <li>Recomandări de formate</li>
+          <li>CTA-uri potrivite</li>
+          <li>Structură pentru campanii</li>
+        </ul>
+      </div>
+
+      <div class="detail-card reveal">
+        <h3>Pentru cine este</h3>
+        <p>
+          Pentru businessuri care postează fără o direcție clară,
+          nu știu ce să comunice sau vor să transforme social media
+          într-un canal mai util pentru business.
+        </p>
+
+        <h4>Cum te ajută</h4>
+        <p>
+          O strategie bună îți oferă claritate, consecvență și
+          un mod mai organizat de a transforma conținutul în
+          vizibilitate și conversații.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="container">
+
+    <div class="section-top reveal">
+      <div class="section-label mono">09 / Abordarea mea</div>
+      <h2 class="section-title">
+        Începem cu ideea.
+        <span class="gradient-text">Construim direcția.</span>
+      </h2>
+    </div>
+
+    <div class="process-grid">
+
+      <article class="process-card reveal">
+        <div class="num">01 / ÎNȚELEGERE</div>
+        <h3>Ce vrei să transmiți?</h3>
+        <p>
+          Înțelegem ideea, oferta, brandul și publicul căruia
+          i te adresezi.
+        </p>
+      </article>
+
+      <article class="process-card reveal">
+        <div class="num">02 / DIRECȚIE</div>
+        <h3>Ce trebuie construit?</h3>
+        <p>
+          Alegem serviciile potrivite și stabilim direcția
+          vizuală și de comunicare.
+        </p>
+      </article>
+
+      <article class="process-card reveal">
+        <div class="num">03 / EXECUȚIE</div>
+        <h3>Transformăm ideea în proiect.</h3>
+        <p>
+          Construim materialele și comunicarea potrivite
+          obiectivelor proiectului tău.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+
+    <div class="section-top reveal">
+      <div class="section-label mono">10 / Portofoliu</div>
+      <h2 class="section-title">
+        Idei transformate în
+        <span class="gradient-text">design.</span>
+      </h2>
+      <p class="section-description">
+        Proiectele mele includ materiale pentru social media,
+        identități vizuale, landing page-uri și materiale grafice
+        pentru online și print.
+      </p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <article class="portfolio-card reveal">
+        <div class="tag">Social Media Design</div>
+        <h3>Postări & carusele</h3>
+        <p>Conținut vizual pentru Facebook și Instagram.</p>
+      </article>
+
+      <article class="portfolio-card reveal">
+        <div class="tag">Brand Identity</div>
+        <h3>Logo & identitate vizuală</h3>
+        <p>Logo-uri, palete cromatice și direcții vizuale.</p>
+      </article>
+
+      <article class="portfolio-card reveal">
+        <div class="tag">Landing Page Design</div>
+        <h3>Pagini de prezentare</h3>
+        <p>Structuri vizuale pentru oferte și proiecte digitale.</p>
+      </article>
+
+      <article class="portfolio-card reveal">
+        <div class="tag">Graphic Design</div>
+        <h3>Materiale online & print</h3>
+        <p>Meniuri, broșuri, bannere și materiale promoționale.</p>
+      </article>
+
+    </div>
+
+    <p class="portfolio-note">
+      Notă: această secțiune descrie categoriile de proiecte
+      prezentate în portofoliul PDF. Pentru afișarea imaginilor
+      originale ale lucrărilor, adaugă fotografiile exportate
+      din Canva în repository și înlocuiește cardurile cu imagini.
+    </p>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="background-glow"></div>
+
+  <div class="container">
+    <div class="cta-content reveal">
+
+      <div class="section-label mono">11 / Proiectul tău</div>
+
+      <h2>
+        Ai o idee?
+        <span class="gradient-text">Hai să îi dăm o direcție.</span>
+      </h2>
+
+      <p>
+        Combinăm serviciile potrivite pentru proiectul și
+        obiectivele tale. Spune-mi ce vrei să construim,
+        iar eu îți recomand direcția potrivită.
+      </p>
+
+      <a href="#contact" class="btn btn-primary" style="margin-top:28px;">
+        Solicită o ofertă personalizată ↗
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+
+    <div class="contact-grid">
+
+      <div class="reveal">
+        <div class="section-label mono">12 / Contact</div>
+
+        <h2 class="section-title">
+          HAI SĂ DISCUTĂM
+          <span class="gradient-text">DESPRE PROIECTUL TĂU.</span>
+        </h2>
+
+        <p class="contact-copy">
+          Trimite-mi detaliile proiectului și revin cu o recomandare.
+          Putem discuta despre identitate vizuală, social media,
+          landing page design sau materiale grafice.
+        </p>
+
+        <a href="mailto:mariana.pastean@gmail.com"
+           class="contact-email">
+          mariana.pastean@gmail.com ↗
+        </a>
+      </div>
+
+      <div class="contact-box reveal">
+        <h3>Ofertă personalizată</h3>
+        <p>
+          Combinăm serviciile potrivite pentru proiectul și
+          obiectivele tale. Spune-mi ce vrei să promovezi,
+          iar eu îți recomand direcția potrivită.
+        </p>
+
+        <a href="mailto:mariana.pastean@gmail.com?subject=Solicitare%20oferta%20proiect"
+           class="btn btn-primary" style="margin-top:25px;">
+          Solicită ofertă ↗
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+
+      <div>© <span id="year"></span> Mariana Păștean</div>
+
+      <div>Brand Design · Marketing · Social Media</div>
+
+      <div class="footer-links">
+        <a href="mailto:mariana.pastean@gmail.com">Email</a>
+        <a href="#home">Înapoi sus ↑</a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Anul curent
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  // Animații la scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12
+  });
+
+  document.querySelectorAll(".reveal").forEach((element) => {
+    observer.observe(element);
+  });
+</script>
+
+</body>
+</html>
