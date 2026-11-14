@@ -18,10 +18,10 @@
       --bg-soft: #10121d;
       --panel: rgba(19, 22, 35, .76);
       --white: #f5f5fa;
-      --muted: #a6a9bb;
-      --purple: #a78bfa;
-      --pink: #f08bc8;
-      --cyan: #73e5ed;
+      --muted: #c4c6d4;
+      --purple: #b69aff;
+      --pink: #f3a1d4;
+      --cyan: #8af0f4;
       --line: rgba(255,255,255,.12);
       --mono: "DM Mono", monospace;
       --sans: "Manrope", sans-serif;
@@ -133,7 +133,7 @@
     }
 
     .section-intro {
-      color: var(--muted);
+      color: #c9cad7;
       font-size: 16px;
       line-height: 1.9;
       max-width: 590px;
@@ -151,7 +151,7 @@
       position: absolute;
       top: 65px;
       right: 0;
-      color: rgba(255,255,255,.13);
+      color: rgba(255,255,255,.32);
       font-family: var(--mono);
       font-size: 12px;
       letter-spacing: .12em;
@@ -201,7 +201,7 @@
     }
 
     .nav-links a {
-      color: #c3c5d1;
+      color: #d2d3df;
       font-size: 11px;
       transition: color .25s;
     }
@@ -274,7 +274,7 @@
 
     .hero-description {
       max-width: 510px;
-      color: #c0c2d0;
+      color: #d0d1dd;
       font-size: 16px;
       line-height: 1.9;
       margin-top: 38px;
@@ -320,13 +320,14 @@
     .hero-art {
       position: absolute;
       z-index: 1;
-      width: min(66vw, 900px);
-      height: min(66vw, 900px);
-      right: -7%;
+      width: min(75vw, 1000px);
+      height: min(75vw, 1000px);
+      right: -10%;
       top: 50%;
       transform: translateY(-50%);
       pointer-events: none;
       opacity: .98;
+      overflow: visible;
     }
 
     .hero-art canvas,
@@ -345,7 +346,7 @@
       font-size: 9px;
       line-height: 1.9;
       letter-spacing: .12em;
-      color: rgba(255,255,255,.58);
+      color: rgba(255,255,255,.75);
       text-align: right;
     }
 
@@ -357,7 +358,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
-      color: #777b90;
+      color: #aeb1c2;
       font-family: var(--mono);
       font-size: 9px;
       letter-spacing: .12em;
@@ -383,7 +384,7 @@
       z-index: 3;
       font-family: var(--mono);
       font-size: 9px;
-      color: rgba(255,255,255,.55);
+      color: rgba(255,255,255,.72);
       letter-spacing: .14em;
       text-transform: uppercase;
       animation: float 6s ease-in-out infinite;
@@ -420,7 +421,7 @@
       align-items: center;
       gap: 28px;
       padding: 0 28px;
-      color: #c9c5da;
+      color: #dedbea;
       font-size: 12px;
       font-weight: 700;
       text-transform: uppercase;
@@ -448,7 +449,7 @@
     }
 
     .about-copy p {
-      color: #c0c2d0;
+      color: #c9cad7;
       font-size: 16px;
       line-height: 2;
       margin-bottom: 20px;
@@ -459,11 +460,9 @@
     .about-visual {
       min-height: 490px;
       position: relative;
-      border: 1px solid var(--line);
-      background:
-        radial-gradient(circle at 50% 45%, rgba(127,90,210,.17), transparent 48%),
-        linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.005));
-      overflow: hidden;
+      border: 0;
+      background: transparent;
+      overflow: visible;
       display: grid;
       place-items: center;
     }
@@ -472,26 +471,26 @@
     .about-visual::after {
       content: "";
       position: absolute;
-      border: 1px solid rgba(167,139,250,.22);
+      border: 1px solid rgba(167,139,250,.16);
       border-radius: 50%;
       width: 340px;
       height: 340px;
-      animation: orbit 22s linear infinite;
+      animation: orbit 32s linear infinite;
     }
 
     .about-visual::after {
       width: 430px;
       height: 430px;
-      border-color: rgba(115,229,237,.12);
+      border-color: rgba(115,229,237,.10);
       animation-direction: reverse;
-      animation-duration: 30s;
+      animation-duration: 45s;
     }
 
     @keyframes orbit { to { transform: rotate(360deg); } }
 
     .about-visual .object-canvas {
       position: absolute;
-      inset: 0;
+      inset: -12%;
       z-index: 2;
     }
 
@@ -504,7 +503,7 @@
       font-size: 9px;
       letter-spacing: .12em;
       line-height: 1.8;
-      color: #aeb2c7;
+      color: #c7c9d7;
     }
 
     .visual-index {
@@ -554,7 +553,7 @@
       position: relative;
       min-height: 390px;
       padding: 35px;
-      overflow: hidden;
+      overflow: visible;
       border: 1px solid rgba(255,255,255,.12);
       background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.012));
       transition: border-color .4s, transform .4s, background .4s;
@@ -588,7 +587,7 @@
     }
 
     .service-card p {
-      color: var(--muted);
+      color: #c9cad7;
       font-size: 13px;
       line-height: 1.85;
       max-width: 350px;
@@ -599,12 +598,13 @@
 
     .service-art {
       position: absolute;
-      width: 230px;
-      height: 230px;
-      right: -32px;
-      bottom: -50px;
-      opacity: .88;
+      width: 260px;
+      height: 260px;
+      right: -60px;
+      bottom: -75px;
+      opacity: .92;
       pointer-events: none;
+      overflow: visible;
     }
 
     .service-art canvas { width: 100%; height: 100%; }
@@ -614,7 +614,7 @@
       top: 30px;
       right: 30px;
       font-size: 22px;
-      color: rgba(255,255,255,.55);
+      color: rgba(255,255,255,.75);
       transition: transform .3s, color .3s;
     }
 
@@ -654,10 +654,11 @@
       right: -5%;
       top: 50%;
       transform: translateY(-50%);
-      width: 500px;
-      height: 500px;
-      opacity: .5;
+      width: 600px;
+      height: 600px;
+      opacity: .65;
       pointer-events: none;
+      overflow: visible;
     }
 
     .manifesto-art canvas { width: 100%; height: 100%; }
@@ -676,14 +677,14 @@
       height: 520px;
       position: sticky;
       top: 120px;
-      border: 1px solid var(--line);
-      background: radial-gradient(circle at center, rgba(105,82,171,.18), transparent 65%);
-      overflow: hidden;
+      border: 0;
+      background: radial-gradient(circle at center, rgba(105,82,171,.12), transparent 70%);
+      overflow: visible;
     }
 
     .approach-visual .object-canvas {
       position: absolute;
-      inset: 0;
+      inset: -12%;
     }
 
     .approach-visual .visual-caption { z-index: 5; }
@@ -714,7 +715,7 @@
     }
 
     .approach-item p {
-      color: var(--muted);
+      color: #c9cad7;
       font-size: 14px;
       line-height: 1.9;
       max-width: 520px;
@@ -760,7 +761,7 @@
     }
 
     .experience-card p {
-      color: var(--muted);
+      color: #c9cad7;
       font-size: 14px;
       line-height: 1.9;
     }
@@ -781,10 +782,10 @@
 
     .skill {
       padding: 10px 13px;
-      border: 1px solid rgba(255,255,255,.15);
-      color: #d3d4df;
+      border: 1px solid rgba(255,255,255,.2);
+      color: #e0e0eb;
       font-size: 11px;
-      background: rgba(255,255,255,.025);
+      background: rgba(255,255,255,.04);
     }
 
     /* PORTFOLIO */
@@ -815,11 +816,13 @@
     .portfolio-art {
       position: absolute;
       inset: 0;
-      opacity: .85;
+      opacity: .95;
+      overflow: visible;
+      transform: scale(1.08);
       transition: transform .7s;
     }
 
-    .portfolio-card:hover .portfolio-art { transform: scale(1.07); }
+    .portfolio-card:hover .portfolio-art { transform: scale(1.16); }
 
     .portfolio-art canvas { width: 100%; height: 100%; }
 
@@ -827,7 +830,7 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      background: linear-gradient(0deg, rgba(7,8,15,.98), transparent 75%);
+      background: linear-gradient(0deg, rgba(7,8,15,.98), rgba(7,8,15,.12) 75%);
     }
 
     .portfolio-info {
@@ -847,7 +850,7 @@
     }
 
     .portfolio-info p {
-      color: #b7b9c8;
+      color: #d0d1dd;
       font-size: 12px;
       line-height: 1.7;
       max-width: 390px;
@@ -855,7 +858,7 @@
     }
 
     .portfolio-note {
-      color: var(--muted);
+      color: #c0c2d0;
       font-size: 12px;
       line-height: 1.8;
       margin-top: 25px;
@@ -892,7 +895,7 @@
     .contact-panel p {
       position: relative;
       z-index: 3;
-      color: #c4c6d2;
+      color: #d0d1dd;
       line-height: 1.9;
       max-width: 470px;
       margin-top: 28px;
@@ -901,13 +904,14 @@
 
     .contact-art {
       position: absolute;
-      width: 500px;
-      height: 500px;
-      right: -70px;
+      width: 580px;
+      height: 580px;
+      right: -100px;
       top: 50%;
       transform: translateY(-50%);
-      opacity: .65;
+      opacity: .72;
       pointer-events: none;
+      overflow: visible;
     }
 
     .contact-art canvas { width: 100%; height: 100%; }
@@ -928,7 +932,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      color: #85899d;
+      color: #b6b8c8;
       font-family: var(--mono);
       font-size: 9px;
       letter-spacing: .1em;
@@ -969,15 +973,14 @@
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
-      .hero-art { right: -25%; opacity: .52; }
+      .hero-art { right: -25%; opacity: .58; }
       .about-grid, .approach-grid { grid-template-columns: 1fr; gap: 45px; }
       .about-visual { min-height: 420px; }
-      .approach-visual { position: relative; top: auto; height: 400px; }
       .services-top { display: block; }
       .services-top .section-intro { max-width: 550px; }
-      .manifesto-art { right: -25%; opacity: .25; }
+      .manifesto-art { right: -25%; opacity: .3; }
       .experience-layout { gap: 20px; }
-      .contact-art { right: -190px; opacity: .35; }
+      .contact-art { right: -190px; opacity: .4; }
     }
 
     @media (max-width: 650px) {
@@ -986,7 +989,7 @@
       .nav-links a:not(.nav-cta) { display: none; }
       .nav-cta { padding: 9px 11px; }
       .hero { min-height: 790px; min-height: 95svh; }
-      .hero-art { width: 120vw; height: 120vw; right: -48%; top: 55%; opacity: .42; }
+      .hero-art { width: 120vw; height: 120vw; right: -48%; top: 55%; opacity: .48; }
       .hero h1 { font-size: clamp(60px, 17vw, 95px); }
       .hero-description { font-size: 14px; max-width: 390px; }
       .hero-bottom { bottom: 20px; font-size: 8px; }
@@ -1001,7 +1004,7 @@
       .service-card { min-height: 350px; padding: 27px; }
       .service-card:nth-child(n) { margin: 0; }
       .service-card h3 { font-size: 32px; }
-      .service-art { width: 190px; height: 190px; }
+      .service-art { width: 210px; height: 210px; right: -40px; bottom: -45px; }
       .manifesto { padding: 100px 0; }
       .manifesto h2 { font-size: clamp(42px, 12vw, 68px); }
       .approach-grid { margin-top: 45px; }
@@ -1015,7 +1018,7 @@
       .contact-section { padding: 95px 0 70px; }
       .contact-panel { padding: 42px 25px; min-height: 470px; }
       .contact-panel h2 { font-size: clamp(48px, 13vw, 75px); }
-      .contact-art { width: 360px; height: 360px; right: -170px; top: 65%; }
+      .contact-art { width: 400px; height: 400px; right: -190px; top: 65%; }
       .footer-inner { flex-direction: column; align-items: flex-start; }
     }
 
@@ -1483,37 +1486,41 @@
     const scenes = [];
 
     const palette = {
-      purple: 0x9b7aff,
-      pink: 0xe78bc9,
-      cyan: 0x70e3ed,
-      blue: 0x5274d8,
-      white: 0xe9e6ff
+      purple: 0xb69aff,
+      pink: 0xf3a1d4,
+      cyan: 0x8af0f4,
+      blue: 0x8299ff,
+      white: 0xf3efff
     };
 
-    function makeMaterial(color, metalness = 0.65, roughness = 0.22, transparent = false) {
+    function makeMaterial(color, metalness = 0.35, roughness = 0.3, transparent = false) {
       return new THREE.MeshPhysicalMaterial({
         color,
         metalness,
         roughness,
         transparent,
-        opacity: transparent ? 0.72 : 1,
+        opacity: transparent ? 0.42 : 0.88,
         clearcoat: 1,
-        clearcoatRoughness: 0.15
+        clearcoatRoughness: 0.12,
+        reflectivity: 0.9,
+        iridescence: 0.7,
+        iridescenceIOR: 1.35,
+        iridescenceThicknessRange: [100, 450]
       });
     }
 
     function addLights(scene) {
-      scene.add(new THREE.AmbientLight(0x9b9acb, 1.3));
+      scene.add(new THREE.AmbientLight(0xb9b3e8, 1.65));
 
-      const key = new THREE.PointLight(0x9c78ff, 85, 12);
+      const key = new THREE.PointLight(0xb69aff, 55, 16);
       key.position.set(3, 3, 4);
       scene.add(key);
 
-      const cyan = new THREE.PointLight(0x62eaff, 70, 12);
+      const cyan = new THREE.PointLight(0x8af0f4, 45, 16);
       cyan.position.set(-3, -2, 3);
       scene.add(cyan);
 
-      const pink = new THREE.PointLight(0xe47acb, 45, 10);
+      const pink = new THREE.PointLight(0xf3a1d4, 35, 14);
       pink.position.set(0, 3, -3);
       scene.add(pink);
     }
@@ -1545,10 +1552,10 @@
       geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
       const material = new THREE.PointsMaterial({
-        size: isMobile ? 0.018 : 0.025,
+        size: isMobile ? 0.014 : 0.019,
         vertexColors: true,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.62,
         sizeAttenuation: true,
         depthWrite: false
       });
@@ -1559,8 +1566,18 @@
     }
 
     function makeRing(group, radius, tube, color, rotationX, rotationY) {
-      const geometry = new THREE.TorusGeometry(radius, tube, 16, 120);
-      const mesh = new THREE.Mesh(geometry, makeMaterial(color, .8, .2, true));
+      const geometry = new THREE.TorusGeometry(radius, tube, 12, 160);
+      const material = new THREE.MeshPhysicalMaterial({
+        color,
+        metalness: .65,
+        roughness: .2,
+        transparent: true,
+        opacity: .32,
+        clearcoat: 1,
+        iridescence: .8
+      });
+
+      const mesh = new THREE.Mesh(geometry, material);
       mesh.rotation.x = rotationX;
       mesh.rotation.y = rotationY;
       group.add(mesh);
@@ -1573,56 +1590,58 @@
 
       switch (type) {
         case "hero":
-          geometry = new THREE.TorusKnotGeometry(1.05, .29, 220, 24, 2, 5);
-          material = makeMaterial(palette.purple, .85, .16);
+          geometry = new THREE.TorusKnotGeometry(1.05, .18, 280, 20, 2, 5);
+          material = makeMaterial(palette.purple, .5, .2);
           break;
         case "about":
-          geometry = new THREE.IcosahedronGeometry(1.25, 2);
-          material = makeMaterial(palette.cyan, .7, .17);
+          geometry = new THREE.IcosahedronGeometry(1.15, 3);
+          material = makeMaterial(palette.cyan, .35, .16, true);
           break;
         case "rings":
-          geometry = new THREE.DodecahedronGeometry(1.1, 1);
-          material = makeMaterial(palette.purple, .85, .18);
+          geometry = new THREE.DodecahedronGeometry(1.1, 2);
+          material = makeMaterial(palette.purple, .45, .18, true);
           break;
         case "knot":
-          geometry = new THREE.TorusKnotGeometry(1, .2, 180, 20, 3, 7);
-          material = makeMaterial(palette.pink, .8, .2);
+          geometry = new THREE.TorusKnotGeometry(1, .15, 260, 20, 3, 7);
+          material = makeMaterial(palette.pink, .4, .18, true);
           break;
         case "crystal":
-          geometry = new THREE.OctahedronGeometry(1.25, 1);
-          material = makeMaterial(palette.cyan, .8, .12);
+          geometry = new THREE.OctahedronGeometry(1.25, 2);
+          material = makeMaterial(palette.cyan, .5, .12, true);
           break;
         case "orb":
-          geometry = new THREE.SphereGeometry(1.15, 64, 64);
+          geometry = new THREE.SphereGeometry(1.15, 96, 96);
           material = new THREE.MeshPhysicalMaterial({
             color: palette.purple,
-            metalness: .25,
-            roughness: .12,
-            transmission: .3,
-            thickness: 1.5,
-            clearcoat: 1
+            metalness: .18,
+            roughness: .09,
+            transmission: .55,
+            thickness: 1.8,
+            clearcoat: 1,
+            iridescence: .8,
+            iridescenceIOR: 1.3
           });
           break;
         case "portal":
-          geometry = new THREE.TorusGeometry(1.15, .17, 24, 160);
-          material = makeMaterial(palette.cyan, .8, .12);
+          geometry = new THREE.TorusGeometry(1.15, .11, 20, 180);
+          material = makeMaterial(palette.cyan, .55, .12, true);
           break;
         case "wave":
         case "fluid":
-          geometry = new THREE.TorusKnotGeometry(1, .26, 180, 20, 2, 3);
-          material = makeMaterial(palette.pink, .75, .16);
+          geometry = new THREE.TorusKnotGeometry(1, .18, 260, 20, 2, 3);
+          material = makeMaterial(palette.pink, .4, .16, true);
           break;
         case "particles":
-          geometry = new THREE.IcosahedronGeometry(.95, 2);
-          material = makeMaterial(palette.purple, .7, .22, true);
+          geometry = new THREE.IcosahedronGeometry(.95, 3);
+          material = makeMaterial(palette.purple, .35, .22, true);
           break;
         case "tech":
-          geometry = new THREE.TorusGeometry(1, .13, 12, 100);
-          material = makeMaterial(palette.cyan, .9, .15);
+          geometry = new THREE.TorusGeometry(1, .09, 12, 160);
+          material = makeMaterial(palette.cyan, .55, .15, true);
           break;
         case "contact":
-          geometry = new THREE.TorusKnotGeometry(1.1, .22, 220, 24, 2, 5);
-          material = makeMaterial(palette.purple, .85, .12);
+          geometry = new THREE.TorusKnotGeometry(1.1, .16, 280, 20, 2, 5);
+          material = makeMaterial(palette.purple, .5, .12, true);
           break;
         default:
           geometry = new THREE.IcosahedronGeometry(1, 2);
@@ -1638,28 +1657,40 @@
       const ringColors = [palette.cyan, palette.purple, palette.pink];
 
       if (["hero", "about", "portal", "contact", "wave"].includes(type)) {
-        makeRing(group, 1.7, .012, ringColors[0], 1.15, .2);
-        makeRing(group, 2.05, .009, ringColors[1], .45, 1.0);
-        makeRing(group, 2.4, .008, ringColors[2], 1.7, .5);
+        makeRing(group, 1.65, .008, ringColors[0], 1.15, .2);
+        makeRing(group, 2.05, .006, ringColors[1], .45, 1.0);
+        makeRing(group, 2.4, .005, ringColors[2], 1.7, .5);
       } else if (["rings", "tech", "orb"].includes(type)) {
-        makeRing(group, 1.5, .018, ringColors[0], 1.3, .3);
-        makeRing(group, 1.85, .012, ringColors[1], .5, .8);
+        makeRing(group, 1.5, .01, ringColors[0], 1.3, .3);
+        makeRing(group, 1.85, .007, ringColors[1], .5, .8);
       } else {
-        makeRing(group, 1.5, .015, ringColors[0], 1.0, .4);
+        makeRing(group, 1.5, .009, ringColors[0], 1.0, .4);
       }
 
-      const smallGeometry = new THREE.SphereGeometry(.055, 16, 16);
-      const smallMaterial = makeMaterial(palette.cyan, .8, .15);
+      const smallGeometry = new THREE.SphereGeometry(.035, 16, 16);
+      const smallMaterial = new THREE.MeshPhysicalMaterial({
+        color: palette.cyan,
+        emissive: palette.cyan,
+        emissiveIntensity: .22,
+        metalness: .3,
+        roughness: .2,
+        transparent: true,
+        opacity: .65
+      });
 
       for (let i = 0; i < 8; i++) {
         const dot = new THREE.Mesh(smallGeometry, smallMaterial);
         const angle = (i / 8) * Math.PI * 2;
-        dot.position.set(Math.cos(angle) * 2.2, Math.sin(angle) * 2.2, Math.sin(angle * 2) * .3);
+        dot.position.set(
+          Math.cos(angle) * 2.2,
+          Math.sin(angle) * 2.2,
+          Math.sin(angle * 2) * .3
+        );
         group.add(dot);
       }
 
-      if (type === "hero" || type === "particles" || type === "fluid") {
-        makeParticles(group, isMobile ? 180 : 480);
+      if (["hero", "particles", "fluid", "contact"].includes(type)) {
+        makeParticles(group, isMobile ? 140 : 320);
       }
     }
 
@@ -1676,8 +1707,11 @@
         powerPreference: "low-power"
       });
 
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.3 : 1.8));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.2 : 1.6));
       renderer.setClearColor(0x000000, 0);
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.15;
+
       element.appendChild(renderer.domElement);
 
       addLights(scene);
@@ -1692,11 +1726,18 @@
         core.scale.setScalar(1.12);
       }
 
-      const size = new THREE.Vector2();
+      if (type === "about") {
+        group.scale.setScalar(.9);
+      }
+
+      if (type === "contact") {
+        group.scale.setScalar(1.08);
+      }
 
       function resize() {
         const width = Math.max(element.clientWidth, 1);
         const height = Math.max(element.clientHeight, 1);
+
         renderer.setSize(width, height, false);
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
@@ -1706,6 +1747,19 @@
 
       const observer = new ResizeObserver(resize);
       observer.observe(element);
+
+      const pointer = { x: 0, y: 0 };
+
+      element.addEventListener("pointermove", event => {
+        const rect = element.getBoundingClientRect();
+        pointer.x = ((event.clientX - rect.left) / rect.width - .5) * 2;
+        pointer.y = ((event.clientY - rect.top) / rect.height - .5) * 2;
+      }, { passive: true });
+
+      element.addEventListener("pointerleave", () => {
+        pointer.x = 0;
+        pointer.y = 0;
+      });
 
       scenes.push({
         scene,
@@ -1717,7 +1771,8 @@
         element,
         observer,
         visible: false,
-        time: Math.random() * 10
+        time: Math.random() * 10,
+        pointer
       });
     }
 
@@ -1743,20 +1798,26 @@
         if (!item.visible && item.type !== "hero") return;
 
         const t = reducedMotion ? 0 : elapsed + item.time;
-        const speed = item.type === "hero" ? .16 : .25;
+        const speed = item.type === "hero" ? .10 : .15;
 
-        item.group.rotation.y = t * speed;
-        item.group.rotation.x = Math.sin(t * .28) * .12;
+        // Mișcare lentă, organică, fără rotații rigide.
+        const targetX = item.pointer.y * .12;
+        const targetY = item.pointer.x * .16;
 
-        item.core.rotation.x += reducedMotion ? 0 : .0025;
-        item.core.rotation.z += reducedMotion ? 0 : .0015;
+        item.group.rotation.y += (targetY + Math.sin(t * .22) * .1 - item.group.rotation.y) * .012;
+        item.group.rotation.x += (targetX + Math.cos(t * .19) * .07 - item.group.rotation.x) * .012;
 
-        const floatAmount = item.type === "hero" ? .12 : .07;
-        item.group.position.y = reducedMotion ? 0 : Math.sin(t * .7) * floatAmount;
+        item.core.rotation.x = Math.sin(t * speed) * .2;
+        item.core.rotation.y += reducedMotion ? 0 : .0015;
+        item.core.rotation.z = Math.cos(t * .16) * .12;
 
-        if (item.type === "hero") {
-          item.group.rotation.y += Math.sin(t * .2) * .001;
-        }
+        const floatAmount = item.type === "hero" ? .16 : .12;
+        item.group.position.y = reducedMotion ? 0 : Math.sin(t * .42) * floatAmount;
+        item.group.position.x = reducedMotion ? 0 : Math.sin(t * .24) * .07;
+
+        // Mică variație de scară, ca o respirație subtilă.
+        const breathing = reducedMotion ? 1 : 1 + Math.sin(t * .55) * .018;
+        item.group.scale.setScalar(breathing);
 
         item.renderer.render(item.scene, item.camera);
       });
