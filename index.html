@@ -4,965 +4,860 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#100f10">
-  <meta name="description" content="Mariana Păștean — Brand Strategy, Marketing, Communication & Digital Experiences. Strategie cu intenție. Comunicare cu scop.">
-  <title>Mariana Păștean — Brand Strategy & Digital Experiences</title>
+  <meta name="theme-color" content="#100b18">
+  <meta name="description" content="Mariana Păștean — Brand Designer & Marketing Strategist. Identitate vizuală, social media, landing pages și design grafic.">
+  <title>Mariana Păștean | Brand Design & Marketing</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
     :root {
-      --bg: #100f10;
-      --bg-soft: #171516;
-      --panel: #1d1a1b;
-      --panel-light: #242021;
-      --text: #eee8e2;
-      --muted: #a49a96;
-      --muted-dark: #716967;
-      --gold: #c6a77b;
-      --gold-light: #e3c9a4;
-      --line: rgba(220,195,160,.17);
-      --serif: "EB Garamond", Georgia, serif;
-      --sans: "DM Sans", sans-serif;
-      --max: 1240px;
+      --bg: #100b18;
+      --bg-soft: #181020;
+      --panel: #21162c;
+      --panel-light: #2b1d38;
+      --white: #fff9ff;
+      --muted: #c3b4cb;
+      --pink: #f18bd7;
+      --violet: #a65cff;
+      --purple: #7138c7;
+      --champagne: #e8cda9;
+      --line: rgba(255,255,255,.12);
+      --gradient: linear-gradient(120deg,#f18bd7,#a65cff 55%,#e8cda9);
+      --shadow: 0 24px 70px rgba(0,0,0,.35);
+      --radius: 24px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-weight: 300;
-      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 10% 10%, rgba(113,56,199,.19), transparent 35%),
+        radial-gradient(ellipse at 90% 45%, rgba(241,139,215,.10), transparent 35%),
+        var(--bg);
+      color: var(--white);
+      font-family: "DM Sans", sans-serif;
       line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 20;
-      opacity: .12;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E");
-    }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    ::selection {
-      background: var(--gold);
-      color: #171313;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 100px));
-      margin: auto;
-    }
+    .container { width: min(1160px, 90%); margin: auto; }
 
     .eyebrow {
-      color: var(--gold);
+      color: var(--pink);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .22em;
       text-transform: uppercase;
-      letter-spacing: .19em;
-      font-size: 10px;
-      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .section {
-      position: relative;
-      padding: 130px 0;
-      overflow: hidden;
+    .eyebrow::before {
+      content: "";
+      width: 25px;
+      height: 1px;
+      background: var(--pink);
     }
+
+    h1, h2, h3, .serif { font-family: "Playfair Display", serif; }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.12;
+      font-weight: 600;
+      letter-spacing: -.035em;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .section { padding: 110px 0; position: relative; }
 
     .section-heading {
-      max-width: 760px;
-      margin-bottom: 65px;
+      max-width: 720px;
+      margin-bottom: 48px;
     }
 
-    .section-heading h2 {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(48px, 6vw, 82px);
-      line-height: .98;
-      letter-spacing: -.035em;
-      margin-top: 22px;
-    }
-
-    .section-heading h2 em {
-      color: var(--gold-light);
-      font-weight: 400;
-    }
+    .section-heading h2 { margin: 16px 0; }
 
     .section-heading p {
       color: var(--muted);
-      max-width: 610px;
-      margin-top: 25px;
-      font-size: 14px;
+      max-width: 630px;
     }
 
-    .gold-line {
-      height: 1px;
-      width: 55px;
-      background: var(--gold);
-      margin-top: 25px;
-      opacity: .7;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      border: 0;
+      border-radius: 100px;
+      padding: 15px 24px;
+      font-size: .88rem;
+      font-weight: 700;
+      transition: .3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      color: #1b1020;
+      background: var(--gradient);
+      box-shadow: 0 10px 35px rgba(166,92,255,.23);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 42px rgba(241,139,215,.3);
+    }
+
+    .btn-outline {
+      color: var(--white);
+      border: 1px solid rgba(241,139,215,.55);
+      background: rgba(255,255,255,.03);
+    }
+
+    .btn-outline:hover {
+      background: rgba(241,139,215,.12);
+      transform: translateY(-3px);
     }
 
     /* NAVIGATION */
 
-    .nav {
+    .navbar {
       position: fixed;
-      z-index: 100;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 22px 0;
-      border-bottom: 1px solid transparent;
-      transition: .4s ease;
-    }
-
-    .nav.scrolled {
-      background: rgba(16,15,16,.92);
+      z-index: 1000;
+      inset: 0 0 auto;
+      background: rgba(16,11,24,.82);
       backdrop-filter: blur(18px);
-      border-color: var(--line);
-      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
     }
 
     .nav-inner {
-      width: min(var(--max), calc(100% - 100px));
-      margin: auto;
+      height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 25px;
     }
 
     .logo {
-      font-family: var(--serif);
-      font-size: 29px;
-      letter-spacing: .04em;
-      color: var(--gold-light);
+      font-family: "Playfair Display", serif;
+      font-size: 1.18rem;
+      letter-spacing: .06em;
+      font-weight: 700;
+      white-space: nowrap;
     }
+
+    .logo span { color: var(--pink); }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 25px;
+      list-style: none;
     }
 
     .nav-links a {
-      color: #c7bfba;
-      font-size: 11px;
-      transition: color .3s;
+      color: var(--muted);
+      font-size: .78rem;
+      transition: .25s;
     }
 
-    .nav-links a:hover {
-      color: var(--gold-light);
-    }
+    .nav-links a:hover { color: var(--pink); }
 
-    .nav-contact {
-      border: 1px solid rgba(198,167,123,.5);
-      padding: 9px 17px;
-      color: var(--gold-light) !important;
-    }
+    .nav-cta { padding: 11px 18px; font-size: .76rem; }
 
     .menu-toggle {
       display: none;
-      background: none;
-      border: 0;
-      color: var(--text);
-      font-size: 25px;
+      border: 1px solid var(--line);
+      color: white;
+      background: var(--panel);
+      border-radius: 12px;
+      width: 43px;
+      height: 43px;
       cursor: pointer;
     }
 
     /* HERO */
 
     .hero {
-      min-height: 100vh;
-      position: relative;
+      min-height: 760px;
+      padding: 150px 0 100px;
       display: flex;
       align-items: center;
-      padding: 150px 0 100px;
+      position: relative;
       isolation: isolate;
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      z-index: -2;
-      width: 650px;
-      height: 650px;
-      right: -130px;
-      top: 5%;
-      background: radial-gradient(circle, rgba(142,100,77,.14), transparent 68%);
-      filter: blur(25px);
+      width: 520px;
+      height: 520px;
+      right: -120px;
+      top: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle,rgba(166,92,255,.22),transparent 68%);
+      filter: blur(12px);
+      z-index: -1;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.1fr .9fr;
       align-items: center;
-      gap: 60px;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 2;
+      gap: 65px;
     }
 
     .hero h1 {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(70px, 9vw, 125px);
-      line-height: .86;
+      font-size: clamp(3.5rem, 7vw, 6.8rem);
+      line-height: .98;
       letter-spacing: -.055em;
-      margin: 30px 0;
+      margin: 25px 0;
     }
 
-    .hero h1 span {
-      display: block;
-      color: var(--gold-light);
-      font-style: italic;
-    }
-
-    .hero-description {
-      max-width: 560px;
-      font-size: 15px;
-      color: #b9afaa;
-      line-height: 1.9;
+    .hero-copy {
+      max-width: 570px;
+      color: var(--muted);
+      font-size: 1.04rem;
     }
 
     .hero-actions {
       display: flex;
-      align-items: center;
-      gap: 28px;
-      margin-top: 40px;
       flex-wrap: wrap;
-    }
-
-    .button-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 20px;
-      background: var(--gold);
-      color: #171313;
-      padding: 14px 22px;
-      font-size: 11px;
-      font-weight: 600;
-      transition: .3s;
-    }
-
-    .button-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 35px rgba(198,167,123,.18);
-    }
-
-    .text-link {
-      font-size: 11px;
-      color: var(--gold-light);
-      border-bottom: 1px solid rgba(198,167,123,.45);
-      padding-bottom: 5px;
+      gap: 13px;
+      margin-top: 32px;
     }
 
     .hero-note {
-      margin-top: 75px;
-      color: var(--muted-dark);
-      font-size: 10px;
-      letter-spacing: .08em;
+      margin-top: 35px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: .8rem;
     }
 
-    /* HERO 3D OBJECT */
+    .hero-note i { color: var(--champagne); }
 
-    .hero-visual {
+    .hero-art {
       min-height: 500px;
+      position: relative;
       display: grid;
       place-items: center;
-      position: relative;
-      perspective: 1000px;
     }
 
-    .orbit {
-      position: absolute;
-      width: 390px;
-      height: 390px;
-      border: 1px solid rgba(198,167,123,.17);
+    .art-orbit {
+      width: min(390px, 85vw);
+      aspect-ratio: 1;
       border-radius: 50%;
-      transform: rotateX(68deg) rotateZ(-25deg);
-      animation: orbit 18s linear infinite;
+      border: 1px solid rgba(241,139,215,.35);
+      position: absolute;
+      animation: rotate 28s linear infinite;
     }
 
-    .orbit::before,
-    .orbit::after {
+    .art-orbit::before, .art-orbit::after {
       content: "";
       position: absolute;
-      border: 1px solid rgba(198,167,123,.12);
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
-      inset: 28px;
+      background: var(--pink);
+      box-shadow: 0 0 25px var(--pink);
     }
 
-    .orbit::after {
-      inset: 65px;
-    }
+    .art-orbit::before { top: 30px; left: 75px; }
+    .art-orbit::after { right: 15px; bottom: 100px; background: var(--champagne); }
 
-    .hero-object {
-      position: relative;
-      width: 230px;
-      height: 290px;
-      border-radius: 48% 48% 42% 42%;
+    .art-card {
+      width: min(340px, 78vw);
+      aspect-ratio: .82;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 28px;
+      padding: 27px;
       background:
-        radial-gradient(ellipse at 30% 20%, rgba(255,235,207,.32), transparent 25%),
-        radial-gradient(ellipse at 70% 75%, rgba(69,43,39,.8), transparent 40%),
-        linear-gradient(135deg, #aa8768, #45332f 48%, #1c1718 85%);
-      box-shadow:
-        inset -20px -25px 50px rgba(0,0,0,.55),
-        inset 12px 10px 25px rgba(255,230,190,.12),
-        0 40px 100px rgba(0,0,0,.5);
-      transform: rotateY(-18deg) rotateX(9deg);
-      animation: float 7s ease-in-out infinite;
+        linear-gradient(145deg,rgba(255,255,255,.14),transparent 45%),
+        linear-gradient(145deg,#4d2670,#20132f 55%,#120c1b);
+      box-shadow: 0 35px 100px rgba(0,0,0,.45);
+      transform: rotate(-5deg);
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-object::before {
-      content: "MP";
+    .art-card::before {
+      content: "M";
       position: absolute;
-      inset: 0;
+      font-family: "Playfair Display",serif;
+      font-size: 19rem;
+      line-height: 1;
+      color: rgba(255,255,255,.07);
+      right: -10px;
+      bottom: -45px;
+    }
+
+    .art-card-top {
+      display: flex;
+      justify-content: space-between;
+      color: var(--champagne);
+      font-size: .7rem;
+      letter-spacing: .16em;
+    }
+
+    .art-card-content {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 38px;
+    }
+
+    .art-card-content small {
+      color: var(--pink);
+      text-transform: uppercase;
+      letter-spacing: .2em;
+    }
+
+    .art-card-content h2 {
+      font-size: 3.1rem;
+      margin: 10px 0;
+    }
+
+    .art-card-content p { color: #e1d2e8; font-size: .82rem; }
+
+    .floating-icon {
+      position: absolute;
       display: grid;
       place-items: center;
-      font-family: var(--serif);
-      font-size: 85px;
-      color: rgba(240,218,188,.85);
-      text-shadow: 0 4px 25px rgba(0,0,0,.5);
-      letter-spacing: -.08em;
+      width: 62px;
+      height: 62px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 19px;
+      background: rgba(39,25,52,.86);
+      color: var(--pink);
+      font-size: 1.35rem;
+      box-shadow: var(--shadow);
+      animation: float 5s ease-in-out infinite;
     }
 
-    .hero-object::after {
-      content: "";
-      position: absolute;
-      inset: 12px;
-      border: 1px solid rgba(230,204,166,.2);
-      border-radius: inherit;
-    }
-
-    .object-caption {
-      position: absolute;
-      right: 0;
-      bottom: 40px;
-      color: var(--gold);
-      font-family: var(--serif);
-      font-size: 19px;
-      font-style: italic;
-    }
+    .floating-icon.one { top: 45px; right: 5px; }
+    .floating-icon.two { bottom: 55px; left: 0; animation-delay: -2s; color: var(--champagne); }
+    .floating-icon.three { top: 55%; right: -15px; animation-delay: -3s; color: var(--violet); }
 
     @keyframes float {
-      0%,100% { transform: translateY(0) rotateY(-18deg) rotateX(9deg); }
-      50% { transform: translateY(-20px) rotateY(-8deg) rotateX(13deg); }
+      0%,100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-16px) rotate(5deg); }
     }
 
-    @keyframes orbit {
-      to { transform: rotateX(68deg) rotateZ(335deg); }
-    }
+    @keyframes rotate { to { transform: rotate(360deg); } }
 
-    /* MARQUEE */
+    /* INTRO STRIP */
 
-    .marquee {
+    .intro-strip {
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      overflow: hidden;
-      padding: 20px 0;
-      background: rgba(255,255,255,.012);
+      background: rgba(255,255,255,.025);
+      padding: 24px 0;
     }
 
-    .marquee-track {
+    .strip-inner {
       display: flex;
-      width: max-content;
-      animation: marquee 35s linear infinite;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
     }
 
-    .marquee-track span {
-      white-space: nowrap;
-      color: var(--gold-light);
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-size: 10px;
-      padding: 0 35px;
+    .strip-item {
+      color: var(--muted);
+      font-size: .82rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .marquee-track b {
-      color: var(--gold);
-      padding-left: 35px;
-    }
-
-    @keyframes marquee {
-      to { transform: translateX(-50%); }
-    }
+    .strip-item i { color: var(--pink); }
 
     /* ABOUT */
 
     .about-grid {
       display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 100px;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 75px;
       align-items: center;
     }
 
-    .about-art {
-      min-height: 440px;
+    .about-visual {
+      min-height: 420px;
+      border-radius: 30px;
       position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 70% 25%,rgba(241,139,215,.4),transparent 30%),
+        linear-gradient(145deg,#3c2055,#171020 70%);
+      border: 1px solid var(--line);
       display: grid;
       place-items: center;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(163,118,88,.15), transparent 65%),
-        linear-gradient(145deg, #211c1d, #151314);
-      border: 1px solid var(--line);
-      overflow: hidden;
     }
 
-    .about-art::before {
-      content: "";
-      position: absolute;
-      width: 260px;
-      height: 260px;
-      border: 1px solid rgba(198,167,123,.25);
-      border-radius: 50%;
-      box-shadow: 0 0 80px rgba(198,167,123,.08);
+    .about-monogram {
+      font-family: "Playfair Display",serif;
+      font-size: 13rem;
+      line-height: 1;
+      color: rgba(255,255,255,.12);
+      text-shadow: 0 0 70px rgba(241,139,215,.35);
     }
 
-    .about-art::after {
-      content: "MP";
-      font-family: var(--serif);
-      font-size: 120px;
-      color: var(--gold-light);
-      letter-spacing: -.1em;
-      text-shadow: 0 0 45px rgba(198,167,123,.22);
-      animation: softGlow 5s ease-in-out infinite;
-    }
-
-    .art-label {
+    .about-stamp {
       position: absolute;
       bottom: 25px;
       left: 25px;
+      right: 25px;
+      padding: 17px 20px;
+      border-radius: 17px;
+      background: rgba(16,11,24,.72);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+      font-size: .8rem;
       color: var(--muted);
-      font-size: 9px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
     }
 
-    @keyframes softGlow {
-      0%,100% { opacity: .75; filter: brightness(.9); }
-      50% { opacity: 1; filter: brightness(1.25); }
-    }
+    .about-copy h2 { margin: 15px 0 24px; }
+    .about-copy p { color: var(--muted); margin-bottom: 16px; }
 
-    .about-copy h2 {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: clamp(46px, 5vw, 72px);
-      line-height: 1;
-      margin: 20px 0 30px;
-    }
-
-    .about-copy h2 em {
-      color: var(--gold-light);
-    }
-
-    .about-copy p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 18px;
-    }
-
-    .about-quote {
+    .about-facts {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 12px;
       margin-top: 28px;
-      padding-left: 20px;
-      border-left: 1px solid var(--gold);
-      font-family: var(--serif);
-      font-size: 23px;
-      font-style: italic;
-      color: var(--gold-light);
     }
+
+    .fact {
+      padding: 18px 14px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--champagne);
+      font-family: "Playfair Display",serif;
+      font-size: 1.65rem;
+    }
+
+    .fact span { font-size: .7rem; color: var(--muted); }
 
     /* SERVICES */
 
-    .services {
-      background: var(--bg-soft);
-    }
+    .services { background: linear-gradient(180deg,transparent,rgba(113,56,199,.07),transparent); }
 
-    .services-top {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .services-top .section-heading {
-      margin-bottom: 55px;
-    }
-
-    .service-grid {
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      border-top: 1px solid var(--line);
-      border-left: 1px solid var(--line);
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
     }
 
     .service-card {
-      min-height: 275px;
-      padding: 38px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      background: linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+      transition: .35s;
       position: relative;
-      border-right: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      transition: background .4s, transform .4s;
       overflow: hidden;
-    }
-
-    .service-card:hover {
-      background: rgba(198,167,123,.045);
     }
 
     .service-card::after {
       content: "";
       position: absolute;
-      width: 150px;
-      height: 150px;
-      right: -75px;
-      bottom: -75px;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
-      border: 1px solid rgba(198,167,123,.16);
-      transition: .5s;
+      right: -70px;
+      bottom: -70px;
+      background: rgba(166,92,255,.12);
+      transition: .35s;
     }
 
-    .service-card:hover::after {
-      transform: scale(1.7);
-      border-color: rgba(198,167,123,.35);
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(241,139,215,.45);
+      box-shadow: var(--shadow);
     }
 
-    .service-number {
-      color: var(--gold);
-      font-size: 10px;
-      letter-spacing: .15em;
-    }
+    .service-card:hover::after { transform: scale(1.7); }
 
-    .service-card h3 {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: 31px;
-      margin: 25px 0 15px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 12px;
-      max-width: 440px;
-    }
-
-    .service-arrow {
-      position: absolute;
-      top: 35px;
-      right: 35px;
-      color: var(--gold);
-      font-size: 18px;
-    }
-
-    /* STATEMENT */
-
-    .statement {
-      min-height: 580px;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      background:
-        radial-gradient(ellipse at 50% 50%, rgba(122,84,64,.14), transparent 65%),
-        #141112;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .statement-inner {
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .statement h2 {
-      font-family: var(--serif);
-      font-size: clamp(62px, 9vw, 112px);
-      line-height: .88;
-      font-weight: 400;
-      letter-spacing: -.04em;
-      margin: 35px 0;
-    }
-
-    .statement h2 em {
-      color: var(--gold-light);
-    }
-
-    .statement p {
-      max-width: 590px;
-      margin: auto;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* APPROACH */
-
-    .approach-grid {
-      display: grid;
-      grid-template-columns: .7fr 1.3fr;
-      gap: 100px;
-    }
-
-    .approach-art {
-      position: sticky;
-      top: 150px;
-      height: 380px;
-      background: linear-gradient(145deg, #282020, #171415);
-      border: 1px solid var(--line);
+    .service-icon {
+      width: 55px;
+      height: 55px;
       display: grid;
       place-items: center;
-      overflow: hidden;
+      border-radius: 17px;
+      background: rgba(166,92,255,.16);
+      color: var(--pink);
+      font-size: 1.3rem;
+      margin-bottom: 24px;
     }
 
-    .approach-art::before {
-      content: "";
-      width: 230px;
-      height: 230px;
-      border: 1px solid rgba(198,167,123,.4);
-      border-radius: 50%;
-      box-shadow:
-        0 0 0 25px rgba(198,167,123,.035),
-        0 0 0 55px rgba(198,167,123,.025);
-      animation: pulse 6s ease-in-out infinite;
-    }
+    .service-card h3 { font-size: 1.35rem; margin-bottom: 10px; }
+    .service-card p { color: var(--muted); font-size: .88rem; }
 
-    .approach-art span {
-      position: absolute;
-      font-family: var(--serif);
-      font-size: 28px;
-      color: var(--gold-light);
-      font-style: italic;
-    }
+    /* PORTFOLIO */
 
-    @keyframes pulse {
-      50% { transform: scale(1.08); opacity: .65; }
-    }
-
-    .steps {
-      border-top: 1px solid var(--line);
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 65px 1fr;
+    .portfolio-top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
       gap: 25px;
-      padding: 30px 0;
-      border-bottom: 1px solid var(--line);
+      margin-bottom: 35px;
     }
 
-    .step-number {
-      color: var(--gold);
-      font-family: var(--serif);
-      font-size: 28px;
-    }
+    .portfolio-top .section-heading { margin: 0; }
 
-    .step h3 {
-      font-family: var(--serif);
-      font-weight: 400;
-      font-size: 29px;
-      margin-bottom: 10px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 12px;
-      max-width: 540px;
-    }
-
-    /* EXPERIENCE */
-
-    .experience {
-      background: var(--bg-soft);
-    }
-
-    .experience-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .experience-card {
-      padding: 40px;
-      border: 1px solid var(--line);
-      background: linear-gradient(145deg, rgba(255,255,255,.025), transparent);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .experience-card::after {
-      content: "";
-      position: absolute;
-      right: -50px;
-      bottom: -65px;
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      border: 1px solid rgba(198,167,123,.13);
-      box-shadow: 0 0 50px rgba(198,167,123,.04);
-    }
-
-    .experience-card h3 {
-      font-family: var(--serif);
-      font-size: 34px;
-      font-weight: 400;
-      margin: 15px 0;
-    }
-
-    .experience-card p {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .tag-list {
+    .filters {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 25px;
+      gap: 9px;
+      margin-bottom: 35px;
     }
 
-    .tag {
+    .filter-btn {
       border: 1px solid var(--line);
-      padding: 5px 10px;
-      font-size: 9px;
-      color: var(--gold-light);
-    }
-
-    .timeline {
-      margin-top: 75px;
-      border-top: 1px solid var(--line);
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 35px;
-      padding: 25px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .timeline-date {
-      color: var(--gold);
-      font-size: 10px;
-      letter-spacing: .1em;
-    }
-
-    .timeline-item h4 {
-      font-family: var(--serif);
-      font-size: 25px;
-      font-weight: 400;
-    }
-
-    .timeline-item p {
       color: var(--muted);
-      font-size: 11px;
-      margin-top: 5px;
+      background: rgba(255,255,255,.025);
+      padding: 10px 16px;
+      border-radius: 100px;
+      cursor: pointer;
+      font-size: .77rem;
+      transition: .25s;
     }
 
-    /* PROJECTS */
+    .filter-btn:hover, .filter-btn.active {
+      color: #170d20;
+      background: var(--gradient);
+      border-color: transparent;
+    }
 
     .project-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
     }
 
     .project-card {
-      position: relative;
       border: 1px solid var(--line);
-      background: #191617;
+      border-radius: 22px;
       overflow: hidden;
+      background: var(--panel);
+      transition: .35s;
+      min-width: 0;
     }
 
-    .project-visual {
-      height: 340px;
+    .project-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(241,139,215,.5);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card.hide { display: none; }
+
+    .project-art {
+      min-height: 230px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      display: grid;
-      place-items: center;
       overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 45%, rgba(198,167,123,.2), transparent 55%),
-        linear-gradient(145deg, #292020, #141112);
+      isolation: isolate;
     }
 
-    .project-visual::before {
+    .project-art::before {
       content: "";
       position: absolute;
-      width: 230px;
-      height: 230px;
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
-      border: 1px solid rgba(198,167,123,.28);
-      box-shadow: 0 0 70px rgba(198,167,123,.08);
-      transition: transform .7s;
+      filter: blur(2px);
+      opacity: .65;
+      z-index: -1;
     }
 
-    .project-card:hover .project-visual::before {
-      transform: scale(1.2) rotate(25deg);
+    .project-art .mockup {
+      width: 72%;
+      min-height: 160px;
+      padding: 19px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      transform: rotate(-3deg);
+      transition: .4s;
+      color: white;
+      text-align: left;
     }
 
-    .project-logo {
-      z-index: 1;
-      font-family: var(--serif);
-      font-size: 53px;
-      letter-spacing: .1em;
-      color: var(--gold-light);
+    .project-card:hover .mockup { transform: rotate(0) scale(1.04); }
+
+    .mockup small {
+      font-size: .55rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      opacity: .8;
     }
 
-    .project-visual.carelynta {
-      background:
-        radial-gradient(circle at 50% 50%, rgba(154,126,116,.28), transparent 55%),
-        linear-gradient(140deg, #322827, #171516);
+    .mockup strong {
+      font-family: "Playfair Display",serif;
+      font-size: clamp(1.3rem,2vw,2rem);
+      line-height: 1.05;
     }
 
-    .project-visual.arvana {
-      background:
-        radial-gradient(circle at 50% 50%, rgba(168,138,95,.2), transparent 55%),
-        linear-gradient(140deg, #28231d, #151312);
+    .mockup span { font-size: .65rem; opacity: .85; }
+
+    .art-fashion { background: linear-gradient(135deg,#d9c7bd,#403039); }
+    .art-fashion::before { background: #f18bd7; top: -80px; right: -40px; }
+    .art-fashion .mockup { background: linear-gradient(145deg,#17131b,#5c3d50); }
+
+    .art-food { background: linear-gradient(135deg,#edb66d,#9b3f2c); }
+    .art-food::before { background: #f8e1a8; bottom: -100px; left: -50px; }
+    .art-food .mockup { background: linear-gradient(145deg,#8d261e,#e16c32); }
+
+    .art-hiring { background: linear-gradient(135deg,#b9e9cf,#4a9a75); }
+    .art-hiring::before { background: #d8ffe5; top: -80px; left: -40px; }
+    .art-hiring .mockup { background: linear-gradient(145deg,#d8f4df,#6bb68c); color: #174b39; }
+
+    .art-business { background: linear-gradient(135deg,#122e30,#26675d); }
+    .art-business::before { background: #67b98d; right: -60px; bottom: -100px; }
+    .art-business .mockup { background: linear-gradient(145deg,#082b28,#236f57); }
+
+    .art-beauty { background: linear-gradient(135deg,#d9b8a6,#805e57); }
+    .art-beauty::before { background: #f4c9b8; right: -60px; top: -70px; }
+    .art-beauty .mockup { background: linear-gradient(145deg,#d9b39d,#8a5f55); }
+
+    .art-blue { background: linear-gradient(135deg,#102d65,#6488ca); }
+    .art-blue::before { background: #7ea9f3; left: -70px; top: -60px; }
+    .art-blue .mockup { background: linear-gradient(145deg,#0b2250,#315ca0); }
+
+    .art-pink { background: linear-gradient(135deg,#f5a1dc,#a73eb2); }
+    .art-pink::before { background: #ffd0f0; right: -70px; top: -80px; }
+    .art-pink .mockup { background: linear-gradient(145deg,#ee7bd1,#9d2f9e); }
+
+    .art-gold { background: linear-gradient(135deg,#d9c38c,#66502b); }
+    .art-gold::before { background: #f8e2a9; left: -70px; bottom: -70px; }
+    .art-gold .mockup { background: linear-gradient(145deg,#302313,#a07b3d); }
+
+    .art-logo { background: linear-gradient(135deg,#120c1a,#3c2458); }
+    .art-logo::before { background: #a65cff; right: -70px; top: -70px; }
+    .art-logo .mockup {
+      background: transparent;
+      box-shadow: none;
+      text-align: center;
+      align-items: center;
+      transform: none;
     }
 
-    .project-content {
-      padding: 30px;
-    }
+    .art-logo .mockup strong { font-size: 2.1rem; letter-spacing: .08em; }
 
-    .project-meta {
-      font-size: 9px;
-      color: var(--gold);
-      letter-spacing: .12em;
+    .art-landing { background: linear-gradient(135deg,#e9a4d9,#8c56c8); }
+    .art-landing::before { background: #ffd4f4; top: -70px; right: -50px; }
+    .art-landing .mockup { background: linear-gradient(145deg,#e65fc5,#7d39aa); }
+
+    .art-print { background: linear-gradient(135deg,#d5d0c5,#716b5c); }
+    .art-print::before { background: #fff0cf; right: -70px; bottom: -70px; }
+    .art-print .mockup { background: linear-gradient(145deg,#f5eee0,#b9a77f); color: #453a2a; }
+
+    .art-map { background: linear-gradient(135deg,#c2e9d2,#4b9b81); }
+    .art-map::before { background: #e2ffe8; left: -60px; top: -60px; }
+    .art-map .mockup { background: linear-gradient(145deg,#e1f8e9,#7bbf98); color: #20533c; }
+
+    .project-info { padding: 21px 22px 23px; }
+
+    .project-category {
+      color: var(--pink);
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .16em;
       text-transform: uppercase;
     }
 
-    .project-content h3 {
-      font-family: var(--serif);
-      font-size: 39px;
-      font-weight: 400;
-      margin: 10px 0;
+    .project-info h3 { font-size: 1.2rem; margin: 7px 0; }
+    .project-info p { color: var(--muted); font-size: .8rem; }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 15px;
     }
 
-    .project-content p {
-      font-size: 12px;
+    .project-tags span {
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      padding: 5px 9px;
       color: var(--muted);
-      min-height: 65px;
+      font-size: .63rem;
     }
 
-    .project-link {
-      display: inline-flex;
-      margin-top: 25px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--gold);
-      color: var(--gold-light);
-      font-size: 10px;
-      letter-spacing: .06em;
-      transition: .3s;
+    .portfolio-note {
+      margin-top: 28px;
+      padding: 20px 23px;
+      border: 1px solid rgba(232,205,169,.25);
+      border-radius: 17px;
+      background: rgba(232,205,169,.045);
+      color: var(--muted);
+      font-size: .82rem;
     }
 
-    .project-link:hover {
-      letter-spacing: .12em;
+    .portfolio-note i { color: var(--champagne); margin-right: 8px; }
+
+    /* PROCESS */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 16px;
     }
+
+    .process-step {
+      padding: 25px;
+      border-top: 1px solid rgba(241,139,215,.55);
+      background: linear-gradient(180deg,rgba(255,255,255,.045),transparent);
+    }
+
+    .process-number {
+      color: var(--pink);
+      font-family: "Playfair Display",serif;
+      font-size: 2.5rem;
+    }
+
+    .process-step h3 { font-size: 1.15rem; margin: 12px 0 8px; }
+    .process-step p { color: var(--muted); font-size: .82rem; }
+
+    /* FEATURE STATEMENT */
+
+    .statement {
+      padding: 85px 0;
+      background:
+        radial-gradient(ellipse at 50% 100%,rgba(166,92,255,.25),transparent 65%),
+        linear-gradient(120deg,#251435,#140d1d);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .statement h2 {
+      max-width: 900px;
+      margin: 18px auto;
+      font-size: clamp(2.3rem,5vw,4.5rem);
+    }
+
+    .statement p { color: var(--muted); max-width: 600px; margin: auto; }
 
     /* CONTACT */
 
-    .contact {
-      background:
-        radial-gradient(ellipse at 50% 100%, rgba(151,105,79,.15), transparent 65%),
-        #141112;
-      border-top: 1px solid var(--line);
-      text-align: center;
-      padding: 150px 0;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
     }
 
-    .contact h2 {
-      font-family: var(--serif);
-      font-size: clamp(58px, 8vw, 100px);
-      line-height: .95;
-      font-weight: 400;
-      margin: 25px 0;
+    .contact-copy h2 { margin: 15px 0 20px; }
+    .contact-copy p { color: var(--muted); }
+
+    .contact-links {
+      display: grid;
+      gap: 13px;
+      margin-top: 30px;
     }
 
-    .contact h2 em {
-      color: var(--gold-light);
-    }
-
-    .contact p {
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 15px;
       color: var(--muted);
-      max-width: 580px;
-      margin: auto;
-      font-size: 13px;
+      transition: .25s;
     }
 
-    .contact .button-primary {
-      margin-top: 38px;
+    .contact-link:hover { color: var(--pink); }
+
+    .contact-link i {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(166,92,255,.15);
+      color: var(--pink);
     }
 
-    .contact-email {
-      display: block;
-      margin-top: 35px;
-      color: var(--gold-light);
-      font-family: var(--serif);
-      font-size: 24px;
+    .contact-box {
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 35px;
+      background: linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015));
     }
+
+    .contact-box h3 { font-size: 1.8rem; margin-bottom: 12px; }
+    .contact-box p { color: var(--muted); font-size: .9rem; margin-bottom: 25px; }
+
+    .contact-box .btn { width: 100%; margin-top: 10px; }
 
     /* FOOTER */
 
     footer {
-      padding: 30px 0;
       border-top: 1px solid var(--line);
-      background: #100e0f;
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: .75rem;
     }
 
     .footer-inner {
-      width: min(var(--max), calc(100% - 100px));
-      margin: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .footer-brand {
-      font-family: var(--serif);
-      color: var(--gold-light);
-      font-size: 20px;
+    .socials { display: flex; gap: 12px; }
+
+    .socials a {
+      width: 37px;
+      height: 37px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      transition: .25s;
     }
 
-    footer p,
-    footer a {
-      color: var(--muted-dark);
-      font-size: 10px;
+    .socials a:hover {
+      color: var(--pink);
+      border-color: var(--pink);
+      transform: translateY(-3px);
     }
 
-    .footer-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    /* REVEAL ANIMATIONS */
+    /* REVEAL */
 
     .reveal {
       opacity: 0;
-      transform: translateY(35px);
-      transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1);
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
     }
 
     .reveal.visible {
@@ -970,318 +865,88 @@
       transform: translateY(0);
     }
 
-    .delay-1 { transition-delay: .12s; }
-    .delay-2 { transition-delay: .24s; }
-    .delay-3 { transition-delay: .36s; }
-
-    .hero-copy > * {
-      animation: enter .9s both;
-    }
-
-    .hero-copy > *:nth-child(2) { animation-delay: .12s; }
-    .hero-copy > *:nth-child(3) { animation-delay: .24s; }
-    .hero-copy > *:nth-child(4) { animation-delay: .36s; }
-    .hero-copy > *:nth-child(5) { animation-delay: .48s; }
-
-    @keyframes enter {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     /* RESPONSIVE */
 
     @media (max-width: 900px) {
-      .container,
-      .nav-inner,
-      .footer-inner {
-        width: min(100% - 48px, var(--max));
-      }
-
       .nav-links {
-        gap: 17px;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 25px 5%;
+        background: rgba(16,11,24,.98);
+        border-bottom: 1px solid var(--line);
       }
 
-      .nav-links a {
-        font-size: 10px;
-      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: .95rem; padding: 7px 0; }
+      .nav-cta { display: none; }
+      .menu-toggle { display: block; }
 
-      .hero-grid {
-        grid-template-columns: 1fr .7fr;
-        gap: 20px;
-      }
-
-      .hero-visual {
-        min-height: 390px;
-      }
-
-      .hero-object {
-        width: 175px;
-        height: 230px;
-      }
-
-      .orbit {
-        width: 290px;
-        height: 290px;
-      }
-
-      .about-grid,
-      .approach-grid {
-        gap: 45px;
-      }
-
-      .section {
-        padding: 100px 0;
-      }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 135px; }
+      .hero-art { min-height: 440px; }
+      .about-grid { gap: 35px; }
+      .about-visual { min-height: 340px; }
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+      .project-grid { grid-template-columns: repeat(2,1fr); }
+      .process-grid { grid-template-columns: repeat(2,1fr); }
     }
 
-    @media (max-width: 680px) {
-      html {
-        scroll-padding-top: 75px;
-      }
-
-      .container,
-      .nav-inner,
-      .footer-inner {
-        width: calc(100% - 40px);
-      }
-
-      .nav {
-        padding: 16px 0;
-      }
-
-      .logo {
-        font-size: 26px;
-      }
-
-      .menu-toggle {
-        display: block;
-        position: relative;
-        z-index: 102;
-      }
-
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: min(85%, 340px);
-        height: 100dvh;
-        background: #171415;
-        border-left: 1px solid var(--line);
-        padding: 100px 35px 40px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 25px;
-        transform: translateX(105%);
-        transition: transform .4s ease;
-      }
-
-      .nav-links.open {
-        transform: translateX(0);
-      }
-
-      .nav-links a {
-        font-size: 14px;
-      }
-
-      .nav-contact {
-        margin-top: 10px;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: 145px 0 65px;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-
-      .hero h1 {
-        font-size: clamp(66px, 17vw, 95px);
-        margin: 25px 0;
-      }
-
-      .hero-description {
-        font-size: 13px;
-      }
-
-      .hero-visual {
-        min-height: 320px;
-        margin-top: 5px;
-        overflow: visible;
-      }
-
-      .hero-object {
-        width: 145px;
-        height: 190px;
-      }
-
-      .hero-object::before {
-        font-size: 65px;
-      }
-
-      .orbit {
-        width: 255px;
-        height: 255px;
-      }
-
-      .object-caption {
-        right: 8%;
-        bottom: 15px;
-        font-size: 16px;
-      }
-
-      .hero-note {
-        margin-top: 15px;
-        line-height: 1.8;
-      }
-
-      .section {
-        padding: 85px 0;
-      }
-
-      .section-heading {
-        margin-bottom: 45px;
-      }
-
-      .section-heading h2 {
-        font-size: 55px;
-      }
-
-      .about-grid,
-      .approach-grid,
-      .experience-grid,
-      .project-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .about-art {
-        min-height: 310px;
-      }
-
-      .about-art::after {
-        font-size: 90px;
-      }
-
-      .about-copy h2 {
-        font-size: 54px;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-card {
-        min-height: 240px;
-        padding: 28px;
-      }
-
-      .service-card h3 {
-        font-size: 29px;
-      }
-
-      .statement {
-        min-height: 480px;
-        padding: 80px 20px;
-      }
-
-      .statement h2 {
-        font-size: clamp(58px, 15vw, 85px);
-      }
-
-      .approach-art {
-        position: relative;
-        top: auto;
-        height: 290px;
-      }
-
-      .step {
-        grid-template-columns: 45px 1fr;
-        gap: 15px;
-        padding: 25px 0;
-      }
-
-      .step h3 {
-        font-size: 26px;
-      }
-
-      .experience-card {
-        padding: 30px;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 8px;
-      }
-
-      .project-visual {
-        height: 270px;
-      }
-
-      .project-content {
-        padding: 25px;
-      }
-
-      .contact {
-        padding: 105px 0;
-      }
-
-      .contact h2 {
-        font-size: 64px;
-      }
-
-      .contact-email {
-        font-size: 19px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .footer-links {
-        flex-wrap: wrap;
-      }
+    @media (max-width: 580px) {
+      .section { padding: 78px 0; }
+      .hero { min-height: auto; padding-bottom: 75px; }
+      .hero h1 { font-size: 3.65rem; }
+      .hero-art { min-height: 390px; }
+      .art-orbit { width: 290px; }
+      .art-card { width: 260px; }
+      .floating-icon { width: 49px; height: 49px; font-size: 1.05rem; }
+      .services-grid, .project-grid, .process-grid { grid-template-columns: 1fr; }
+      .portfolio-top { display: block; }
+      .portfolio-top .btn { margin-top: 20px; }
+      .about-facts { grid-template-columns: 1fr; }
+      .fact { display: flex; justify-content: space-between; align-items: center; }
+      .contact-box { padding: 25px; }
+      .strip-inner { justify-content: flex-start; }
+      .strip-item { width: calc(50% - 15px); }
+      .project-art { min-height: 220px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         scroll-behavior: auto !important;
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
       }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <header class="nav" id="top">
-    <div class="nav-inner">
-      <a class="logo" href="#home" aria-label="Mariana Păștean - Acasă">MARIANA.</a>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">MARIANA <span>PĂȘTEAN</span></a>
 
-      <button class="menu-toggle" aria-label="Deschide meniul" aria-expanded="false">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Deschide meniul" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-      <nav class="nav-links" aria-label="Navigare principală">
-        <a href="#about">Despre mine</a>
-        <a href="#services">Servicii</a>
-        <a href="#approach">Abordare</a>
-        <a href="#experience">Experiență</a>
-        <a href="#projects">Proiecte</a>
-        <a class="nav-contact" href="#contact">Hai să vorbim ↗</a>
-      </nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Acasă</a></li>
+        <li><a href="#about">Despre mine</a></li>
+        <li><a href="#services">Servicii</a></li>
+        <li><a href="#portfolio">Proiecte</a></li>
+        <li><a href="#process">Proces</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a class="btn btn-primary nav-cta" href="#contact">Hai să discutăm <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
     </div>
   </header>
 
@@ -1290,543 +955,823 @@
     <!-- HERO -->
     <section class="hero" id="home">
       <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="eyebrow">Brand design · Marketing · Strategie</span>
 
-        <div class="hero-copy">
-          <div class="eyebrow">Brand Strategy · Marketing · Digital Experiences</div>
+          <h1>
+            Idei cu <span class="gradient-text">identitate.</span><br>
+            Branduri cu direcție.
+          </h1>
 
-          <h1>Mariana <span>Păștean.</span></h1>
-
-          <p class="hero-description">
-            Sunt Mariana Păștean. Lucrez la intersecția dintre strategie,
-            brand și experiențe digitale. Transform ideile în direcții clare,
-            mesaje coerente și instrumente care îi ajută pe oameni să ia decizii.
+          <p class="hero-copy">
+            Sunt Mariana Păștean, designer de brand și specialistă în marketing.
+            Ajut businessurile să își construiască o imagine coerentă, un mesaj
+            clar și o prezență online care susține obiective reale.
           </p>
 
           <div class="hero-actions">
-            <a class="button-primary" href="#projects">
-              Explorează proiectele <span>↗</span>
-            </a>
-            <a class="text-link" href="#approach">Descoperă abordarea</a>
+            <a class="btn btn-primary" href="#portfolio">Explorează proiectele <i class="fa-solid fa-arrow-right"></i></a>
+            <a class="btn btn-outline" href="#contact">Discutăm ideea ta</a>
           </div>
 
           <div class="hero-note">
-            Arad, România · Disponibilă pentru proiecte<br>
-            Scroll to explore ↓
+            <i class="fa-solid fa-sparkles"></i>
+            <span>Design atent. Strategie clară. Comunicare cu sens.</span>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="Monograma MP">
-          <div class="orbit"></div>
-          <div class="hero-object"></div>
-          <div class="object-caption">Strategy with intention</div>
-        </div>
+        <div class="hero-art reveal">
+          <div class="art-orbit"></div>
 
+          <div class="art-card">
+            <div class="art-card-top">
+              <span>MP / CREATIVE STUDIO</span>
+              <i class="fa-solid fa-star"></i>
+            </div>
+
+            <div class="art-card-content">
+              <small>Brand & Marketing</small>
+              <h2>Make your<br>brand matter.</h2>
+              <p>Strategie, design și experiențe digitale construite în jurul identității tale.</p>
+            </div>
+          </div>
+
+          <div class="floating-icon one"><i class="fa-solid fa-pen-nib"></i></div>
+          <div class="floating-icon two"><i class="fa-solid fa-lightbulb"></i></div>
+          <div class="floating-icon three"><i class="fa-solid fa-chart-line"></i></div>
+        </div>
       </div>
     </section>
 
-    <!-- MARQUEE -->
-    <div class="marquee" aria-label="Domenii de activitate">
-      <div class="marquee-track">
-        <span>Brand Strategy <b>✳</b></span>
-        <span>Marketing <b>✳</b></span>
-        <span>Communication <b>✳</b></span>
-        <span>Branding <b>✳</b></span>
-        <span>Content Direction <b>✳</b></span>
-        <span>Digital Experiences <b>✳</b></span>
-        <span>Brand Strategy <b>✳</b></span>
-        <span>Marketing <b>✳</b></span>
-        <span>Communication <b>✳</b></span>
-        <span>Branding <b>✳</b></span>
-        <span>Content Direction <b>✳</b></span>
-        <span>Digital Experiences <b>✳</b></span>
+    <!-- QUICK INTRO -->
+    <div class="intro-strip">
+      <div class="container strip-inner">
+        <div class="strip-item"><i class="fa-solid fa-wand-magic-sparkles"></i> Identitate vizuală</div>
+        <div class="strip-item"><i class="fa-solid fa-hashtag"></i> Social media</div>
+        <div class="strip-item"><i class="fa-solid fa-window-maximize"></i> Landing pages</div>
+        <div class="strip-item"><i class="fa-solid fa-pen-ruler"></i> Design grafic</div>
       </div>
     </div>
 
     <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container about-grid">
-
-        <div class="about-art reveal">
-          <div class="art-label">Object / 001 · Human insight meets digital strategy</div>
-        </div>
-
-        <div class="about-copy reveal delay-1">
-          <div class="eyebrow">01 / About · Despre mine</div>
-
-          <h2>Orice proiect bun începe cu <em>înțelegerea.</em></h2>
-
-          <p>
-            Cred că un brand relevant începe cu o înțelegere clară a
-            businessului, a oamenilor cărora li se adresează și a valorii
-            pe care o poate aduce. Comunicarea vine după această clarificare,
-            nu în locul ei.
-          </p>
-
-          <p>
-            În proiectele mele, conectez poziționarea, identitatea de brand,
-            strategia de marketing și conținutul într-un sistem coerent.
-            Experiența în HR și psihologie completează perspectiva asupra
-            motivațiilor, nevoilor și deciziilor oamenilor.
-          </p>
-
-          <p>
-            Mă interesează atât fundația, cât și experiența: ce promite un
-            brand, cum își susține promisiunea și cât de ușor îi este
-            publicului să înțeleagă oferta și următorul pas.
-          </p>
-
-          <div class="about-quote">
-            Nu este despre a face mai mult. Este despre a construi cu direcție.
+        <div class="about-visual reveal">
+          <div class="about-monogram">M</div>
+          <div class="about-stamp">
+            <strong class="gradient-text">Creativitate + structură</strong><br>
+            O abordare care îmbină designul, organizarea și atenția la obiective.
           </div>
         </div>
 
+        <div class="about-copy reveal">
+          <span class="eyebrow">Despre mine</span>
+          <h2>Designul bun nu este doar decor. <span class="gradient-text">Este parte din strategie.</span></h2>
+
+          <p>
+            Sunt Mariana Păștean, designer de brand și specialistă în marketing.
+            Ajut businessurile să își clarifice imaginea, mesajul și modul în care
+            se prezintă online.
+          </p>
+
+          <p>
+            Experiența mea de peste 6 ani în resurse umane, 2 ani în project
+            management și activitatea din marketing începută în 2025 mă ajută
+            să combin creativitatea cu organizarea, strategia și atenția la obiective.
+          </p>
+
+          <p>
+            Nu creez doar materiale care arată bine. Îmi place să înțeleg ce vrei
+            să transmiți, cui te adresezi și ce trebuie să facă vizitatorul după
+            ce vede conținutul tău.
+          </p>
+
+          <div class="about-facts">
+            <div class="fact">
+              <strong>6+</strong>
+              <span>Ani în resurse umane</span>
+            </div>
+            <div class="fact">
+              <strong>2</strong>
+              <span>Ani în project management</span>
+            </div>
+            <div class="fact">
+              <strong>360°</strong>
+              <span>Abordare de brand</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- SERVICES -->
     <section class="section services" id="services">
       <div class="container">
-
         <div class="section-heading reveal">
-          <div class="eyebrow">02 / Strategy & Development</div>
-          <h2>Claritate care <em>devine acțiune.</em></h2>
+          <span class="eyebrow">Ce pot face pentru brandul tău</span>
+          <h2>Servicii pentru branduri care vor să <span class="gradient-text">comunice mai bine.</span></h2>
           <p>
-            De la analiză la implementare. Analiza, poziționarea,
-            comunicarea și experiența digitală lucrează împreună
-            pentru a susține obiectivele unui business.
+            Ofer servicii de design și marketing pentru businessuri, branduri
+            personale și proiecte care au nevoie de o prezență mai clară și mai profesionistă.
           </p>
         </div>
 
-        <div class="service-grid">
-
+        <div class="services-grid">
           <article class="service-card reveal">
-            <div class="service-number">01 — BRAND & MARKETING</div>
-            <span class="service-arrow">↗</span>
-            <h3>Brand & Marketing Strategy</h3>
-            <p>
-              Clarificarea poziționării, a publicului, a propunerii de
-              valoare și a priorităților de marketing, pornind de la
-              realitatea și obiectivele businessului.
-            </p>
-          </article>
-
-          <article class="service-card reveal delay-1">
-            <div class="service-number">02 — AUDIT & INSIGHT</div>
-            <span class="service-arrow">↗</span>
-            <h3>Brand & Marketing Audit</h3>
-            <p>
-              Evaluarea fundației brandului și a activităților de marketing:
-              poziționare, identitate, comunicare, conținut și direcție
-              de dezvoltare.
-            </p>
+            <div class="service-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <h3>Social media design</h3>
+            <p>Postări, carusele și stories create pentru o comunicare coerentă, actuală și ușor de recunoscut.</p>
           </article>
 
           <article class="service-card reveal">
-            <div class="service-number">03 — COMMUNICATION</div>
-            <span class="service-arrow">↗</span>
-            <h3>Content & Brand Communication</h3>
-            <p>
-              Arhitectura mesajelor, tonul vocii și direcțiile de conținut
-              care traduc strategia într-o comunicare clară, relevantă
-              și consecventă.
-            </p>
+            <div class="service-icon"><i class="fa-solid fa-fingerprint"></i></div>
+            <h3>Logo și identitate vizuală</h3>
+            <p>Logo-uri, palete cromatice, fonturi și direcții vizuale care fac brandul memorabil și consecvent.</p>
           </article>
 
-          <article class="service-card reveal delay-1">
-            <div class="service-number">04 — DIGITAL EXPERIENCE</div>
-            <span class="service-arrow">↗</span>
-            <h3>Digital Experience & Web Design</h3>
-            <p>
-              Structurarea experienței digitale și a parcursului
-              utilizatorului, astfel încât informația, interacțiunea
-              și identitatea vizuală să susțină același obiectiv.
-            </p>
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-window-maximize"></i></div>
+            <h3>Landing page design</h3>
+            <p>Pagini clare și bine structurate pentru servicii, campanii, lansări și colectare de lead-uri.</p>
           </article>
 
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+            <h3>Design grafic</h3>
+            <p>Flyere, meniuri, broșuri, bannere și alte materiale pentru comunicarea online și print.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+            <h3>Copywriting & storytelling</h3>
+            <p>Texte care explică oferta, susțin brandul și creează o conexiune mai bună cu publicul.</p>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <h3>Strategie de social media</h3>
+            <p>Direcții de conținut și idei organizate în jurul obiectivelor și publicului brandului.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="section" id="portfolio">
+      <div class="container">
+
+        <div class="portfolio-top">
+          <div class="section-heading reveal">
+            <span class="eyebrow">Selecție din portofoliu</span>
+            <h2>Proiecte care dau formă <span class="gradient-text">ideilor.</span></h2>
+            <p>
+              De la conținut pentru social media și identități vizuale,
+              până la landing pages și materiale grafice pentru branduri.
+            </p>
+          </div>
+
+          <a href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener" class="btn btn-outline">
+            Portofoliu vizual <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+
+        <div class="filters" role="group" aria-label="Filtrează proiectele">
+          <button class="filter-btn active" data-filter="all">Toate proiectele</button>
+          <button class="filter-btn" data-filter="social">Social media</button>
+          <button class="filter-btn" data-filter="branding">Identitate vizuală</button>
+          <button class="filter-btn" data-filter="landing">Landing pages</button>
+          <button class="filter-btn" data-filter="graphic">Design grafic</button>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+
+          <!-- SOCIAL MEDIA -->
+          <article class="project-card reveal" data-category="social">
+            <div class="project-art art-fashion">
+              <div class="mockup">
+                <small>Fashion campaign</small>
+                <strong>FASHION<br>STATEMENT</strong>
+                <span>Visual content · Social media</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Social media</span>
+              <h3>Fashion Campaign</h3>
+              <p>Direcție vizuală și materiale promoționale pentru conținut fashion.</p>
+              <div class="project-tags"><span>Instagram</span><span>Campaign</span><span>Visual design</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="social">
+            <div class="project-art art-food">
+              <div class="mockup">
+                <small>Restaurant promotion</small>
+                <strong>THE<br>STRONGEST<br>FLAVORS</strong>
+                <span>Food · Social media</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Social media</span>
+              <h3>Restaurant & Food Campaign</h3>
+              <p>Vizualuri promoționale pentru comunicarea unui concept de restaurant.</p>
+              <div class="project-tags"><span>Food design</span><span>Promotion</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="social">
+            <div class="project-art art-food">
+              <div class="mockup">
+                <small>Pizza promotion</small>
+                <strong>IT'S<br>PIZZA TIME</strong>
+                <span>Fresh taste · Social media</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Social media</span>
+              <h3>Pizza Promotion</h3>
+              <p>Material promoțional cu accent pe produs, culoare și mesaj rapid.</p>
+              <div class="project-tags"><span>Food</span><span>Promotional post</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="social">
+            <div class="project-art art-hiring">
+              <div class="mockup">
+                <small>We are hiring</small>
+                <strong>Assistant<br>Manager</strong>
+                <span>Join our team · Recruitment</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Social media</span>
+              <h3>We Are Hiring — Assistant Manager</h3>
+              <p>Vizual de recrutare pentru promovarea unei oportunități profesionale.</p>
+              <div class="project-tags"><span>Recruitment</span><span>Employer branding</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="social">
+            <div class="project-art art-blue">
+              <div class="mockup">
+                <small>Event promotion</small>
+                <strong>Preparing for a<br>Busy Exhibition Season</strong>
+                <span>Campaign visual</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Social media</span>
+              <h3>Exhibition Season Campaign</h3>
+              <p>Material de comunicare pentru pregătirea și promovarea unui sezon de expoziții.</p>
+              <div class="project-tags"><span>Event</span><span>Campaign</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="social">
+            <div class="project-art art-beauty">
+              <div class="mockup">
+                <small>Beauty & spa center</small>
+                <strong>Beauty<br>Experience</strong>
+                <span>Services · Self care</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Social media</span>
+              <h3>Beauty & Spa Center</h3>
+              <p>Prezentare vizuală pentru servicii de beauty și wellness.</p>
+              <div class="project-tags"><span>Beauty</span><span>Services</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="social">
+            <div class="project-art art-pink">
+              <div class="mockup">
+                <small>Hair salon</small>
+                <strong>HAIR<br>SALON</strong>
+                <span>Style · Beauty · Identity</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Social media</span>
+              <h3>Hair Salon Visual</h3>
+              <p>Conținut vizual pentru promovarea unui salon și a serviciilor sale.</p>
+              <div class="project-tags"><span>Beauty</span><span>Social content</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="social">
+            <div class="project-art art-hiring">
+              <div class="mockup">
+                <small>Career opportunity</small>
+                <strong>Billing<br>Analyst</strong>
+                <span>Professional opportunity</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Social media</span>
+              <h3>Billing Analyst Recruitment</h3>
+              <p>Vizual de recrutare pentru prezentarea unui rol profesional.</p>
+              <div class="project-tags"><span>Recruitment</span><span>Job post</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="social">
+            <div class="project-art art-gold">
+              <div class="mockup">
+                <small>Seasonal offer</small>
+                <strong>TIMDORA<br>Special Moments</strong>
+                <span>Gift · Celebration</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Social media</span>
+              <h3>Timdora — Seasonal Promotion</h3>
+              <p>Material promoțional pentru comunicarea unei oferte speciale.</p>
+              <div class="project-tags"><span>Promotion</span><span>Seasonal content</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="social">
+            <div class="project-art art-map">
+              <div class="mockup">
+                <small>Travel information</small>
+                <strong>Discover<br>Your Route</strong>
+                <span>Information design</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Social media</span>
+              <h3>Travel & Route Visual</h3>
+              <p>Vizual informativ cu hartă și trasee pentru comunicare digitală.</p>
+              <div class="project-tags"><span>Infographic</span><span>Information design</span></div>
+            </div>
+          </article>
+
+          <!-- BRANDING -->
+          <article class="project-card reveal" data-category="branding">
+            <div class="project-art art-logo">
+              <div class="mockup">
+                <small>Brand identity</small>
+                <strong>TIMDORA</strong>
+                <span>Logo & visual direction</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Identitate vizuală</span>
+              <h3>Timdora</h3>
+              <p>Logo și direcție de identitate vizuală pentru brand.</p>
+              <div class="project-tags"><span>Logo</span><span>Brand identity</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="branding">
+            <div class="project-art art-hiring">
+              <div class="mockup">
+                <small>Brand identity</small>
+                <strong>BrightHire</strong>
+                <span>Talent · Recruitment · Search</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Identitate vizuală</span>
+              <h3>BrightHire</h3>
+              <p>Direcție vizuală și materiale de identitate pentru brand.</p>
+              <div class="project-tags"><span>Logo</span><span>Branding</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="branding">
+            <div class="project-art art-map">
+              <div class="mockup">
+                <small>Visual identity</small>
+                <strong>Media Dent</strong>
+                <span>Logo concept</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Identitate vizuală</span>
+              <h3>Media Dent</h3>
+              <p>Logo și propunere de identitate vizuală prezentate în portofoliu.</p>
+              <div class="project-tags"><span>Logo</span><span>Visual identity</span></div>
+            </div>
+          </article>
+
+          <!-- LANDING PAGES -->
+          <article class="project-card reveal" data-category="landing">
+            <div class="project-art art-pink">
+              <div class="mockup">
+                <small>Social Media Course</small>
+                <strong>BLACK<br>FRIDAY</strong>
+                <span>Course offer · Special launch</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Landing page design</span>
+              <h3>Social Media Course — Black Friday</h3>
+              <p>Design de pagină pentru prezentarea unei oferte de curs Social Media.</p>
+              <div class="project-tags"><span>Landing page</span><span>Course</span><span>Campaign</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="landing">
+            <div class="project-art art-gold">
+              <div class="mockup">
+                <small>Brand development</small>
+                <strong>Building Timeless Brands</strong>
+                <span>For a Modern World</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Landing page design</span>
+              <h3>Building Timeless Brands for a Modern World</h3>
+              <p>Design de pagină pentru prezentarea unui concept de brand și a serviciilor sale.</p>
+              <div class="project-tags"><span>Web design</span><span>Brand presentation</span></div>
+            </div>
+          </article>
+
+          <!-- GRAPHIC DESIGN -->
+          <article class="project-card reveal" data-category="graphic">
+            <div class="project-art art-blue">
+              <div class="mockup">
+                <small>Global workforce</small>
+                <strong>Global<br>Connections</strong>
+                <span>Business visual</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Design grafic</span>
+              <h3>Global Workforce Visual</h3>
+              <p>Material grafic de prezentare cu tematică internațională și business.</p>
+              <div class="project-tags"><span>Business</span><span>Promotional graphic</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="graphic">
+            <div class="project-art art-business">
+              <div class="mockup">
+                <small>BrightHire</small>
+                <strong>Corporate Sales Manager</strong>
+                <span>For Serbia · Recruitment</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Design grafic</span>
+              <h3>BrightHire — Corporate Sales Manager</h3>
+              <p>Material de recrutare și prezentare pentru un rol profesional în Serbia.</p>
+              <div class="project-tags"><span>Recruitment</span><span>Corporate design</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="graphic">
+            <div class="project-art art-map">
+              <div class="mockup">
+                <small>Seasonal greeting</small>
+                <strong>Happy Easter</strong>
+                <span>Greeting card design</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Design grafic</span>
+              <h3>Happy Easter — BrightHire</h3>
+              <p>Material vizual sezonier pentru comunicarea brandului.</p>
+              <div class="project-tags"><span>Greeting card</span><span>Seasonal design</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="graphic">
+            <div class="project-art art-print">
+              <div class="mockup">
+                <small>Print design</small>
+                <strong>MENU</strong>
+                <span>Restaurant menu layout</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Design grafic</span>
+              <h3>Restaurant Menu</h3>
+              <p>Design de meniu și materiale grafice pentru prezentarea produselor.</p>
+              <div class="project-tags"><span>Menu</span><span>Print design</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="graphic">
+            <div class="project-art art-gold">
+              <div class="mockup">
+                <small>Certificate design</small>
+                <strong>TIMDORA</strong>
+                <span>Certificate & document layout</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Design grafic</span>
+              <h3>Timdora — Certificate</h3>
+              <p>Material de prezentare și document cu direcție vizuală elegantă.</p>
+              <div class="project-tags"><span>Certificate</span><span>Print</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="graphic">
+            <div class="project-art art-gold">
+              <div class="mockup">
+                <small>Business stationery</small>
+                <strong>Business<br>Cards</strong>
+                <span>Identity collateral</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Design grafic</span>
+              <h3>Business Cards & Stationery</h3>
+              <p>Materiale de identitate pentru comunicarea profesională a brandului.</p>
+              <div class="project-tags"><span>Business cards</span><span>Stationery</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="graphic">
+            <div class="project-art art-print">
+              <div class="mockup">
+                <small>Google review</small>
+                <strong>Leave us<br>a review</strong>
+                <span>QR code communication</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Design grafic</span>
+              <h3>Google Review QR Material</h3>
+              <p>Material grafic pentru încurajarea recenziilor și feedbackului clienților.</p>
+              <div class="project-tags"><span>QR code</span><span>Print material</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="graphic">
+            <div class="project-art art-business">
+              <div class="mockup">
+                <small>Corporate communication</small>
+                <strong>Company<br>Contact Card</strong>
+                <span>Business information</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Design grafic</span>
+              <h3>Corporate Contact Material</h3>
+              <p>Material de prezentare cu informații de contact și servicii.</p>
+              <div class="project-tags"><span>Corporate</span><span>Contact design</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="graphic">
+            <div class="project-art art-print">
+              <div class="mockup">
+                <small>Invitation design</small>
+                <strong>Special<br>Invitation</strong>
+                <span>Elegant print material</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Design grafic</span>
+              <h3>Invitations & Promotional Print</h3>
+              <p>Materiale de invitație și comunicare cu o direcție vizuală elegantă.</p>
+              <div class="project-tags"><span>Invitation</span><span>Print</span></div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="graphic">
+            <div class="project-art art-gold">
+              <div class="mockup">
+                <small>Brand collateral</small>
+                <strong>Premium<br>Stationery</strong>
+                <span>Business identity materials</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Design grafic</span>
+              <h3>Brand Stationery Collection</h3>
+              <p>Set de materiale tipărite pentru o prezentare unitară a brandului.</p>
+              <div class="project-tags"><span>Stationery</span><span>Brand collateral</span></div>
+            </div>
+          </article>
+
+          <!-- PROJECTS FROM THE OTHER PORTFOLIO LINKS -->
+          <article class="project-card reveal" data-category="landing">
+            <div class="project-art art-logo">
+              <div class="mockup">
+                <small>Career development</small>
+                <strong>CARELYNTA</strong>
+                <span>Career coaching concept</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Brand & digital concept</span>
+              <h3>CARELYNTA</h3>
+              <p>Concept dedicat dezvoltării profesionale, CV-ului, profilului LinkedIn și pregătirii pentru interviuri.</p>
+              <div class="project-tags"><span>Brand concept</span><span>Digital experience</span></div>
+              <div style="margin-top:15px">
+                <a class="btn btn-outline" style="padding:9px 14px;font-size:.72rem" href="https://marianapastean.my.canva.site/carelynta" target="_blank" rel="noopener">
+                  Vezi proiectul <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal" data-category="branding">
+            <div class="project-art art-gold">
+              <div class="mockup">
+                <small>Brand & marketing audit</small>
+                <strong>ARVANA</strong>
+                <span>Positioning · Identity · Direction</span>
+              </div>
+            </div>
+            <div class="project-info">
+              <span class="project-category">Brand strategy</span>
+              <h3>ARVANA</h3>
+              <p>Audit de brand și marketing: poziționare, identitate, comunicare, conținut și direcție.</p>
+              <div class="project-tags"><span>Brand audit</span><span>Marketing strategy</span></div>
+              <div style="margin-top:15px">
+                <a class="btn btn-outline" style="padding:9px 14px;font-size:.72rem" href="https://marianapastean.github.io/arvana-brand-marketing-audit/" target="_blank" rel="noopener">
+                  Vezi proiectul <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="portfolio-note">
+          <i class="fa-solid fa-circle-info"></i>
+          Selecție de proiecte prezentate în portofoliul meu. Pentru materialele vizuale complete și detaliile proiectelor, poți consulta și
+          <a href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener" style="color:var(--champagne);text-decoration:underline">portofoliul vizual complet</a>.
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">Cum lucrăm</span>
+          <h2>De la idee la o direcție <span class="gradient-text">clară.</span></h2>
+          <p>Fiecare proiect începe cu înțelegerea nevoii și se construiește în jurul unui obiectiv concret.</p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step reveal">
+            <span class="process-number">01</span>
+            <h3>Descoperim</h3>
+            <p>Discutăm despre business, public, obiective și ceea ce vrei să comunici.</p>
+          </div>
+
+          <div class="process-step reveal">
+            <span class="process-number">02</span>
+            <h3>Stabilim direcția</h3>
+            <p>Organizăm mesajul, structura și direcția vizuală potrivită proiectului.</p>
+          </div>
+
+          <div class="process-step reveal">
+            <span class="process-number">03</span>
+            <h3>Creăm</h3>
+            <p>Transformăm direcția agreată în materiale și experiențe digitale coerente.</p>
+          </div>
+
+          <div class="process-step reveal">
+            <span class="process-number">04</span>
+            <h3>Rafinăm</h3>
+            <p>Revizuim detaliile și pregătim materialele pentru utilizare.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- STATEMENT -->
-    <section class="section statement">
-      <div class="container statement-inner reveal">
-        <div class="eyebrow">A point of view</div>
-
-        <h2>Posting more<br>isn't the same<br>as <em>growing.</em></h2>
-
+    <section class="statement">
+      <div class="container reveal">
+        <span class="eyebrow">O idee în care cred</span>
+        <h2>Un brand nu are nevoie doar de vizibilitate. Are nevoie de <span class="gradient-text">sens și direcție.</span></h2>
         <p>
-          Vizibilitatea atrage atenția. Strategia oferă context,
-          diferențiere și un motiv clar pentru ca oamenii să aleagă.
-          Nu este vorba despre a comunica mai mult, ci despre
-          a comunica ceea ce contează.
+          Designul atrage atenția. Strategia oferă claritate.
+          Împreună pot transforma felul în care oamenii înțeleg și percep un brand.
         </p>
-      </div>
-    </section>
-
-    <!-- APPROACH -->
-    <section class="section" id="approach">
-      <div class="container">
-
-        <div class="section-heading reveal">
-          <div class="eyebrow">03 / My Approach · Un proces construit pe claritate</div>
-          <h2>De la analiză <em>la direcție.</em></h2>
-        </div>
-
-        <div class="approach-grid">
-
-          <div class="approach-art reveal">
-            <span>A system of ideas<br>built with intention</span>
-          </div>
-
-          <div class="steps">
-
-            <article class="step reveal">
-              <div class="step-number">01</div>
-              <div>
-                <h3>Înțelegem contextul</h3>
-                <p>
-                  Înțelegem oferta, publicul, contextul pieței și obiectivele.
-                  Identificăm întrebările care trebuie clarificate înainte
-                  de a propune soluții.
-                </p>
-              </div>
-            </article>
-
-            <article class="step reveal">
-              <div class="step-number">02</div>
-              <div>
-                <h3>Definim direcția</h3>
-                <p>
-                  Definim publicul prioritar, propunerea de valoare,
-                  diferențiatorii și mesajele care susțin poziționarea.
-                </p>
-              </div>
-            </article>
-
-            <article class="step reveal">
-              <div class="step-number">03</div>
-              <div>
-                <h3>Construim conținutul</h3>
-                <p>
-                  Traducem strategia în identitate, structură de conținut,
-                  pagini și instrumente digitale ușor de parcurs și folosit.
-                </p>
-              </div>
-            </article>
-
-            <article class="step reveal">
-              <div class="step-number">04</div>
-              <div>
-                <h3>Învățăm și optimizăm</h3>
-                <p>
-                  Evaluăm claritatea și coerența soluției, observăm
-                  feedbackul și identificăm ajustările care pot
-                  îmbunătăți experiența.
-                </p>
-              </div>
-            </article>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="section experience" id="experience">
-      <div class="container">
-
-        <div class="section-heading reveal">
-          <div class="eyebrow">04 / Perspectives · Experiență interdisciplinară</div>
-          <h2>O perspectivă <em>construită în timp.</em></h2>
-          <p>
-            Parcursul meu combină resurse umane, project management,
-            psihologie, web design și UI/UX. Această combinație mă ajută
-            să privesc proiectele atât din perspectiva oamenilor,
-            cât și din cea a structurii, funcționalității și obiectivelor.
-          </p>
-        </div>
-
-        <div class="experience-grid">
-
-          <article class="experience-card reveal">
-            <div class="eyebrow">People / Organization</div>
-            <h3>Înțelegerea oamenilor</h3>
-            <p>
-              Experiența de peste șapte ani în HR și formarea în psihologie
-              susțin o înțelegere practică a recrutării, parcursurilor
-              profesionale, motivațiilor și felului în care oamenii iau decizii.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Psihologie</span>
-              <span class="tag">HR</span>
-              <span class="tag">Comunicare</span>
-              <span class="tag">People insight</span>
-            </div>
-          </article>
-
-          <article class="experience-card reveal delay-1">
-            <div class="eyebrow">Strategy / Execution</div>
-            <h3>Structură și direcție</h3>
-            <p>
-              Project managementul și formarea în web design și UI/UX
-              susțin dezvoltarea unor proiecte bine structurate,
-              de la arhitectura informației până la experiența digitală.
-            </p>
-            <div class="tag-list">
-              <span class="tag">Project Management</span>
-              <span class="tag">UI/UX</span>
-              <span class="tag">Web Design</span>
-              <span class="tag">Planning</span>
-            </div>
-          </article>
-
-        </div>
-
-        <div class="timeline">
-
-          <article class="timeline-item reveal">
-            <div class="timeline-date">MAY – JULY 2025</div>
-            <div>
-              <h4>Web Design Explorer</h4>
-              <p>Digital Nation · Web Design & Digital Development</p>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-date">OCT 2022 – FEB 2025</div>
-            <div>
-              <h4>Project Manager</h4>
-              <p>SIDE GRUP · Project coordination and management</p>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-date">MAR 2019 – OCT 2022</div>
-            <div>
-              <h4>HR Manager</h4>
-              <p>SIDE GRUP · Human Resources</p>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-date">2025</div>
-            <div>
-              <h4>Web Design & UI/UX</h4>
-              <p>Digital Nation · Webcase</p>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-date">2024</div>
-            <div>
-              <h4>Project Management Training</h4>
-              <p>Professional development</p>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-date">2010 – 2012</div>
-            <div>
-              <h4>Master's Degree · Clinical Psychology</h4>
-              <p>Psychology</p>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-date">2007 – 2010</div>
-            <div>
-              <h4>Bachelor's Degree · Psychology</h4>
-              <p>Psychology</p>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <div class="container">
-
-        <div class="section-heading reveal">
-          <div class="eyebrow">05 / Selected Projects · Proiecte dezvoltate</div>
-          <h2>Strategie transformată <em>în experiență.</em></h2>
-          <p>
-            Două proiecte care ilustrează felul în care abordez dezvoltarea
-            unui brand: de la clarificarea mesajului și a serviciilor
-            până la instrumente digitale care oferă structură și valoare.
-          </p>
-        </div>
-
-        <div class="project-grid">
-
-          <article class="project-card reveal">
-            <div class="project-visual carelynta">
-              <div class="project-logo">CARELYNTA</div>
-            </div>
-            <div class="project-content">
-              <div class="project-meta">01 / Career Brand & Digital Presence</div>
-              <h3>CARELYNTA</h3>
-              <p>
-                Concept de brand dedicat dezvoltării profesionale:
-                poziționare, structurarea serviciilor și comunicare
-                pentru career coaching, optimizare CV, LinkedIn
-                și pregătirea interviurilor.
-              </p>
-              <a class="project-link"
-                 href="https://marianapastean.my.canva.site/carelynta"
-                 target="_blank" rel="noopener noreferrer">
-                Explorează proiectul ↗
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal delay-1">
-            <div class="project-visual arvana">
-              <div class="project-logo">ARVANA</div>
-            </div>
-            <div class="project-content">
-              <div class="project-meta">02 / Strategic Self-Assessment</div>
-              <h3>ARVANA</h3>
-              <p>
-                Instrument digital de autoevaluare a brandului și marketingului,
-                construit în jurul poziționării, identității, comunicării,
-                conținutului și direcției de dezvoltare.
-              </p>
-              <a class="project-link"
-                 href="https://marianapastean.github.io/arvana-brand-marketing-audit/"
-                 target="_blank" rel="noopener noreferrer">
-                Explorează proiectul ↗
-              </a>
-            </div>
-          </article>
-
-        </div>
-
-        <p class="about-quote reveal" style="margin-top:55px; max-width:760px;">
-          Fiecare proiect pornește de la o nevoie reală și capătă formă
-          prin strategie, structură, conținut și experiență digitală.
-        </p>
-
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section contact" id="contact">
-      <div class="container reveal">
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <span class="eyebrow">Hai să discutăm</span>
+          <h2>Ai o idee? Hai să îi dăm <span class="gradient-text">formă.</span></h2>
+          <p>
+            Spune-mi ce vrei să construiești, ce provocări ai și unde vrei
+            să ajungă brandul tău. Îți voi recomanda o direcție potrivită.
+          </p>
 
-        <div class="eyebrow">Strategie, brand și experiențe digitale</div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:mariana.pastean@gmail.com">
+              <i class="fa-regular fa-envelope"></i>
+              <span>mariana.pastean@gmail.com</span>
+            </a>
 
-        <h2>Ai o idee?<br><em>Hai să-i dăm direcție.</em></h2>
+            <div class="contact-link">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Arad, România</span>
+            </div>
 
-        <p>
-          Dacă dezvolți un business, un brand sau un proiect digital
-          și ai nevoie de claritate strategică, structură sau o
-          perspectivă nouă, mi-ar plăcea să discutăm.
-        </p>
+            <a class="contact-link" href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener">
+              <i class="fa-solid fa-globe"></i>
+              <span>Portofoliu vizual</span>
+            </a>
+          </div>
+        </div>
 
-        <a class="button-primary"
-           href="mailto:mariana.pastean@gmail.com?subject=Hai%20sa%20discutam">
-          Scrie-mi un mesaj <span>↗</span>
-        </a>
+        <div class="contact-box reveal">
+          <h3>Hai să construim ceva memorabil.</h3>
+          <p>
+            Fie că ai nevoie de o identitate vizuală, o pagină de prezentare,
+            conținut pentru social media sau o direcție de marketing, putem începe
+            cu o conversație.
+          </p>
 
-        <a class="contact-email" href="mailto:mariana.pastean@gmail.com">
-          mariana.pastean@gmail.com
-        </a>
+          <a class="btn btn-primary" href="mailto:mariana.pastean@gmail.com?subject=Discutie%20despre%20un%20proiect">
+            <i class="fa-regular fa-paper-plane"></i> Trimite un mesaj
+          </a>
 
-        <p style="margin-top:15px;">Arad, România</p>
-
+          <a class="btn btn-outline" href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener">
+            Vezi portofoliul complet
+          </a>
+        </div>
       </div>
     </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-inner">
-      <a class="footer-brand" href="#home">MARIANA.</a>
-
-      <p>© <span id="year"></span> Mariana Păștean. Strategy with intention.</p>
-
-      <div class="footer-links">
-        <a href="mailto:mariana.pastean@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="#top">Back to top ↑</a>
+    <div class="container footer-inner">
+      <div>
+        © <span id="year"></span> Mariana Păștean. Toate drepturile rezervate.
       </div>
+
+      <div class="socials">
+        <a href="mailto:mariana.pastean@gmail.com" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+
+      <div>Creat cu atenție la fiecare detaliu.</div>
     </div>
   </footer>
 
   <script>
-    // CURRENT YEAR
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // NAVIGATION SCROLL EFFECT
-    const nav = document.querySelector(".nav");
-
-    function updateNavigation() {
-      nav.classList.toggle("scrolled", window.scrollY > 40);
-    }
-
-    window.addEventListener("scroll", updateNavigation, { passive: true });
-    updateNavigation();
-
-    // MOBILE MENU
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
     menuToggle.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("open");
       menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.textContent = isOpen ? "×" : "☰";
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
     });
 
     document.querySelectorAll(".nav-links a").forEach(link => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
         menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
       });
     });
 
-    // SCROLL REVEAL
-    const revealElements = document.querySelectorAll(".reveal");
+    // Portfolio filters
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
 
-    if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        projectCards.forEach(card => {
+          const matches = filter === "all" || card.dataset.category === filter;
+          card.classList.toggle("hide", !matches);
         });
-      }, {
-        threshold: 0.12,
-        rootMargin: "0px 0px -35px 0px"
       });
+    });
 
-      revealElements.forEach(element => revealObserver.observe(element));
-    } else {
-      revealElements.forEach(element => element.classList.add("visible"));
-    }
-
-    // SUBTLE 3D MOVEMENT ON DESKTOP
-    const heroVisual = document.querySelector(".hero-visual");
-    const heroObject = document.querySelector(".hero-object");
-
-    if (window.matchMedia("(pointer: fine)").matches) {
-      heroVisual.addEventListener("mousemove", event => {
-        const rect = heroVisual.getBoundingClientRect();
-        const x = (event.clientX - rect.left) / rect.width - 0.5;
-        const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-        heroObject.style.transform =
-          `rotateY(${-18 + x * 12}deg) rotateX(${9 - y * 10}deg) translateY(-5px)`;
+    // Reveal elements on scroll
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
       });
+    }, { threshold: 0.12 });
 
-      heroVisual.addEventListener("mouseleave", () => {
-        heroObject.style.transform = "";
-      });
-    }
+    document.querySelectorAll(".reveal").forEach(element => {
+      revealObserver.observe(element);
+    });
+
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 
 </body>
