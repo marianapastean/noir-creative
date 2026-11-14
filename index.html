@@ -1614,384 +1614,546 @@
     }
   </script>
 
-  <script type="module">
-    import * as THREE from "three";
+  
+<script type="module">
+  import * as THREE from "three";
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobile = window.matchMedia("(max-width: 650px)").matches;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isMobile = window.matchMedia("(max-width: 650px)").matches;
+  const scenes = [];
 
-    const scenes = [];
+  const palette = {
+    purple: 0xb69aff,
+    pink: 0xf3a1d4,
+    cyan: 0x8af0f4,
+    green: 0x9dff6e,
+    blue: 0x8299ff,
+    white: 0xf3efff
+  };
 
-    const palette = {
-      purple: 0xb69aff,
-      pink: 0xf3a1d4,
-      cyan: 0x8af0f4,
-      blue: 0x8299ff,
-      white: 0xf3efff
-    };
+  function addLights(scene) {
+    scene.add(new THREE.AmbientLight(0x8790c9, 1.15));
 
-    function makeMaterial(color, metalness = 0.35, roughness = 0.3, transparent = false) {
-      return new THREE.MeshPhysicalMaterial({
+    const key = new THREE.PointLight(0x9dff6e, 42, 18);
+    key.position.set(3, 3, 5);
+    scene.add(key);
+
+    const violet = new THREE.PointLight(0x9b70ff, 55, 20);
+    violet.position.set(-4, -2, 3);
+    scene.add(violet);
+
+    const cyan = new THREE.PointLight(0x65f5ff, 48, 18);
+    cyan.position.set(1, 4, -4);
+    scene.add(cyan);
+
+    const pink = new THREE.PointLight(0xff75ce, 22, 14);
+    pink.position.set(-2, 1, 4);
+    scene.add(pink);
+  }
+
+  function material(color, options = {}) {
+    return new THREE.MeshPhysicalMaterial({
+      color,
+      metalness: options.metalness ?? 0.72,
+      roughness: options.roughness ?? 0.2,
+      clearcoat: 1,
+      clearcoatRoughness: 0.08,
+      reflectivity: 1,
+      iridescence: 1,
+      iridescenceIOR: 1.45,
+      iridescenceThicknessRange: [180, 850],
+      side: THREE.DoubleSide,
+      transparent: options.transparent ?? false,
+      opacity: options.opacity ?? 1,
+      wireframe: options.wireframe ?? false
+    });
+  }
+
+  function addGlowLine(group, points, color, opacity = 0.8) {
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    const line = new THREE.Line(
+      geometry,
+      new THREE.LineBasicMaterial({
         color,
-        metalness,
-        roughness,
-        transparent,
-        opacity: transparent ? 0.42 : 0.88,
-        clearcoat: 1,
-        clearcoatRoughness: 0.12,
-        reflectivity: 0.9,
-        iridescence: 0.7,
-        iridescenceIOR: 1.35,
-        iridescenceThicknessRange: [100, 450]
-      });
-    }
-
-    function addLights(scene) {
-      scene.add(new THREE.AmbientLight(0xe8dce8, 1.45));
-
-      const key = new THREE.PointLight(0xffd8e8, 68, 18);
-      key.position.set(3, 4, 5);
-      scene.add(key);
-
-      const fill = new THREE.PointLight(0xd9c8ff, 42, 18);
-      fill.position.set(-4, -2, 3);
-      scene.add(fill);
-
-      const rim = new THREE.PointLight(0xffe8c9, 52, 16);
-      rim.position.set(1, 3, -4);
-      scene.add(rim);
-    }
-
-    // Satin is modelled as a folded, continuous surface rather than a hard 3D object.
-    // Its fine waves catch the lights like silk and drift gently as the page moves.
-    function makeSatinGeometry(variant = 0) {
-      const widthSegments = 100;
-      const lengthSegments = 150;
-      const positions = [];
-      const uvs = [];
-      const indices = [];
-
-      for (let j = 0; j <= lengthSegments; j++) {
-        const v = j / lengthSegments;
-        for (let i = 0; i <= widthSegments; i++) {
-          const u = i / widthSegments;
-          const across = (u - .5) * (3.35 + variant * .18);
-          const along = (v - .5) * (3.15 + variant * .12);
-
-          const broadFold = Math.sin(v * Math.PI * 2.15 + u * 2.6 + variant) * .34;
-          const fineFold = Math.sin(u * Math.PI * 5.2 - v * Math.PI * 3.1 + variant * .7) * .095;
-          const edgeCurl = Math.pow(Math.abs(u - .5) * 2, 2) * .24;
-          const twist = Math.sin(v * Math.PI * 1.7 + variant * .8) * (u - .5) * .72;
-
-          const x = across + twist;
-          const y = along + broadFold + fineFold;
-          const z =
-            Math.sin(u * Math.PI * 2.4 + v * Math.PI * 1.8 + variant) * .34 +
-            Math.cos(v * Math.PI * 3.2 - u * Math.PI * 2.1) * .18 +
-            edgeCurl + Math.sin(v * Math.PI * 2.0 + variant) * .12;
-
-          positions.push(x, y, z);
-          uvs.push(u, v);
-        }
-      }
-
-      for (let j = 0; j < lengthSegments; j++) {
-        for (let i = 0; i < widthSegments; i++) {
-          const a = j * (widthSegments + 1) + i;
-          const b = a + widthSegments + 1;
-          indices.push(a, b, a + 1, b, b + 1, a + 1);
-        }
-      }
-
-      const geometry = new THREE.BufferGeometry();
-      geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
-      geometry.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
-      geometry.setIndex(indices);
-      geometry.computeVertexNormals();
-      return geometry;
-    }
-
-    function makeSatinMaterial(color, opacity = 1) {
-      return new THREE.MeshPhysicalMaterial({
-        color,
-        metalness: .22,
-        roughness: .31,
-        clearcoat: .82,
-        clearcoatRoughness: .22,
-        sheen: 1,
-        sheenColor: new THREE.Color(0xffd8e9),
-        sheenRoughness: .28,
-        iridescence: .18,
-        iridescenceIOR: 1.28,
-        iridescenceThicknessRange: [180, 420],
-        side: THREE.DoubleSide,
-        transparent: opacity < 1,
+        transparent: true,
         opacity
-      });
-    }
+      })
+    );
+    group.add(line);
+    return line;
+  }
 
-    function makeCore(group, type) {
-      const variants = {
-        hero: 0, about: 1, rings: 2, knot: 3, crystal: 1,
-        orb: 2, portal: 3, wave: 0, fluid: 2, particles: 1,
-        tech: 3, contact: 0
-      };
-      const variant = variants[type] ?? 0;
-      const colors = {
-        hero: 0xe8c5d7, about: 0xd9c5e9, rings: 0xe9d2c2,
-        knot: 0xe9bfd1, crystal: 0xc8dce0, orb: 0xe8d5c7,
-        portal: 0xd9c8ec, wave: 0xe7c2d5, fluid: 0xf0d4df,
-        particles: 0xd7c5e9, tech: 0xc9dce0, contact: 0xe8c5d7
-      };
+  function createOrganicCore(group, color = palette.green) {
+    const geometry = new THREE.TorusKnotGeometry(1.05, 0.32, 220, 28, 2, 5);
+    const mesh = new THREE.Mesh(
+      geometry,
+      material(color, { metalness: 0.86, roughness: 0.14 })
+    );
+    mesh.scale.set(1.15, 1.15, 0.9);
+    group.add(mesh);
 
-      const core = new THREE.Mesh(
-        makeSatinGeometry(variant),
-        makeSatinMaterial(colors[type] ?? 0xe8c5d7)
+    const inner = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(0.48, 2),
+      material(palette.purple, { metalness: 0.55, roughness: 0.12 })
+    );
+    inner.scale.setScalar(0.78);
+    group.add(inner);
+
+    return mesh;
+  }
+
+  function createOrbitSystem(group, color = palette.cyan) {
+    const orbitColors = [color, palette.purple, palette.green];
+
+    for (let i = 0; i < 4; i++) {
+      const ring = new THREE.Mesh(
+        new THREE.TorusGeometry(1.25 + i * 0.19, 0.012 + i * 0.002, 12, 180),
+        new THREE.MeshBasicMaterial({
+          color: orbitColors[i % orbitColors.length],
+          transparent: true,
+          opacity: 0.62 - i * 0.08
+        })
       );
-      core.rotation.z = -.22;
-      core.scale.set(1.05, 1.12, 1.0);
-      group.add(core);
 
-      // A second, narrower silk fold adds depth without enclosing the artwork in a frame.
-      if (["hero", "about", "portal", "wave", "fluid", "contact"].includes(type)) {
-        const fold = new THREE.Mesh(
-          makeSatinGeometry(variant + 1.35),
-          makeSatinMaterial(0xf2dce6, .72)
-        );
-        fold.scale.set(.58, .82, .72);
-        fold.rotation.set(.38, .52, .64);
-        fold.position.set(.42, -.08, .34);
-        group.add(fold);
-      }
-
-      return core;
+      ring.rotation.set(
+        i * 0.62,
+        i * 0.43,
+        i * 0.31
+      );
+      group.add(ring);
     }
 
-    function addDecorations(group, type) {
-      // No rigid rings, crystals or particle cages: the satin itself is the hero object.
-      // Small pearl-like highlights are used sparingly on larger compositions only.
-      if (["hero", "contact", "portal"].includes(type)) {
-        const pearlGeometry = new THREE.SphereGeometry(.035, 24, 24);
-        const pearlMaterial = new THREE.MeshPhysicalMaterial({
-          color: 0xffe9ef,
-          metalness: .32,
-          roughness: .12,
-          clearcoat: 1,
-          clearcoatRoughness: .08
-        });
-        for (let i = 0; i < 3; i++) {
-          const pearl = new THREE.Mesh(pearlGeometry, pearlMaterial);
-          pearl.position.set(
-            Math.cos(i * 2.1) * (1.45 + i * .18),
-            Math.sin(i * 2.1) * 1.15,
-            .55 - i * .22
+    const center = new THREE.Mesh(
+      new THREE.IcosahedronGeometry(0.58, 2),
+      material(palette.white, { metalness: 0.75, roughness: 0.1 })
+    );
+    group.add(center);
+
+    return center;
+  }
+
+  function createCrystalCluster(group) {
+    const colors = [palette.green, palette.cyan, palette.purple, palette.pink];
+
+    for (let i = 0; i < 7; i++) {
+      const geometry = new THREE.IcosahedronGeometry(
+        0.36 + (i % 3) * 0.12,
+        1
+      );
+
+      const crystal = new THREE.Mesh(
+        geometry,
+        material(colors[i % colors.length], {
+          metalness: 0.55,
+          roughness: 0.16,
+          transparent: true,
+          opacity: 0.78
+        })
+      );
+
+      const angle = i * Math.PI * 2 / 7;
+      crystal.position.set(
+        Math.cos(angle) * (0.75 + (i % 2) * 0.18),
+        Math.sin(angle * 1.7) * 0.65,
+        Math.sin(angle) * 0.65
+      );
+      crystal.rotation.set(i * 0.7, i * 0.5, i * 0.3);
+      crystal.scale.set(0.8, 1.3, 0.75);
+      group.add(crystal);
+
+      const wire = new THREE.Mesh(
+        geometry.clone(),
+        new THREE.MeshBasicMaterial({
+          color: palette.white,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.16
+        })
+      );
+      wire.position.copy(crystal.position);
+      wire.rotation.copy(crystal.rotation);
+      wire.scale.copy(crystal.scale).multiplyScalar(1.015);
+      group.add(wire);
+    }
+
+    return group;
+  }
+
+  function createParticleNetwork(group) {
+    const count = isMobile ? 85 : 150;
+    const positions = [];
+    const points = [];
+
+    for (let i = 0; i < count; i++) {
+      const phi = Math.acos(2 * Math.random() - 1);
+      const theta = Math.random() * Math.PI * 2;
+      const radius = 1.15 + Math.random() * 0.8;
+
+      const x = radius * Math.sin(phi) * Math.cos(theta);
+      const y = radius * Math.sin(phi) * Math.sin(theta);
+      const z = radius * Math.cos(phi);
+
+      positions.push(x, y, z);
+      points.push(new THREE.Vector3(x, y, z));
+    }
+
+    const pointGeometry = new THREE.BufferGeometry();
+    pointGeometry.setAttribute(
+      "position",
+      new THREE.Float32BufferAttribute(positions, 3)
+    );
+
+    const pointMaterial = new THREE.PointsMaterial({
+      color: palette.green,
+      size: 0.035,
+      transparent: true,
+      opacity: 0.9,
+      sizeAttenuation: true
+    });
+
+    const cloud = new THREE.Points(pointGeometry, pointMaterial);
+    group.add(cloud);
+
+    const linePositions = [];
+    const maxDistance = 0.78;
+
+    for (let i = 0; i < points.length; i++) {
+      for (let j = i + 1; j < points.length; j++) {
+        if (points[i].distanceTo(points[j]) < maxDistance) {
+          linePositions.push(
+            points[i].x, points[i].y, points[i].z,
+            points[j].x, points[j].y, points[j].z
           );
-          group.add(pearl);
         }
       }
     }
 
-    function createScene(element) {
-      const type = element.dataset.shape || "orb";
-      const scene = new THREE.Scene();
+    const lineGeometry = new THREE.BufferGeometry();
+    lineGeometry.setAttribute(
+      "position",
+      new THREE.Float32BufferAttribute(linePositions, 3)
+    );
 
-      const camera = new THREE.PerspectiveCamera(38, 1, .1, 100);
-      camera.position.z = type === "hero" ? 6.5 : 6.2;
+    const network = new THREE.LineSegments(
+      lineGeometry,
+      new THREE.LineBasicMaterial({
+        color: palette.cyan,
+        transparent: true,
+        opacity: 0.23
+      })
+    );
 
-      const renderer = new THREE.WebGLRenderer({
-        alpha: true,
-        antialias: !isMobile,
-        powerPreference: "low-power"
-      });
+    group.add(network);
+    return cloud;
+  }
 
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.2 : 1.6));
-      renderer.setClearColor(0x000000, 0);
-      renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.15;
+  function createWaveSurface(group) {
+    const width = 2.8;
+    const height = 2.8;
+    const segments = isMobile ? 45 : 75;
+    const positions = [];
+    const indices = [];
 
-      element.appendChild(renderer.domElement);
+    for (let y = 0; y <= segments; y++) {
+      for (let x = 0; x <= segments; x++) {
+        const px = (x / segments - 0.5) * width;
+        const py = (y / segments - 0.5) * height;
+        const pz =
+          Math.sin(px * 3.2) * 0.18 +
+          Math.cos(py * 2.8) * 0.18;
 
-      addLights(scene);
+        positions.push(px, py, pz);
+      }
+    }
 
-      const group = new THREE.Group();
-      scene.add(group);
+    for (let y = 0; y < segments; y++) {
+      for (let x = 0; x < segments; x++) {
+        const a = y * (segments + 1) + x;
+        const b = a + segments + 1;
+        indices.push(a, b, a + 1, b, b + 1, a + 1);
+      }
+    }
 
-      const core = makeCore(group, type);
-      addDecorations(group, type);
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute(
+      "position",
+      new THREE.Float32BufferAttribute(positions, 3)
+    );
+    geometry.setIndex(indices);
+    geometry.computeVertexNormals();
 
-      if (type === "hero") {
-        core.scale.setScalar(1.12);
+    const surface = new THREE.Mesh(
+      geometry,
+      new THREE.MeshPhysicalMaterial({
+        color: palette.purple,
+        metalness: 0.62,
+        roughness: 0.25,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.72,
+        side: THREE.DoubleSide
+      })
+    );
+
+    group.add(surface);
+    return surface;
+  }
+
+  function createSceneObject(group, type) {
+    switch (type) {
+      case "hero":
+        return createOrganicCore(group, palette.green);
+
+      case "about":
+        return createOrbitSystem(group, palette.purple);
+
+      case "rings":
+        return createOrbitSystem(group, palette.green);
+
+      case "knot":
+        return createOrganicCore(group, palette.cyan);
+
+      case "crystal":
+        createCrystalCluster(group);
+        return group;
+
+      case "orb":
+        return createOrbitSystem(group, palette.pink);
+
+      case "portal":
+        return createOrbitSystem(group, palette.green);
+
+      case "wave":
+        return createWaveSurface(group);
+
+      case "fluid":
+        return createOrganicCore(group, palette.purple);
+
+      case "particles":
+        return createParticleNetwork(group);
+
+      case "tech":
+        createCrystalCluster(group);
+        createParticleNetwork(group);
+        return group;
+
+      case "contact":
+        return createOrganicCore(group, palette.cyan);
+
+      default:
+        return createOrganicCore(group);
+    }
+  }
+
+  function createScene(element) {
+    const type = element.dataset.shape || "orb";
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+    camera.position.z = type === "hero" ? 6.5 : 6.2;
+
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: !isMobile,
+      powerPreference: "low-power"
+    });
+
+    renderer.setPixelRatio(
+      Math.min(window.devicePixelRatio, isMobile ? 1.2 : 1.6)
+    );
+    renderer.setClearColor(0x000000, 0);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.25;
+
+    element.appendChild(renderer.domElement);
+    addLights(scene);
+
+    const group = new THREE.Group();
+    scene.add(group);
+
+    const core = createSceneObject(group, type);
+
+    if (type === "hero") group.scale.setScalar(1.12);
+    if (type === "about") group.scale.setScalar(0.92);
+    if (type === "contact") group.scale.setScalar(1.08);
+
+    function resize() {
+      const width = Math.max(element.clientWidth, 1);
+      const height = Math.max(element.clientHeight, 1);
+
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    }
+
+    resize();
+
+    const observer = new ResizeObserver(resize);
+    observer.observe(element);
+
+    const pointer = { x: 0, y: 0 };
+
+    element.addEventListener("pointermove", event => {
+      const rect = element.getBoundingClientRect();
+      pointer.x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
+      pointer.y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+    }, { passive: true });
+
+    element.addEventListener("pointerleave", () => {
+      pointer.x = 0;
+      pointer.y = 0;
+    });
+
+    scenes.push({
+      scene,
+      camera,
+      renderer,
+      group,
+      core,
+      type,
+      element,
+      observer,
+      visible: false,
+      time: Math.random() * 10,
+      pointer
+    });
+  }
+
+  document.querySelectorAll(".object-canvas").forEach(createScene);
+
+  const visibilityObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const target = scenes.find(item => item.element === entry.target);
+      if (target) target.visible = entry.isIntersecting;
+    });
+  }, { threshold: 0.02 });
+
+  scenes.forEach(item => visibilityObserver.observe(item.element));
+
+  const clock = new THREE.Clock();
+
+  function animate() {
+    requestAnimationFrame(animate);
+    const elapsed = clock.getElapsedTime();
+
+    scenes.forEach(item => {
+      if (!item.visible && item.type !== "hero") return;
+
+      const scrollFlow = window.scrollY * 0.00055;
+      const t = reducedMotion ? 0 : elapsed + item.time + scrollFlow;
+
+      const targetX = item.pointer.y * 0.16;
+      const targetY = item.pointer.x * 0.18;
+
+      item.group.rotation.y +=
+        (targetY + Math.sin(t * 0.18) * 0.22 - item.group.rotation.y) * 0.018;
+
+      item.group.rotation.x +=
+        (targetX + Math.cos(t * 0.14) * 0.16 - item.group.rotation.x) * 0.018;
+
+      item.group.rotation.z = Math.sin(t * 0.12) * 0.12;
+
+      if (item.type === "wave") {
+        item.group.rotation.x = -0.45 + Math.sin(t * 0.2) * 0.08;
       }
 
-      if (type === "about") {
-        group.scale.setScalar(.9);
+      const floatAmount = item.type === "hero" ? 0.22 : 0.16;
+
+      item.group.position.y = reducedMotion
+        ? 0
+        : Math.sin(t * 0.32) * floatAmount;
+
+      item.group.position.x = reducedMotion
+        ? 0
+        : Math.sin(t * 0.21 + item.time) * 0.13;
+
+      item.group.position.z = reducedMotion
+        ? 0
+        : Math.cos(t * 0.2) * 0.12;
+
+      const breathing = reducedMotion
+        ? 1
+        : 1 + Math.sin(t * 0.42) * 0.035;
+
+      item.group.scale.setScalar(breathing);
+
+      if (item.core && item.core !== item.group) {
+        item.core.rotation.x += 0.002;
+        item.core.rotation.y += 0.003;
       }
 
-      if (type === "contact") {
-        group.scale.setScalar(1.08);
+      item.renderer.render(item.scene, item.camera);
+    });
+  }
+
+  animate();
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
       }
+    });
+  }, { threshold: 0.12 });
 
-      function resize() {
-        const width = Math.max(element.clientWidth, 1);
-        const height = Math.max(element.clientHeight, 1);
+  document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
-        renderer.setSize(width, height, false);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-      }
+  // Navigation + progress
+  const navbar = document.getElementById("navbar");
+  const progress = document.getElementById("progress");
 
-      resize();
+  function onScroll() {
+    const scrollTop = window.scrollY;
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
 
-      const observer = new ResizeObserver(resize);
-      observer.observe(element);
+    navbar.classList.toggle("scrolled", scrollTop > 40);
+    progress.style.width =
+      (scrollable > 0 ? scrollTop / scrollable * 100 : 0) + "%";
+  }
 
-      const pointer = { x: 0, y: 0 };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
-      element.addEventListener("pointermove", event => {
-        const rect = element.getBoundingClientRect();
-        pointer.x = ((event.clientX - rect.left) / rect.width - .5) * 2;
-        pointer.y = ((event.clientY - rect.top) / rect.height - .5) * 2;
-      }, { passive: true });
+  // Cursor glow
+  const glow = document.getElementById("cursorGlow");
 
-      element.addEventListener("pointerleave", () => {
-        pointer.x = 0;
-        pointer.y = 0;
+  if (!isMobile && !reducedMotion) {
+    window.addEventListener("pointermove", event => {
+      glow.style.left = event.clientX + "px";
+      glow.style.top = event.clientY + "px";
+    }, { passive: true });
+  } else {
+    glow.style.display = "none";
+  }
+
+  // Subtle 3D tilt on service cards
+  if (!isMobile && !reducedMotion) {
+    document.querySelectorAll(".service-card").forEach(card => {
+      card.addEventListener("pointermove", event => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - 0.5;
+        const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+        card.style.transform =
+          `perspective(900px) rotateX(${-y * 4}deg) rotateY(${x * 5}deg) translateY(-3px)`;
       });
 
-      scenes.push({
-        scene,
-        camera,
-        renderer,
-        group,
-        core,
-        type,
-        element,
-        observer,
-        visible: false,
-        time: Math.random() * 10,
-        pointer
-      });
-    }
-
-    document.querySelectorAll(".object-canvas").forEach(createScene);
-
-    const visibilityObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const target = scenes.find(item => item.element === entry.target);
-        if (target) target.visible = entry.isIntersecting;
-      });
-    }, { threshold: 0.02 });
-
-    scenes.forEach(item => visibilityObserver.observe(item.element));
-
-    const clock = new THREE.Clock();
-
-    function animate() {
-      requestAnimationFrame(animate);
-
-      const elapsed = clock.getElapsedTime();
-
-      scenes.forEach(item => {
-        if (!item.visible && item.type !== "hero") return;
-
-        // Scroll-ul adaugă o variație comună, astfel încât formele par să curgă
-        // dintr-o secțiune în următoarea, nu să fie obiecte izolate.
-        const scrollFlow = window.scrollY * .00065;
-        const t = reducedMotion ? 0 : elapsed + item.time + scrollFlow;
-        const speed = item.type === "hero" ? .075 : .095;
-
-        // Mișcare fluidă, ca o bucată de satin purtată de aer.
-        const targetX = item.pointer.y * .10;
-        const targetY = item.pointer.x * .13;
-
-        item.group.rotation.y += (targetY + Math.sin(t * .17) * .13 - item.group.rotation.y) * .009;
-        item.group.rotation.x += (targetX + Math.cos(t * .14) * .10 - item.group.rotation.x) * .009;
-
-        item.core.rotation.x = Math.sin(t * speed) * .16;
-        item.core.rotation.y = Math.sin(t * .11) * .12;
-        item.core.rotation.z = Math.cos(t * .13) * .16;
-
-        const floatAmount = item.type === "hero" ? .24 : .19;
-        item.group.position.y = reducedMotion ? 0 : Math.sin(t * .31) * floatAmount;
-        item.group.position.x = reducedMotion ? 0 : Math.sin(t * .19 + item.time) * .12;
-        item.group.position.z = reducedMotion ? 0 : Math.cos(t * .22) * .10;
-
-        // Respirație discretă, sincronizată cu mișcarea materialului.
-        const breathing = reducedMotion ? 1 : 1 + Math.sin(t * .38) * .022;
-        item.group.scale.setScalar(breathing);
-
-        item.renderer.render(item.scene, item.camera);
-      });
-    }
-
-    animate();
-
-    // Scroll reveal
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
-
-    // Navigation + progress
-    const navbar = document.getElementById("navbar");
-    const progress = document.getElementById("progress");
-
-    function onScroll() {
-      const scrollTop = window.scrollY;
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      navbar.classList.toggle("scrolled", scrollTop > 40);
-      progress.style.width = (scrollable > 0 ? scrollTop / scrollable * 100 : 0) + "%";
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    // Cursor glow
-    const glow = document.getElementById("cursorGlow");
-
-    if (!isMobile && !reducedMotion) {
-      window.addEventListener("pointermove", event => {
-        glow.style.left = event.clientX + "px";
-        glow.style.top = event.clientY + "px";
-      }, { passive: true });
-    } else {
-      glow.style.display = "none";
-    }
-
-    // Subtle 3D tilt on service cards
-    if (!isMobile && !reducedMotion) {
-      document.querySelectorAll(".service-card").forEach(card => {
-        card.addEventListener("pointermove", event => {
-          const rect = card.getBoundingClientRect();
-          const x = (event.clientX - rect.left) / rect.width - .5;
-          const y = (event.clientY - rect.top) / rect.height - .5;
-
-          card.style.transform =
-            `perspective(900px) rotateX(${-y * 4}deg) rotateY(${x * 5}deg) translateY(-3px)`;
-        });
-
-        card.addEventListener("pointerleave", () => {
-          card.style.transform = "";
-        });
-      });
-    }
-
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Clean up WebGL resources if page is unloaded
-    window.addEventListener("pagehide", () => {
-      scenes.forEach(item => {
-        item.observer.disconnect();
-        item.renderer.dispose();
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
       });
     });
-  </script>
-</body>
-</html>
+  }
+
+  // Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Clean up WebGL resources
+  window.addEventListener("pagehide", () => {
+    scenes.forEach(item => {
+      item.observer.disconnect();
+      item.renderer.dispose();
+    });
+  });
+</script>
