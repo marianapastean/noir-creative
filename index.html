@@ -1,372 +1,913 @@
 
-<section class="human-centered-projects" id="projects-for-people">
-  <div class="section-heading">
-    <span class="section-eyebrow">DIGITAL PROJECTS WITH PURPOSE</span>
-    <h2>Digital projects <em>designed for people.</em></h2>
-    <p class="section-intro">
-      CARELYNTA și ARVANA au pornit de la aceeași idee:
-      tehnologia și marketingul digital trebuie să răspundă unor nevoi reale.
-      Am dezvoltat aceste proiecte cu accent pe accesibilitate, claritate
-      și instrumente gratuite, care îi ajută pe oameni să își evalueze
-      situația și să ia decizii mai informate.
-    </p>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100b18">
+<meta name="description" content="Mariana Păștean — Brand Designer & Marketing. Social Media, identitate vizuală, landing pages și design grafic.">
+<title>Mariana Păștean | Brand Design & Marketing</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+:root {
+  --bg:#100b18;
+  --bg2:#181020;
+  --panel:#21162c;
+  --white:#fff9ff;
+  --muted:#c3b4cb;
+  --pink:#f18bd7;
+  --violet:#a65cff;
+  --champagne:#e8cda9;
+  --line:rgba(255,255,255,.12);
+  --gradient:linear-gradient(120deg,#f18bd7,#a65cff 55%,#e8cda9);
+  --shadow:0 24px 70px rgba(0,0,0,.38);
+  --radius:23px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  background:
+    radial-gradient(ellipse at 10% 10%,rgba(113,56,199,.18),transparent 35%),
+    radial-gradient(ellipse at 90% 45%,rgba(241,139,215,.09),transparent 35%),
+    var(--bg);
+  color:var(--white);
+  font-family:"DM Sans",sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.container{width:min(1160px,90%);margin:auto}
+section{scroll-margin-top:90px}
+h1,h2,h3,.serif{font-family:"Playfair Display",serif}
+h2{font-size:clamp(2.2rem,5vw,4rem);line-height:1.12;letter-spacing:-.035em}
+.gradient-text{
+  background:var(--gradient);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.section{padding:105px 0;position:relative}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  color:var(--pink);font-size:.74rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;
+}
+.eyebrow:before{content:"";width:25px;height:1px;background:var(--pink)}
+.section-heading{max-width:740px;margin-bottom:45px}
+.section-heading h2{margin:15px 0}
+.section-heading p{color:var(--muted);max-width:650px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 23px;border-radius:100px;font-size:.86rem;font-weight:700;
+  transition:.3s ease;cursor:pointer;border:0;
+}
+.btn-primary{
+  color:#1b1020;background:var(--gradient);
+  box-shadow:0 10px 35px rgba(166,92,255,.23);
+}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 15px 42px rgba(241,139,215,.3)}
+.btn-outline{color:var(--white);border:1px solid rgba(241,139,215,.5);background:rgba(255,255,255,.025)}
+.btn-outline:hover{background:rgba(241,139,215,.12);transform:translateY(-3px)}
+
+/* NAVIGATION */
+.navbar{
+  position:fixed;z-index:1000;inset:0 0 auto;
+  background:rgba(16,11,24,.86);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{font-family:"Playfair Display",serif;font-size:1.15rem;font-weight:700;letter-spacing:.06em;white-space:nowrap}
+.logo span{color:var(--pink)}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{color:var(--muted);font-size:.78rem;transition:.25s}
+.nav-links a:hover{color:var(--pink)}
+.nav-cta{padding:10px 17px;font-size:.75rem}
+.menu-toggle{
+  display:none;width:43px;height:43px;border:1px solid var(--line);
+  border-radius:12px;color:white;background:var(--panel);cursor:pointer;
+}
+
+/* HERO */
+.hero{min-height:750px;padding:150px 0 100px;display:flex;align-items:center;position:relative;isolation:isolate}
+.hero:before{
+  content:"";position:absolute;z-index:-1;width:520px;height:520px;
+  right:-120px;top:90px;border-radius:50%;
+  background:radial-gradient(circle,rgba(166,92,255,.23),transparent 68%);
+  filter:blur(12px);
+}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:55px}
+.hero h1{font-size:clamp(3.5rem,7vw,6.5rem);line-height:.98;letter-spacing:-.055em;margin:25px 0}
+.hero-copy{max-width:570px;color:var(--muted);font-size:1.03rem}
+.hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}
+.hero-note{margin-top:32px;color:var(--muted);font-size:.8rem;display:flex;gap:10px;align-items:center}
+.hero-note i{color:var(--champagne)}
+.hero-art{min-height:480px;position:relative;display:grid;place-items:center}
+.art-orbit{
+  width:min(390px,85vw);aspect-ratio:1;border:1px solid rgba(241,139,215,.35);
+  border-radius:50%;position:absolute;animation:rotate 28s linear infinite;
+}
+.art-orbit:before,.art-orbit:after{
+  content:"";position:absolute;width:13px;height:13px;border-radius:50%;
+  background:var(--pink);box-shadow:0 0 25px var(--pink);
+}
+.art-orbit:before{top:30px;left:75px}
+.art-orbit:after{right:15px;bottom:100px;background:var(--champagne)}
+.art-card{
+  width:min(340px,78vw);aspect-ratio:.82;border:1px solid rgba(255,255,255,.2);
+  border-radius:28px;padding:27px;position:relative;overflow:hidden;
+  background:linear-gradient(145deg,rgba(255,255,255,.14),transparent 45%),linear-gradient(145deg,#4d2670,#20132f 55%,#120c1b);
+  box-shadow:0 35px 100px rgba(0,0,0,.45);transform:rotate(-5deg);
+}
+.art-card:before{
+  content:"M";position:absolute;font-family:"Playfair Display",serif;
+  font-size:19rem;line-height:1;color:rgba(255,255,255,.07);right:-10px;bottom:-45px;
+}
+.art-card-top{display:flex;justify-content:space-between;color:var(--champagne);font-size:.7rem;letter-spacing:.15em}
+.art-card-content{position:absolute;left:28px;right:28px;bottom:38px}
+.art-card-content small{color:var(--pink);text-transform:uppercase;letter-spacing:.2em}
+.art-card-content h2{font-size:3rem;margin:10px 0}
+.art-card-content p{color:#e1d2e8;font-size:.82rem}
+.floating-icon{
+  position:absolute;width:60px;height:60px;display:grid;place-items:center;
+  border:1px solid rgba(255,255,255,.18);border-radius:18px;
+  background:rgba(39,25,52,.9);color:var(--pink);font-size:1.3rem;
+  box-shadow:var(--shadow);animation:float 5s ease-in-out infinite;
+}
+.floating-icon.one{top:45px;right:5px}
+.floating-icon.two{bottom:55px;left:0;animation-delay:-2s;color:var(--champagne)}
+.floating-icon.three{top:55%;right:-15px;animation-delay:-3s;color:var(--violet)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px) rotate(5deg)}}
+@keyframes rotate{to{transform:rotate(360deg)}}
+
+/* INTRO */
+.intro-strip{border-block:1px solid var(--line);background:rgba(255,255,255,.025);padding:23px 0}
+.strip-inner{display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap}
+.strip-item{color:var(--muted);font-size:.82rem;display:flex;align-items:center;gap:10px}
+.strip-item i{color:var(--pink)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}
+.about-visual{
+  min-height:420px;border-radius:30px;position:relative;overflow:hidden;
+  background:radial-gradient(circle at 70% 25%,rgba(241,139,215,.4),transparent 30%),linear-gradient(145deg,#3c2055,#171020 70%);
+  border:1px solid var(--line);display:grid;place-items:center;
+}
+.about-monogram{font-family:"Playfair Display",serif;font-size:13rem;color:rgba(255,255,255,.12);text-shadow:0 0 70px rgba(241,139,215,.35)}
+.about-stamp{
+  position:absolute;bottom:25px;left:25px;right:25px;padding:17px 20px;
+  border-radius:17px;background:rgba(16,11,24,.76);border:1px solid var(--line);
+  backdrop-filter:blur(12px);font-size:.8rem;color:var(--muted);
+}
+.about-copy h2{margin:15px 0 24px}
+.about-copy p{color:var(--muted);margin-bottom:16px}
+.about-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.fact{padding:17px 14px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.025)}
+.fact strong{display:block;color:var(--champagne);font-family:"Playfair Display",serif;font-size:1.6rem}
+.fact span{font-size:.7rem;color:var(--muted)}
+
+/* SERVICES */
+.services{background:linear-gradient(180deg,transparent,rgba(113,56,199,.07),transparent)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service-card{
+  border:1px solid var(--line);border-radius:var(--radius);padding:29px;
+  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.015));
+  transition:.35s;position:relative;overflow:hidden;
+}
+.service-card:after{
+  content:"";position:absolute;width:130px;height:130px;border-radius:50%;
+  right:-70px;bottom:-70px;background:rgba(166,92,255,.12);transition:.35s;
+}
+.service-card:hover{transform:translateY(-8px);border-color:rgba(241,139,215,.45);box-shadow:var(--shadow)}
+.service-card:hover:after{transform:scale(1.7)}
+.service-icon{
+  width:54px;height:54px;display:grid;place-items:center;border-radius:17px;
+  background:rgba(166,92,255,.16);color:var(--pink);font-size:1.3rem;margin-bottom:22px;
+}
+.service-card h3{font-size:1.3rem;margin-bottom:10px}
+.service-card p{color:var(--muted);font-size:.87rem}
+
+/* PORTFOLIO */
+.portfolio{background:linear-gradient(180deg,rgba(255,255,255,.012),transparent)}
+.portfolio-top{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:38px}
+.portfolio-top .section-heading{margin:0}
+.category-section{margin-top:70px}
+.category-heading{
+  display:flex;align-items:center;gap:18px;margin-bottom:25px;
+}
+.category-heading .number{font-family:"Playfair Display",serif;color:var(--pink);font-size:1.1rem}
+.category-heading h3{font-size:clamp(1.5rem,3vw,2.2rem)}
+.category-heading:after{content:"";height:1px;background:var(--line);flex:1}
+.category-description{color:var(--muted);font-size:.9rem;max-width:700px;margin:-10px 0 25px}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project-card{
+  min-width:0;border:1px solid var(--line);border-radius:21px;overflow:hidden;
+  background:var(--panel);transition:transform .4s ease,border-color .4s,box-shadow .4s;
+  position:relative;
+}
+.project-card:hover{
+  transform:translateY(-9px);border-color:rgba(241,139,215,.55);
+  box-shadow:0 24px 65px rgba(0,0,0,.38),0 0 30px rgba(241,139,215,.08);
+}
+.project-visual{
+  min-height:235px;aspect-ratio:4/3;padding:22px;display:grid;place-items:center;
+  position:relative;overflow:hidden;isolation:isolate;
+}
+.project-visual:before{
+  content:"";position:absolute;width:230px;height:230px;border-radius:50%;
+  filter:blur(3px);opacity:.65;z-index:-1;transition:transform .6s;
+}
+.project-card:hover .project-visual:before{transform:scale(1.35)}
+.project-preview{
+  width:76%;min-height:160px;padding:20px;border-radius:12px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow:0 18px 40px rgba(0,0,0,.3);transform:rotate(-3deg);
+  transition:transform .5s ease,box-shadow .5s;text-align:left;color:white;
+}
+.project-card:hover .project-preview{transform:rotate(0) scale(1.06);box-shadow:0 22px 45px rgba(0,0,0,.4)}
+.project-preview small{font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;opacity:.8}
+.project-preview strong{font-family:"Playfair Display",serif;font-size:clamp(1.3rem,2vw,2rem);line-height:1.08}
+.project-preview span{font-size:.65rem;opacity:.85}
+.project-info{padding:20px 21px 23px}
+.project-category{color:var(--pink);font-size:.64rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+.project-info h4{font-family:"Playfair Display",serif;font-size:1.2rem;margin:7px 0}
+.project-info p{color:var(--muted);font-size:.8rem;line-height:1.65}
+.project-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.project-tags span{border:1px solid var(--line);border-radius:100px;padding:4px 9px;color:var(--muted);font-size:.62rem}
+.project-link{display:inline-flex;gap:8px;align-items:center;color:var(--champagne);font-size:.76rem;margin-top:16px;transition:.25s}
+.project-link:hover{color:var(--pink);gap:12px}
+
+/* PROJECT PREVIEW COLOR DIRECTIONS */
+.v-fashion{background:linear-gradient(135deg,#d9c7bd,#403039)}
+.v-fashion:before{background:#f18bd7;top:-80px;right:-40px}
+.v-fashion .project-preview{background:linear-gradient(145deg,#17131b,#5c3d50)}
+.v-food{background:linear-gradient(135deg,#edb66d,#9b3f2c)}
+.v-food:before{background:#f8e1a8;bottom:-100px;left:-50px}
+.v-food .project-preview{background:linear-gradient(145deg,#8d261e,#e16c32)}
+.v-green{background:linear-gradient(135deg,#b9e9cf,#4a9a75)}
+.v-green:before{background:#d8ffe5;top:-80px;left:-40px}
+.v-green .project-preview{background:linear-gradient(145deg,#d8f4df,#6bb68c);color:#174b39}
+.v-blue{background:linear-gradient(135deg,#102d65,#6488ca)}
+.v-blue:before{background:#7ea9f3;left:-70px;top:-60px}
+.v-blue .project-preview{background:linear-gradient(145deg,#0b2250,#315ca0)}
+.v-beauty{background:linear-gradient(135deg,#d9b8a6,#805e57)}
+.v-beauty:before{background:#f4c9b8;right:-60px;top:-70px}
+.v-beauty .project-preview{background:linear-gradient(145deg,#d9b39d,#8a5f55)}
+.v-pink{background:linear-gradient(135deg,#f5a1dc,#a73eb2)}
+.v-pink:before{background:#ffd0f0;right:-70px;top:-80px}
+.v-pink .project-preview{background:linear-gradient(145deg,#ee7bd1,#9d2f9e)}
+.v-gold{background:linear-gradient(135deg,#d9c38c,#66502b)}
+.v-gold:before{background:#f8e2a9;left:-70px;bottom:-70px}
+.v-gold .project-preview{background:linear-gradient(145deg,#302313,#a07b3d)}
+.v-logo{background:linear-gradient(135deg,#120c1a,#3c2458)}
+.v-logo:before{background:#a65cff;right:-70px;top:-70px}
+.v-logo .project-preview{background:transparent;box-shadow:none;text-align:center;align-items:center;transform:none}
+.v-logo .project-preview strong{font-size:2rem;letter-spacing:.08em}
+.v-landing{background:linear-gradient(135deg,#e9a4d9,#8c56c8)}
+.v-landing:before{background:#ffd4f4;top:-70px;right:-50px}
+.v-landing .project-preview{background:linear-gradient(145deg,#e65fc5,#7d39aa)}
+.v-print{background:linear-gradient(135deg,#d5d0c5,#716b5c)}
+.v-print:before{background:#fff0cf;right:-70px;bottom:-70px}
+.v-print .project-preview{background:linear-gradient(145deg,#f5eee0,#b9a77f);color:#453a2a}
+.v-map{background:linear-gradient(135deg,#c2e9d2,#4b9b81)}
+.v-map:before{background:#e2ffe8;left:-60px;top:-60px}
+.v-map .project-preview{background:linear-gradient(145deg,#e1f8e9,#7bbf98);color:#20533c}
+.v-expo{background:linear-gradient(135deg,#1b2942,#54718a)}
+.v-expo:before{background:#e8cda9;right:-60px;bottom:-80px}
+.v-expo .project-preview{background:linear-gradient(145deg,#172b3c,#536b78)}
+
+/* DIGITAL PROJECTS */
+.digital-projects{
+  margin-top:85px;padding:45px;border:1px solid rgba(241,139,215,.22);
+  border-radius:28px;background:linear-gradient(145deg,rgba(113,56,199,.12),rgba(255,255,255,.018));
+}
+.digital-intro{max-width:720px;color:var(--muted);margin:12px 0 30px}
+.digital-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.digital-card{
+  position:relative;overflow:hidden;border:1px solid var(--line);
+  border-radius:22px;background:rgba(16,11,24,.55);transition:.4s;
+}
+.digital-card:hover{transform:translateY(-7px);border-color:rgba(241,139,215,.5);box-shadow:var(--shadow)}
+.digital-art{
+  min-height:220px;padding:28px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.digital-art:before{
+  content:"";position:absolute;width:260px;height:260px;border-radius:50%;
+  background:rgba(241,139,215,.17);filter:blur(12px);right:-80px;top:-100px;
+}
+.digital-brand{
+  position:relative;text-align:center;font-family:"Playfair Display",serif;
+  font-size:clamp(2.4rem,5vw,4rem);letter-spacing:.12em;
+  text-shadow:0 0 35px rgba(241,139,215,.25);
+}
+.digital-brand small{display:block;font-family:"DM Sans",sans-serif;font-size:.58rem;letter-spacing:.3em;color:var(--champagne)}
+.digital-content{padding:25px}
+.digital-content .project-category{display:block}
+.digital-content h4{font-family:"Playfair Display",serif;font-size:1.55rem;margin:8px 0}
+.digital-content p{font-size:.86rem;color:var(--muted)}
+.digital-content ul{padding-left:18px;color:var(--muted);font-size:.8rem;margin:14px 0}
+.digital-content li{margin:5px 0}
+.digital-content .btn{margin-top:10px;font-size:.76rem;padding:11px 17px}
+.carelynta-art{background:linear-gradient(135deg,#183b4b,#111a2c 60%,#345b68)}
+.arvana-art{background:linear-gradient(135deg,#35264b,#151020 60%,#765d45)}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.process-step{padding:25px;border-top:1px solid rgba(241,139,215,.55);background:linear-gradient(180deg,rgba(255,255,255,.045),transparent)}
+.process-number{color:var(--pink);font-family:"Playfair Display",serif;font-size:2.5rem}
+.process-step h3{font-size:1.15rem;margin:12px 0 8px}
+.process-step p{color:var(--muted);font-size:.82rem}
+
+/* STATEMENT */
+.statement{
+  padding:85px 0;text-align:center;border-block:1px solid var(--line);
+  background:radial-gradient(ellipse at 50% 100%,rgba(166,92,255,.25),transparent 65%),linear-gradient(120deg,#251435,#140d1d);
+}
+.statement h2{max-width:900px;margin:18px auto;font-size:clamp(2.3rem,5vw,4.5rem)}
+.statement p{color:var(--muted);max-width:620px;margin:auto}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-copy h2{margin:15px 0 20px}
+.contact-copy p{color:var(--muted)}
+.contact-links{display:grid;gap:13px;margin-top:30px}
+.contact-link{display:flex;align-items:center;gap:15px;color:var(--muted);transition:.25s}
+.contact-link:hover{color:var(--pink)}
+.contact-link i{
+  width:44px;height:44px;border-radius:14px;display:grid;place-items:center;
+  background:rgba(166,92,255,.15);color:var(--pink);
+}
+.contact-box{border:1px solid var(--line);border-radius:26px;padding:35px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.015))}
+.contact-box h3{font-size:1.8rem;margin-bottom:12px}
+.contact-box p{color:var(--muted);font-size:.9rem;margin-bottom:25px}
+.contact-box .btn{width:100%;margin-top:10px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.75rem}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.socials{display:flex;gap:12px}
+.socials a{
+  width:37px;height:37px;display:grid;place-items:center;
+  border:1px solid var(--line);border-radius:50%;transition:.25s;
+}
+.socials a:hover{color:var(--pink);border-color:var(--pink);transform:translateY(-3px)}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .nav-links{
+    position:absolute;top:78px;left:0;right:0;display:none;flex-direction:column;
+    align-items:stretch;padding:25px 5%;background:rgba(16,11,24,.98);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:.95rem;padding:7px 0}
+  .nav-cta{display:none}
+  .menu-toggle{display:block}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero{padding-top:135px}
+  .hero-art{min-height:420px}
+  .about-grid{gap:35px}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .project-grid{grid-template-columns:repeat(2,1fr)}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:580px){
+  .section{padding:78px 0}
+  .hero{min-height:auto;padding-bottom:75px}
+  .hero h1{font-size:3.55rem}
+  .hero-art{min-height:370px}
+  .art-orbit{width:285px}
+  .art-card{width:255px}
+  .floating-icon{width:48px;height:48px;font-size:1rem}
+  .services-grid,.project-grid,.process-grid,.digital-grid{grid-template-columns:1fr}
+  .portfolio-top{display:block}
+  .portfolio-top .btn{margin-top:20px}
+  .about-facts{grid-template-columns:1fr}
+  .fact{display:flex;justify-content:space-between;align-items:center}
+  .contact-box{padding:25px}
+  .strip-inner{justify-content:flex-start}
+  .strip-item{width:calc(50% - 15px)}
+  .digital-projects{padding:25px 18px}
+  .category-heading{gap:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="logo">MARIANA <span>PĂȘTEAN</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Deschide meniul" aria-expanded="false">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Acasă</a></li>
+      <li><a href="#about">Despre mine</a></li>
+      <li><a href="#services">Servicii</a></li>
+      <li><a href="#portfolio">Portofoliu</a></li>
+      <li><a href="#process">Proces</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" href="#contact">Hai să discutăm <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
   </div>
+</header>
 
-  <div class="human-project-grid">
+<main>
 
-    <!-- CARELYNTA -->
-    <article class="human-project-card">
-      <div class="project-topline">
-        <span class="project-category">CAREER SUPPORT · HUMAN-CENTERED</span>
-        <span class="project-number">01</span>
-      </div>
-
-      <h3>CARELYNTA</h3>
-      <p class="project-tagline">
-        Helping people present their potential with confidence.
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-content reveal">
+      <span class="eyebrow">Brand design · Marketing · Strategie</span>
+      <h1>Idei cu <span class="gradient-text">identitate.</span><br>Branduri cu direcție.</h1>
+      <p class="hero-copy">
+        Sunt Mariana Păștean, designer de brand și specialistă în marketing.
+        Ajut businessurile să își construiască o imagine coerentă, un mesaj
+        clar și o prezență online care susține obiective reale.
       </p>
-
-      <p class="project-description">
-        CARELYNTA este un proiect digital construit în jurul unei nevoi
-        concrete: sprijinirea oamenilor în procesul de pregătire și
-        îmbunătățire a CV-ului. Ideea centrală a fost să fac evaluarea
-        mai accesibilă și mai ușor de folosit, fără bariere inutile.
-      </p>
-
-      <div class="project-highlight">
-        <span class="highlight-label">WHAT I DEVELOPED</span>
-        <h4>Free CV Check & Evaluation</h4>
-        <p>
-          Am dezvoltat gratuit un instrument de verificare și evaluare a CV-ului,
-          care oferă observații privind structura documentului, informațiile
-          care pot fi îmbunătățite și aspectele care ar putea lipsi.
-          Instrumentul permite și compararea CV-ului cu cerințele unui anunț
-          de angajare, pentru ca utilizatorii să își poată adapta candidatura.
-        </p>
-        <p class="free-note">
-          Gratuit, fără cont și fără abonament.
-        </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#portfolio">Explorează proiectele <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="btn btn-outline" href="#contact">Discutăm ideea ta</a>
       </div>
+      <div class="hero-note"><i class="fa-solid fa-sparkles"></i><span>Design atent. Strategie clară. Comunicare cu sens.</span></div>
+    </div>
 
-      <div class="project-value">
-        <span>THE HUMAN VALUE</span>
-        <p>
-          Mai multă claritate pentru candidați, acces la feedback util și
-          posibilitatea de a-și îmbunătăți CV-ul în propriul ritm.
-        </p>
+    <div class="hero-art reveal">
+      <div class="art-orbit"></div>
+      <div class="art-card">
+        <div class="art-card-top"><span>MP / CREATIVE STUDIO</span><i class="fa-solid fa-star"></i></div>
+        <div class="art-card-content">
+          <small>Brand & Marketing</small>
+          <h2>Make your<br>brand matter.</h2>
+          <p>Strategie, design și experiențe digitale construite în jurul identității tale.</p>
+        </div>
       </div>
-
-      <a class="project-link"
-         href="https://marianapastean.my.canva.site/carelynta"
-         target="_blank"
-         rel="noopener noreferrer">
-        Explore CARELYNTA <span aria-hidden="true">↗</span>
-      </a>
-    </article>
-
-    <!-- ARVANA -->
-    <article class="human-project-card">
-      <div class="project-topline">
-        <span class="project-category">BRAND STRATEGY · DIGITAL MARKETING</span>
-        <span class="project-number">02</span>
-      </div>
-
-      <h3>ARVANA</h3>
-      <p class="project-tagline">
-        Making brand and marketing insights more accessible.
-      </p>
-
-      <p class="project-description">
-        ARVANA Digital Marketing Audit este un proiect orientat spre
-        înțelegerea brandurilor și a modului în care acestea comunică în
-        mediul digital. Proiectul pornește de la ideea că o prezență online
-        mai bună începe cu o evaluare clară și cu înțelegerea aspectelor
-        care pot fi dezvoltate.
-      </p>
-
-      <div class="project-highlight">
-        <span class="highlight-label">WHAT I DEVELOPED</span>
-        <h4>Free Brand & Digital Marketing Evaluation</h4>
-        <p>
-          Am dezvoltat gratuit evaluări și teste menite să ofere o perspectivă
-          asupra prezenței digitale și a direcției de marketing a unui brand.
-          Accentul este pus pe identificarea oportunităților de îmbunătățire,
-          clarificarea comunicării și încurajarea unor decizii de marketing
-          mai bine fundamentate.
-        </p>
-        <p class="free-note">
-          Evaluări și instrumente gratuite, create pentru a fi accesibile.
-        </p>
-      </div>
-
-      <div class="project-value">
-        <span>THE HUMAN VALUE</span>
-        <p>
-          Mai multă înțelegere pentru antreprenori și branduri, acces la
-          evaluare și un punct de plecare mai clar pentru dezvoltarea
-          comunicării digitale.
-        </p>
-      </div>
-
-      <a class="project-link"
-         href="https://marianapastean.github.io/arvana-brand-marketing-audit/"
-         target="_blank"
-         rel="noopener noreferrer">
-        Explore ARVANA <span aria-hidden="true">↗</span>
-      </a>
-    </article>
-
-  </div>
-
-  <div class="shared-mission">
-    <span class="shared-mission-label">THE CONNECTION</span>
-    <h3>Different needs. One shared purpose.</h3>
-    <p>
-      CARELYNTA îi ajută pe oameni să își prezinte mai bine experiența
-      profesională. ARVANA oferă brandurilor un punct de plecare pentru
-      a-și înțelege și îmbunătăți prezența digitală. Două direcții diferite,
-      unite de aceeași convingere: informațiile utile și instrumentele
-      de evaluare ar trebui să fie accesibile, clare și create cu oamenii
-      în centrul experienței.
-    </p>
+      <div class="floating-icon one"><i class="fa-solid fa-pen-nib"></i></div>
+      <div class="floating-icon two"><i class="fa-solid fa-lightbulb"></i></div>
+      <div class="floating-icon three"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+    </div>
   </div>
 </section>
 
-<style>
-.human-centered-projects {
-  --project-accent: #c9a77b;
-  --project-text: #f3eee8;
-  --project-muted: #aaa29a;
-  --project-panel: #171615;
-  color: var(--project-text);
-  padding: 100px 6%;
-  background: #0d0c0c;
-  font-family: inherit;
-}
+<div class="intro-strip">
+  <div class="container strip-inner">
+    <div class="strip-item"><i class="fa-solid fa-pen-nib"></i> Brand & Visual Identity</div>
+    <div class="strip-item"><i class="fa-solid fa-hashtag"></i> Social Media Design</div>
+    <div class="strip-item"><i class="fa-solid fa-window-maximize"></i> Landing Page Design</div>
+    <div class="strip-item"><i class="fa-solid fa-print"></i> Graphic Design</div>
+  </div>
+</div>
 
-.human-centered-projects .section-heading {
-  max-width: 850px;
-  margin: 0 auto 55px;
-  text-align: center;
-}
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <div class="about-monogram">MP</div>
+      <div class="about-stamp">Brand design, marketing și organizare — unite într-o abordare creativă și structurată.</div>
+    </div>
+    <div class="about-copy reveal">
+      <span class="eyebrow">Despre mine</span>
+      <h2>Creativitate cu <span class="gradient-text">direcție.</span></h2>
+      <p>
+        Sunt Mariana Păștean, designer de brand și specialistă în marketing.
+        Ajut businessurile să își clarifice imaginea, mesajul și modul în care se prezintă online.
+      </p>
+      <p>
+        Experiența mea de peste 6 ani în resurse umane, 2 ani în project management
+        și activitatea în marketing începută în 2025 mă ajută să combin creativitatea
+        cu organizarea, strategia și atenția la obiective.
+      </p>
+      <p>
+        Nu creez doar materiale care arată bine. Îmi place să înțeleg ce vrei să transmiți,
+        cui te adresezi și ce trebuie să facă vizitatorul după ce vede conținutul tău.
+      </p>
+      <div class="about-facts">
+        <div class="fact"><strong>6+ ani</strong><span>Experiență în HR</span></div>
+        <div class="fact"><strong>2 ani</strong><span>Project management</span></div>
+        <div class="fact"><strong>2025</strong><span>Start în marketing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-.human-centered-projects .section-eyebrow,
-.human-centered-projects .project-category,
-.human-centered-projects .highlight-label,
-.human-centered-projects .project-value span,
-.human-centered-projects .shared-mission-label {
-  color: var(--project-accent);
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  font-weight: 600;
-}
+<!-- SERVICES -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Ce pot face pentru brandul tău</span>
+      <h2>Servicii pentru branduri care vor să <span class="gradient-text">comunice mai bine.</span></h2>
+      <p>Ofer servicii de design și marketing pentru businessuri, branduri personale și proiecte care au nevoie de o prezență mai clară și mai profesionistă.</p>
+    </div>
 
-.human-centered-projects .section-heading h2 {
-  font-family: Georgia, serif;
-  font-size: clamp(34px, 5vw, 58px);
-  font-weight: 400;
-  margin: 18px 0;
-  line-height: 1.12;
-}
+    <div class="services-grid">
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-hashtag"></i></div>
+        <h3>Social Media Design</h3>
+        <p>Postări, carusele și stories create pentru o comunicare coerentă, actuală și ușor de recunoscut.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <h3>Logo & Visual Identity</h3>
+        <p>Logo-uri și direcții vizuale care ajută brandul să fie memorabil și consecvent.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-window-maximize"></i></div>
+        <h3>Landing Page Design</h3>
+        <p>Pagini clare și bine structurate pentru servicii, campanii, lansări și colectare de lead-uri.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+        <h3>Graphic Design</h3>
+        <p>Flyere, meniuri, broșuri, bannere, materiale promoționale și design pentru print.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+        <h3>Copywriting & Storytelling</h3>
+        <p>Texte care explică oferta, susțin brandul și creează o conexiune mai bună cu publicul.</p>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Social Media Strategy</h3>
+        <p>Direcții de conținut și idei organizate în jurul obiectivelor brandului.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-.human-centered-projects .section-heading h2 em {
-  color: var(--project-accent);
-  font-weight: 400;
-}
+<!-- PORTFOLIO -->
+<section class="section portfolio" id="portfolio">
+<div class="container">
 
-.human-centered-projects .section-intro {
-  color: var(--project-muted);
-  font-size: 15px;
-  line-height: 1.9;
-  max-width: 720px;
-  margin: 0 auto;
-}
+  <div class="portfolio-top">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Selecție din portofoliu</span>
+      <h2>Proiecte care dau formă <span class="gradient-text">ideilor.</span></h2>
+      <p>O selecție de proiecte din social media, identitate vizuală, landing page design și design grafic — fiecare construit în jurul unui mesaj și al unei direcții vizuale.</p>
+    </div>
+    <a class="btn btn-outline" href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener">
+      Portofoliu vizual complet <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+  </div>
 
-.human-project-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  <!-- 01 SOCIAL MEDIA -->
+  <div class="category-section" id="social-media">
+    <div class="category-heading reveal"><span class="number">01</span><h3>Social Media & Content Design</h3></div>
+    <p class="category-description">Conținut vizual pentru promovarea produselor, serviciilor, campaniilor și oportunităților profesionale. Postări care transmit rapid mesajul și păstrează o direcție vizuală recognoscibilă.</p>
 
-.human-project-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(25px, 4vw, 42px);
-  background: linear-gradient(145deg, #1c1a18, #11100f);
-  border: 1px solid rgba(201, 167, 123, 0.2);
-  border-radius: 4px;
-  transition: transform .4s ease, border-color .4s ease,
-              box-shadow .4s ease;
-}
+    <div class="project-grid">
 
-.human-project-card:hover {
-  transform: translateY(-7px);
-  border-color: rgba(201, 167, 123, .65);
-  box-shadow: 0 18px 55px rgba(0, 0, 0, .35),
-              0 0 25px rgba(201, 167, 123, .07);
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-fashion"><div class="project-preview"><small>Fashion campaign</small><strong>FASHION<br>STATEMENT</strong><span>Visual content · Social media</span></div></div>
+        <div class="project-info"><span class="project-category">Fashion · Social media</span><h4>Fashion Campaign</h4><p>Direcție vizuală și materiale promoționale pentru conținut fashion, cu accent pe prezentarea produsului și impact vizual.</p><div class="project-tags"><span>Instagram</span><span>Campaign</span><span>Visual design</span></div></div>
+      </article>
 
-.project-topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 35px;
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-food"><div class="project-preview"><small>Restaurant promotion</small><strong>THE<br>STRONGEST<br>FLAVORS</strong><span>Food · Social media</span></div></div>
+        <div class="project-info"><span class="project-category">Food · Social media</span><h4>Restaurant & Food Campaign</h4><p>Vizualuri promoționale pentru comunicarea unui concept de restaurant, cu accent pe produs, atmosferă și mesaj.</p><div class="project-tags"><span>Food design</span><span>Promotion</span></div></div>
+      </article>
 
-.project-number {
-  color: rgba(201, 167, 123, .55);
-  font-family: Georgia, serif;
-  font-size: 24px;
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-food"><div class="project-preview"><small>Pizza promotion</small><strong>IT'S<br>PIZZA TIME</strong><span>Fresh taste · Social media</span></div></div>
+        <div class="project-info"><span class="project-category">Food · Promotion</span><h4>Pizza Promotion</h4><p>Material promoțional cu accent pe produs, culoare și un mesaj ușor de parcurs în feed.</p><div class="project-tags"><span>Food</span><span>Promotional post</span></div></div>
+      </article>
 
-.human-project-card h3 {
-  color: var(--project-text);
-  font-family: Georgia, serif;
-  font-size: clamp(36px, 5vw, 52px);
-  font-weight: 400;
-  letter-spacing: 2px;
-  margin: 0 0 8px;
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-green"><div class="project-preview"><small>We are hiring</small><strong>ASSISTANT<br>MANAGER</strong><span>Join our team · Recruitment</span></div></div>
+        <div class="project-info"><span class="project-category">Recruitment · Social media</span><h4>We Are Hiring — Assistant Manager</h4><p>Vizual de recrutare pentru promovarea unei oportunități profesionale și atragerea candidaților.</p><div class="project-tags"><span>Recruitment</span><span>Employer branding</span></div></div>
+      </article>
 
-.project-tagline {
-  color: var(--project-accent);
-  font-family: Georgia, serif;
-  font-size: 17px;
-  font-style: italic;
-  line-height: 1.5;
-  margin: 0 0 22px;
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-blue"><div class="project-preview"><small>Event promotion</small><strong>EXHIBITION<br>SEASON</strong><span>Campaign visual</span></div></div>
+        <div class="project-info"><span class="project-category">Event · Social media</span><h4>Exhibition Season Campaign</h4><p>Material de comunicare pentru pregătirea și promovarea unui sezon de expoziții.</p><div class="project-tags"><span>Event</span><span>Campaign</span></div></div>
+      </article>
 
-.project-description {
-  color: var(--project-muted);
-  font-size: 14px;
-  line-height: 1.9;
-  margin: 0 0 28px;
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-beauty"><div class="project-preview"><small>Beauty & spa center</small><strong>BEAUTY<br>EXPERIENCE</strong><span>Services · Self care</span></div></div>
+        <div class="project-info"><span class="project-category">Beauty · Social media</span><h4>Beauty & Spa Center</h4><p>Prezentare vizuală pentru servicii de beauty și wellness, cu o direcție elegantă și feminină.</p><div class="project-tags"><span>Beauty</span><span>Services</span></div></div>
+      </article>
 
-.project-highlight {
-  padding: 24px;
-  margin-bottom: 25px;
-  background: rgba(201, 167, 123, .055);
-  border-left: 2px solid var(--project-accent);
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-pink"><div class="project-preview"><small>Hair salon</small><strong>HAIR<br>SALON</strong><span>Style · Beauty · Identity</span></div></div>
+        <div class="project-info"><span class="project-category">Beauty · Social media</span><h4>Hair Salon Visual</h4><p>Conținut vizual pentru promovarea unui salon și a serviciilor sale.</p><div class="project-tags"><span>Beauty</span><span>Social content</span></div></div>
+      </article>
 
-.project-highlight h4 {
-  color: var(--project-text);
-  font-family: Georgia, serif;
-  font-size: 21px;
-  font-weight: 400;
-  margin: 13px 0;
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-green"><div class="project-preview"><small>Career opportunity</small><strong>BILLING<br>ANALYST</strong><span>Professional opportunity</span></div></div>
+        <div class="project-info"><span class="project-category">Recruitment · Social media</span><h4>Billing Analyst Recruitment</h4><p>Vizual de recrutare pentru prezentarea unui rol profesional și comunicarea oportunității către candidați.</p><div class="project-tags"><span>Recruitment</span><span>Job post</span></div></div>
+      </article>
 
-.project-highlight p {
-  color: var(--project-muted);
-  font-size: 13px;
-  line-height: 1.85;
-  margin: 0 0 12px;
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-gold"><div class="project-preview"><small>Seasonal offer</small><strong>TIMDORA<br>SPECIAL MOMENTS</strong><span>Gift · Celebration</span></div></div>
+        <div class="project-info"><span class="project-category">Seasonal · Social media</span><h4>Timdora — Seasonal Promotion</h4><p>Material promoțional pentru comunicarea unei oferte speciale și a unui moment sezonier.</p><div class="project-tags"><span>Promotion</span><span>Seasonal content</span></div></div>
+      </article>
 
-.project-highlight .free-note {
-  color: var(--project-accent);
-  font-size: 12px;
-  letter-spacing: .4px;
-  margin: 14px 0 0;
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-map"><div class="project-preview"><small>Travel information</small><strong>DISCOVER<br>YOUR ROUTE</strong><span>Information design</span></div></div>
+        <div class="project-info"><span class="project-category">Infographic · Social media</span><h4>Travel & Route Visual</h4><p>Vizual informativ cu hartă și trasee, organizat astfel încât informația să fie ușor de urmărit.</p><div class="project-tags"><span>Infographic</span><span>Information design</span></div></div>
+      </article>
 
-.project-value {
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, .09);
-  margin-top: auto;
-}
+    </div>
+  </div>
 
-.project-value p {
-  color: var(--project-muted);
-  font-size: 13px;
-  line-height: 1.85;
-  margin: 12px 0 25px;
-}
+  <!-- 02 BRAND IDENTITY -->
+  <div class="category-section" id="visual-identity">
+    <div class="category-heading reveal"><span class="number">02</span><h3>Logo & Visual Identity</h3></div>
+    <p class="category-description">Proiecte de logo și direcție vizuală pentru branduri din domenii diferite. Accent pe recunoaștere, coerență și aplicabilitatea identității în comunicarea brandului.</p>
 
-.project-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  width: fit-content;
-  padding: 12px 0;
-  color: var(--project-accent);
-  text-decoration: none;
-  font-size: 12px;
-  letter-spacing: 1.3px;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgba(201, 167, 123, .5);
-  transition: gap .3s ease, color .3s ease;
-}
+    <div class="project-grid">
 
-.project-link:hover {
-  gap: 27px;
-  color: #f0d5b0;
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-logo"><div class="project-preview"><small>Brand identity</small><strong>TIMDORA</strong><span>Logo & visual direction</span></div></div>
+        <div class="project-info"><span class="project-category">Logo · Brand identity</span><h4>Timdora</h4><p>Logo și direcție de identitate vizuală pentru brand, cu o prezentare elegantă și coerentă.</p><div class="project-tags"><span>Logo</span><span>Brand identity</span></div></div>
+      </article>
 
-.shared-mission {
-  max-width: 850px;
-  margin: 75px auto 0;
-  padding: 38px;
-  text-align: center;
-  border: 1px solid rgba(201, 167, 123, .2);
-  background: radial-gradient(
-    ellipse at center,
-    rgba(201, 167, 123, .08),
-    transparent 75%
-  );
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-green"><div class="project-preview"><small>Brand identity</small><strong>BrightHire</strong><span>Talent · Recruitment · Search</span></div></div>
+        <div class="project-info"><span class="project-category">Logo · Visual identity</span><h4>BrightHire</h4><p>Direcție vizuală și materiale de identitate pentru un brand din zona de recrutare și resurse umane.</p><div class="project-tags"><span>Logo</span><span>Branding</span></div></div>
+      </article>
 
-.shared-mission h3 {
-  color: var(--project-text);
-  font-family: Georgia, serif;
-  font-size: clamp(25px, 4vw, 36px);
-  font-weight: 400;
-  margin: 15px 0;
-}
+      <article class="project-card reveal">
+        <div class="project-visual v-map"><div class="project-preview"><small>Visual identity</small><strong>MEDIA DENT</strong><span>Logo concept</span></div></div>
+        <div class="project-info"><span class="project-category">Logo · Visual identity</span><h4>Media Dent</h4><p>Logo și propunere de identitate vizuală prezentate în portofoliu.</p><div class="project-tags"><span>Logo</span><span>Visual identity</span></div></div>
+      </article>
 
-.shared-mission p {
-  color: var(--project-muted);
-  font-size: 14px;
-  line-height: 1.95;
-  max-width: 700px;
-  margin: 0 auto;
-}
+    </div>
+  </div>
 
-@media (max-width: 760px) {
-  .human-centered-projects {
-    padding: 70px 5%;
-  }
+  <!-- 03 LANDING PAGES -->
+  <div class="category-section" id="landing-pages">
+    <div class="category-heading reveal"><span class="number">03</span><h3>Landing Page Design</h3></div>
+    <p class="category-description">Design de pagini pentru prezentarea ofertelor, serviciilor și conceptelor de brand. Structură vizuală clară, ierarhie a informației și traseu logic către acțiunea dorită.</p>
 
-  .human-project-grid {
-    grid-template-columns: 1fr;
-  }
+    <div class="project-grid">
 
-  .human-project-card {
-    padding: 26px 22px;
-  }
+      <article class="project-card reveal">
+        <div class="project-visual v-pink"><div class="project-preview"><small>Social Media Course</small><strong>BLACK<br>FRIDAY</strong><span>Course offer · Special launch</span></div></div>
+        <div class="project-info"><span class="project-category">Landing page · Campaign</span><h4>Social Media Course — Black Friday</h4><p>Design de pagină pentru prezentarea unei oferte de curs Social Media și evidențierea informațiilor importante ale campaniei.</p><div class="project-tags"><span>Landing page</span><span>Course</span><span>Campaign</span></div></div>
+      </article>
 
-  .project-topline {
-    margin-bottom: 25px;
-  }
+      <article class="project-card reveal">
+        <div class="project-visual v-gold"><div class="project-preview"><small>Brand development</small><strong>BUILDING<br>TIMELESS<br>BRANDS</strong><span>For a Modern World</span></div></div>
+        <div class="project-info"><span class="project-category">Landing page · Brand presentation</span><h4>Building Timeless Brands for a Modern World</h4><p>Design de pagină pentru prezentarea unui concept de brand și a serviciilor sale, cu o structură orientată spre claritate.</p><div class="project-tags"><span>Web design</span><span>Brand presentation</span></div></div>
+      </article>
 
-  .shared-mission {
-    margin-top: 45px;
-    padding: 28px 20px;
-  }
-}
+    </div>
+  </div>
 
-@media (prefers-reduced-motion: reduce) {
-  .human-project-card,
-  .project-link {
-    transition: none;
-  }
-}
-</style>
+  <!-- 04 GRAPHIC DESIGN -->
+  <div class="category-section" id="graphic-design">
+    <div class="category-heading reveal"><span class="number">04</span><h3>Graphic Design</h3></div>
+    <p class="category-description">Materiale grafice pentru promovare, prezentare, comunicare corporate și print. Include materiale de identitate, documente, meniuri, materiale promoționale și grafică pentru expoziții și evenimente.</p>
+
+    <div class="project-grid">
+
+      <article class="project-card reveal">
+        <div class="project-visual v-blue"><div class="project-preview"><small>Global workforce</small><strong>GLOBAL<br>CONNECTIONS</strong><span>Business visual</span></div></div>
+        <div class="project-info"><span class="project-category">Corporate graphic</span><h4>Global Workforce Visual</h4><p>Material grafic de prezentare cu tematică internațională și business.</p><div class="project-tags"><span>Business</span><span>Promotional graphic</span></div></div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-visual v-green"><div class="project-preview"><small>BrightHire</small><strong>CORPORATE<br>SALES MANAGER</strong><span>For Serbia · Recruitment</span></div></div>
+        <div class="project-info"><span class="project-category">Recruitment · Corporate design</span><h4>BrightHire — Corporate Sales Manager</h4><p>Material de recrutare și prezentare pentru un rol profesional în Serbia.</p><div class="project-tags"><span>Recruitment</span><span>Corporate design</span></div></div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-visual v-map"><div class="project-preview"><small>Seasonal greeting</small><strong>HAPPY<br>EASTER</strong><span>Greeting card design</span></div></div>
+        <div class="project-info"><span class="project-category">Seasonal graphic</span><h4>Happy Easter — BrightHire</h4><p>Material vizual sezonier pentru comunicarea brandului.</p><div class="project-tags"><span>Greeting card</span><span>Seasonal design</span></div></div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-visual v-print"><div class="project-preview"><small>Print design</small><strong>MENU</strong><span>Restaurant menu layout</span></div></div>
+        <div class="project-info"><span class="project-category">Print · Editorial design</span><h4>Restaurant Menu</h4><p>Design de meniu și materiale grafice pentru prezentarea produselor și organizarea informației.</p><div class="project-tags"><span>Menu</span><span>Print design</span></div></div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-visual v-gold"><div class="project-preview"><small>Certificate design</small><strong>TIMDORA</strong><span>Certificate & document layout</span></div></div>
+        <div class="project-info"><span class="project-category">Print · Document design</span><h4>Timdora — Certificate</h4><p>Material de prezentare și document cu direcție vizuală elegantă.</p><div class="project-tags"><span>Certificate</span><span>Print</span></div></div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-visual v-gold"><div class="project-preview"><small>Business stationery</small><strong>BUSINESS<br>CARDS</strong><span>Identity collateral</span></div></div>
+        <div class="project-info"><span class="project-category">Stationery · Print</span><h4>Business Cards & Stationery</h4><p>Materiale de identitate pentru comunicarea profesională și prezentarea unitară a brandului.</p><div class="project-tags"><span>Business cards</span><span>Stationery</span></div></div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-visual v-print"><div class="project-preview"><small>Google review</small><strong>LEAVE US<br>A REVIEW</strong><span>QR code communication</span></div></div>
+        <div class="project-info"><span class="project-category">Promotional print</span><h4>Google Review QR Material</h4><p>Material grafic cu QR code pentru încurajarea recenziilor și feedbackului clienților.</p><div class="project-tags"><span>QR code</span><span>Print material</span></div></div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-visual v-blue"><div class="project-preview"><small>Corporate communication</small><strong>COMPANY<br>CONTACT</strong><span>Business information</span></div></div>
+        <div class="project-info"><span class="project-category">Corporate material</span><h4>Corporate Contact Material</h4><p>Material de prezentare cu informații de contact și servicii, organizate într-un format clar.</p><div class="project-tags"><span>Corporate</span><span>Contact design</span></div></div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-visual v-print"><div class="project-preview"><small>Invitation design</small><strong>SPECIAL<br>INVITATION</strong><span>Elegant print material</span></div></div>
+        <div class="project-info"><span class="project-category">Print · Promotional material</span><h4>Invitations & Promotional Print</h4><p>Materiale de invitație și comunicare cu o direcție vizuală elegantă.</p><div class="project-tags"><span>Invitation</span><span>Print</span></div></div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-visual v-gold"><div class="project-preview"><small>Brand collateral</small><strong>PREMIUM<br>STATIONERY</strong><span>Business identity materials</span></div></div>
+        <div class="project-info"><span class="project-category">Brand collateral</span><h4>Brand Stationery Collection</h4><p>Set de materiale tipărite pentru o prezentare unitară a brandului.</p><div class="project-tags"><span>Stationery</span><span>Brand collateral</span></div></div>
+      </article>
+
+      <article class="project-card reveal">
+        <div class="project-visual v-expo"><div class="project-preview"><small>Impressa · Expo & Events</small><strong>EXHIBITION<br>DESIGN</strong><span>Stands · Event spaces</span></div></div>
+        <div class="project-info"><span class="project-category">Exhibition · Event graphic design</span><h4>Impressa — Exhibition & Event Materials</h4><p>Materiale grafice și vizuale pentru zona de expoziții și evenimente, inclusiv comunicarea și prezentarea standurilor expoziționale.</p><div class="project-tags"><span>Exhibition stands</span><span>Event design</span><span>Graphic design</span></div></div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- DIGITAL PROJECTS -->
+  <div class="digital-projects reveal">
+    <span class="eyebrow">Digital projects · Brand & Marketing</span>
+    <h2 style="margin-top:15px">Proiecte digitale construite cu <span class="gradient-text">strategie.</span></h2>
+    <p class="digital-intro">
+      Dincolo de proiectele de design, dezvolt concepte și experiențe digitale
+      în care identitatea vizuală, structura informației și utilitatea se întâlnesc.
+      CARELYNTA și ARVANA sunt prezentate separat de lucrările de social media.
+    </p>
+
+    <div class="digital-grid">
+
+      <article class="digital-card">
+        <div class="digital-art carelynta-art">
+          <div class="digital-brand">CARELYNTA<small>CAREER · CLARITY · NEXT STEP</small></div>
+        </div>
+        <div class="digital-content">
+          <span class="project-category">Digital product · Career development</span>
+          <h4>CARELYNTA — CV Check</h4>
+          <p>
+            CARELYNTA este un proiect digital dedicat sprijinirii persoanelor
+            în pregătirea candidaturii. Instrumentul CV Check oferă o modalitate
+            accesibilă de a analiza un CV și de a verifica relevanța informațiilor
+            în raport cu cerințele unui anunț de angajare.
+          </p>
+          <ul>
+            <li>Verificarea structurii și a informațiilor din CV.</li>
+            <li>Identificarea aspectelor care pot fi clarificate sau îmbunătățite.</li>
+            <li>Compararea CV-ului cu cerințele unui anunț de angajare.</li>
+            <li>Utilizare fără cont, fără abonament și fără stocarea CV-ului pe serverul CARELYNTA.</li>
+          </ul>
+          <div class="project-tags"><span>Digital product</span><span>Career tools</span><span>CV review</span><span>UX</span></div>
+          <a class="btn btn-outline" href="https://marianapastean.my.canva.site/carelynta" target="_blank" rel="noopener">
+            Explorează CARELYNTA <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="digital-card">
+        <div class="digital-art arvana-art">
+          <div class="digital-brand">ARVANA<small>DIGITAL MARKETING · BRAND DIRECTION</small></div>
+        </div>
+        <div class="digital-content">
+          <span class="project-category">Brand strategy · Marketing audit</span>
+          <h4>ARVANA — Brand & Digital Marketing Audit</h4>
+          <p>
+            ARVANA este un proiect de analiză și direcție de brand și marketing
+            digital. Materialul este construit în jurul evaluării modului în care
+            un brand se poziționează, își exprimă identitatea și își organizează
+            comunicarea în mediul online.
+          </p>
+          <ul>
+            <li>Analiza poziționării și a identității de brand.</li>
+            <li>Evaluarea comunicării și a direcției de conținut.</li>
+            <li>Corelarea imaginii brandului cu mesajele transmise.</li>
+            <li>Conturarea unei direcții de marketing și comunicare digitală.</li>
+          </ul>
+          <div class="project-tags"><span>Brand audit</span><span>Positioning</span><span>Digital marketing</span><span>Strategy</span></div>
+          <a class="btn btn-outline" href="https://marianapastean.github.io/arvana-brand-marketing-audit/" target="_blank" rel="noopener">
+            Explorează ARVANA <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <div style="margin-top:35px;padding:20px 23px;border:1px solid rgba(232,205,169,.25);border-radius:17px;background:rgba(232,205,169,.045);color:var(--muted);font-size:.82rem">
+    <i class="fa-solid fa-circle-info" style="color:var(--champagne);margin-right:8px"></i>
+    Această selecție prezintă o parte dintre proiectele mele. Pentru materialele vizuale complete și exemplele originale, poți consulta
+    <a href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener" style="color:var(--champagne);text-decoration:underline">portofoliul vizual complet</a>.
+  </div>
+
+</div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="eyebrow">Cum lucrăm</span>
+      <h2>De la idee la o direcție <span class="gradient-text">clară.</span></h2>
+      <p>Fiecare proiect începe cu înțelegerea nevoii și se construiește în jurul unui obiectiv concret.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal"><span class="process-number">01</span><h3>Descoperim</h3><p>Discutăm despre business, public, obiective și ceea ce vrei să comunici.</p></div>
+      <div class="process-step reveal"><span class="process-number">02</span><h3>Stabilim direcția</h3><p>Organizăm mesajul, structura și direcția vizuală potrivită proiectului.</p></div>
+      <div class="process-step reveal"><span class="process-number">03</span><h3>Creăm</h3><p>Transformăm direcția agreată în materiale și experiențe digitale coerente.</p></div>
+      <div class="process-step reveal"><span class="process-number">04</span><h3>Rafinăm</h3><p>Revizuim detaliile și pregătim materialele pentru utilizare.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement">
+  <div class="container reveal">
+    <span class="eyebrow">O idee în care cred</span>
+    <h2>Un brand nu are nevoie doar de vizibilitate. Are nevoie de <span class="gradient-text">sens și direcție.</span></h2>
+    <p>Designul atrage atenția. Strategia oferă claritate. Împreună pot transforma felul în care oamenii înțeleg și percep un brand.</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-copy reveal">
+      <span class="eyebrow">Hai să discutăm</span>
+      <h2>Ai o idee? Hai să îi dăm <span class="gradient-text">formă.</span></h2>
+      <p>Spune-mi câteva detalii despre proiectul tău, iar împreună putem identifica direcția potrivită.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:mariana.pastean@gmail.com"><i class="fa-solid fa-envelope"></i><span>mariana.pastean@gmail.com</span></a>
+        <div class="contact-link"><i class="fa-solid fa-location-dot"></i><span>Arad, România · Disponibilă pentru proiecte remote</span></div>
+      </div>
+    </div>
+    <div class="contact-box reveal">
+      <h3>Hai să construim ceva <span class="gradient-text">memorabil.</span></h3>
+      <p>Fie că ai nevoie de o identitate vizuală, conținut pentru social media, o pagină de prezentare sau o direcție de marketing, putem începe cu o conversație.</p>
+      <a class="btn btn-primary" href="mailto:mariana.pastean@gmail.com?subject=Discutie%20despre%20un%20proiect">Trimite-mi un mesaj <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="btn btn-outline" href="https://marianapastean.my.canva.site/mariana-pastean-portfolio" target="_blank" rel="noopener">Vezi portofoliul vizual</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Mariana Păștean. Toate drepturile rezervate.</span>
+    <span>Brand Design · Marketing · Visual Communication</span>
+    <div class="socials">
+      <a href="mailto:mariana.pastean@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* MOBILE MENU */
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", isOpen);
+  menuToggle.innerHTML = isOpen
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  });
+});
+
+/* SCROLL REVEAL */
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+
+document.querySelectorAll(".reveal").forEach(element => {
+  revealObserver.observe(element);
+});
+
+/* FOOTER YEAR */
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
